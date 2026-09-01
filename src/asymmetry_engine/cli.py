@@ -7,6 +7,7 @@ from .db import Repository
 from .pipeline import run_collection
 from .sources.cfpb import CFPBCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
+from .sources.eurostat import EurostatCollector
 from .sources.stackexchange import StackExchangeCollector
 from .sources.ted import TEDCollector
 
@@ -25,6 +26,8 @@ def parser() -> argparse.ArgumentParser:
     keyword_demand.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     ted = subcommands.add_parser("collect-ted")
     ted.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    eurostat = subcommands.add_parser("collect-eurostat")
+    eurostat.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -38,6 +41,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = DataForSEOKeywordCollector()
     elif args.command == "collect-ted":
         collector = TEDCollector()
+    elif args.command == "collect-eurostat":
+        collector = EurostatCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
