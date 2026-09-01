@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import time
 from datetime import datetime, timezone
+from html import unescape
+from html.parser import HTMLParser
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -15,6 +17,48 @@ API_URL = "https://api.stackexchange.com/2.3/questions"
 
 class StackExchangeError(RuntimeError):
     pass
+
+
+class _ReadableHTMLParser(HTMLParser):
+    _BLOCK_TAGS = {
+        "blockquote",
+        "br",
+        "div",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "li",
+        "ol",
+        "p",
+        "pre",
+        "ul",
+    }
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in self._BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in self._BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_data(self, data: str) -> None:
+        self.parts.append(data)
+
+
+def body_to_readable_text(body_html: str) -> str:
+    parser = _ReadableHTMLParser()
+    parser.feed(body_html)
+    parser.close()
+    lines = [" ".join(line.split()) for line in "".join(parser.parts).splitlines()]
+    return "\n\n".join(line for line in lines if line)
 
 
 def source_for_site(site: str) -> SignalSource:
@@ -57,13 +101,19 @@ def normalize_question(
         )
         if key in item
     }
+    body_html = item.get("body", "")
+    if "body" in item:
+        metadata["body_html"] = body_html
+    body_text = body_to_readable_text(body_html)
+    title = unescape(item.get("title", ""))
+    content = f"{title}\n\n{body_text}" if body_text else title
     return SourceObservation(
         source_id=f"stackexchange:{site}",
         external_id=f"{site}:question:{question_id}",
         observed_at=observed_at,
         occurred_at=occurred_at,
         item_kind="question",
-        content=item.get("title", ""),
+        content=content,
         canonical_url=item.get("link"),
         metadata=metadata,
     )
@@ -95,6 +145,7 @@ class StackExchangeCollector:
                 "page": 1,
                 "order": "desc",
                 "sort": "creation",
+                "filter": "withbody",
             }
         )
         try:
