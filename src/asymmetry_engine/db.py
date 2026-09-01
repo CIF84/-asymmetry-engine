@@ -98,10 +98,11 @@ class Repository:
         with self.connection:
             for item in items:
                 cursor = self.connection.execute(
-                    """INSERT OR IGNORE INTO source_observations
+                    """INSERT INTO source_observations
                        (source_id, external_id, observed_at, occurred_at, item_kind,
                         content, canonical_url, metadata_json, pipeline_run_id)
-                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                       ON CONFLICT(source_id, external_id) DO NOTHING""",
                     (
                         item.source_id,
                         item.external_id,

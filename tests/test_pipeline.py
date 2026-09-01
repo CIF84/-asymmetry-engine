@@ -63,14 +63,16 @@ def test_collection_failure_is_recorded(tmp_path):
     repository.close()
 
 
-def test_persistence_failure_rolls_back_entire_batch(tmp_path):
+def test_non_deduplication_constraint_failure_rolls_back_entire_batch(tmp_path):
     repository = Repository(tmp_path / "test.db")
-    invalid = replace(observation(2), metadata={"not_json": {1, 2}})
+    invalid = replace(observation(2), content=None)
     result = run_collection(
         FakeCollector([observation(1), invalid]), repository, lambda: NOW
     )
     assert result.status == "failed"
     assert result.fetched_count == 2
+    assert result.duplicate_count == 0
+    assert "NOT NULL constraint failed" in result.error
     assert repository.get_run(result.run_id)["status"] == "failed"
     assert repository.connection.execute("SELECT count(*) FROM source_observations").fetchone()[0] == 0
     repository.close()
