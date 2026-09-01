@@ -32,12 +32,13 @@ A source can therefore have excellent signal quality and still be rejected as fo
 | Source | Evidence type | Access path | Commercial / reuse position | Geography | Independence from Stack Exchange | Current status | Notes |
 |---|---|---|---|---|---|---|---|
 | Stack Exchange | Explicit questions, problems, decision friction | Official Stack Exchange API | Usable subject to API terms, applicable content licence and attribution requirements | Global-ish, community dependent | Baseline source | **GREEN** | Already implemented. Rich individual textual evidence; strong self-selection and technical/prosumer bias. |
-| CFPB Consumer Complaint Database | Realized consumer financial pain; complaints and structured product/problem fields | Official complaint API + downloads | CFPB states published complaint data is freely available for anyone to use, analyze and build on | US | Very high | **GREEN** | Strong candidate for institutional/realized-pain evidence. Narratives have publication/privacy selection effects. https://www.consumerfinance.gov/data-research/consumer-complaints/ |
+| CFPB Consumer Complaint Database | Realized consumer financial pain; complaints and structured product/problem fields | Official complaint API + downloads | CFPB states published complaint data is freely available for anyone to use, analyze and build on | US | Very high | **GREEN** | Implemented in Spec 004. Structured individual complaint evidence; newest-first publication order can be highly batch-concentrated and must not be treated as representative prevalence. https://www.consumerfinance.gov/data-research/consumer-complaints/ |
 | FCA complaints data | Aggregated regulated complaints by firm/product/cause | Official downloadable datasets | Numerical FCA datasets owned by FCA are generally reusable under the UK Open Government Licence; verify each dataset/third-party exception | UK | Very high | **GREEN** | Strong aggregated population-level evidence; less narrative richness than Stack Exchange/CFPB. https://www.fca.org.uk/data/complaints-data |
 | Eurostat | Economic, demographic, business and market-state statistics | Official downloads/APIs | Eurostat permits reuse of statistical data for commercial and non-commercial purposes with source acknowledgement, subject to stated exceptions | EU / Europe | Very high | **GREEN** | Not direct friction evidence, but strong contextual denominator/market-state source. https://ec.europa.eu/eurostat/help/copyright-notice |
 | EU Data Portal / EU open datasets | Broad government/open datasets | Official catalogue/APIs/downloads | Licence varies by dataset; EU-owned material is often openly reusable, but dataset-level verification is mandatory | EU / Europe | High | **GREEN / DATASET-SPECIFIC** | Treat licence as dataset metadata, never inherit permission merely because a dataset appears in the portal. https://data.europa.eu/ |
 | US SEC EDGAR | Company filings, disclosures, XBRL financial data | Official REST APIs and archives | Public access supported; automated use must comply with SEC Fair Access policy | US / global issuers | Very high | **GREEN** | Valuable supply-side/company-change evidence rather than direct consumer friction. SEC currently documents unauthenticated JSON APIs and fair-access limits. https://www.sec.gov/search-filings/edgar-application-programming-interfaces |
-| Google Ads Keyword Planner / Google Ads API | Search demand, keyword ideas, competition, historical search volumes, bid ranges/CPC | Official Google Ads API | Commercial API, but requires Google Ads account/API credentials and is rate-limited; usage remains governed by Google Ads terms | Broad / geo-targetable | Very high | **YELLOW — HIGH PRIORITY** | Potentially excellent demand + commercial-intent evidence. Historical metrics include average monthly searches, monthly volumes, competition, competition index, and bid ranges. Access friction makes it non-zero dependency risk. https://developers.google.com/google-ads/api/docs/keyword-planning/overview |
+| Google Ads Keyword Planner / Google Ads API | Search demand, keyword ideas, competition, historical search volumes, bid ranges/CPC | Official Google Ads API | Developer token required. KeywordPlanIdeaService is restricted under Explorer access and requires Basic/Standard access with the appropriate permissible-use approval. Google describes the keyword-research permissible use as supporting suggestions that facilitate creation and management of Google Ads campaigns. | Broad / geo-targetable | Very high | **RED AS FOUNDATION / YELLOW ONLY IF EXPLICITLY APPROVED** | Excellent signal, but our intended use is independent market/asymmetry research rather than campaign creation. Do not build the Engine around this API unless Google explicitly approves this use for the developer token. https://developers.google.com/google-ads/api/docs/api-policy/access-levels |
+| DataForSEO keyword/search-volume APIs | Search demand, monthly volume, CPC, paid competition, bid ranges, historical trends | Commercial API with account credentials | Paid API product intended for programmatic SEO/search-data consumption; exact downstream redistribution/derived-data rights still require contractual verification before implementation | Broad / geo-targetable | Very high | **RESEARCH — HIGH PRIORITY SUBSTITUTE** | Technically well aligned and avoids needing our own Google Ads KeywordPlanIdeaService approval. Current endpoints expose up to 1,000 keywords/request for Google Ads search-volume data, including monthly searches, CPC, competition and bid ranges. Need explicit terms review for retention/derived commercial use before Spec 005. https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/ |
 | Google Trends API | Search-interest trajectory, geography, seasonality | Official API | Official API exists only in limited alpha access as of 2026-09 | Global / regional | Very high | **YELLOW — WAIT** | Strategically excellent temporal signal, but not available broadly enough to become structural today. https://developers.google.com/search/apis/trends |
 | YouTube Data API | Attention, videos, metadata, comments, creator/audience signals | Official API | Commercial API clients are possible, but data aggregation, storage, derived metrics and scraping are tightly restricted by YouTube policy | Global | High | **YELLOW / LIKELY NON-FOUNDATIONAL** | Useful only for narrowly compliant enrichment. Do not design the Engine around bulk aggregation/retention of YouTube data. https://developers.google.com/youtube/terms/developer-policies |
 | Reddit | Broad consumer discussion, complaints, recommendations and intent | Approval-gated API; no scraping fallback should be assumed | Commercial use of Reddit data requires explicit approval/contractual permission; unauthorized scraping is prohibited | Global-ish | High | **RED** | Potentially excellent signal, but unsuitable as foundational infrastructure because commercial exploitation depends on Reddit permission. |
@@ -65,7 +66,7 @@ Stack Exchange / similar legitimate sources
         ├───────────────┐
         ▼               ▼
 REALIZED PAIN       SEARCH DEMAND
-CFPB / FCA          Keyword Planner
+CFPB / FCA          approved/licensed provider
         │               │
         │               ▼
         │          COMMERCIAL INTENT
@@ -112,31 +113,23 @@ Even for permissive sources, the long-term portfolio should depend less on redis
 
 ## Current recommendation
 
-Do **not** implement another collector yet purely because a source looks interesting.
+Do **not** implement Google Ads Keyword Planner directly as a foundational source under current policy assumptions.
 
-The next source should be chosen from GREEN or sufficiently understood YELLOW sources using two stages:
+The access feasibility check found a substantive mismatch rather than merely credential friction:
 
-**Stage A — hard gate**
+1. Google Ads API requires a developer token tied to a Google Ads manager account.
+2. `KeywordPlanIdeaService` is restricted under Explorer access, so production keyword-planning use requires Basic or Standard access.
+3. Basic/Standard tokens have permissible-use scopes allocated by Google.
+4. Google's documented keyword-research permissible use is for tools requiring keyword suggestions to facilitate creation and management of Google Ads campaigns.
+5. Asymmetry Engine's intended use is independent market/opportunity research, so we should not assume this scope covers us.
 
-- legitimate programmatic/bulk access,
-- commercial reuse compatible with the intended system,
-- acceptable retention/derivation rules,
-- acceptable dependency risk.
+This is exactly the kind of platform dependency the Source Gate exists to catch.
 
-**Stage B — learning value**
+For the next search-demand experiment, investigate a licensed commercial data provider whose product is explicitly designed for programmatic search/SEO intelligence. DataForSEO is currently the strongest candidate because its API exposes the desired search-volume/CPC/competition evidence without requiring our own Google Ads planning-service approval. Before implementation, verify its current terms for storage, derived analytics, internal commercial use, and downstream product use.
 
-- structural independence from Stack Exchange,
-- economic relevance,
-- rich or quantitatively useful evidence,
-- geographic/commercial transferability,
-- ability to test whether `SourceObservation` remains honest across different evidence shapes.
+If that contractual gate passes, the next empirical slice should use a very small paid request seeded from observed friction terms rather than bulk keyword discovery.
 
-On current evidence, the strongest immediate implementation candidates are:
-
-1. **CFPB** — best rich realized-pain counterpoint to Stack Exchange; strong official access/reuse.
-2. **FCA complaints** — best aggregated institutional counterpoint; UK/EU-adjacent commercialization distance.
-3. **Google Ads Keyword Planner** — potentially highest-value demand/commercial-intent signal, but requires an access feasibility check before engineering.
-4. **Eurostat / selected EU open data** — strong market-context layer, though probably better after we have another direct-friction source.
+If it does not pass, return to GREEN sources rather than weakening the Source Gate. FCA remains the strongest ready-to-implement fallback.
 
 Google Trends should remain on the shortlist but is blocked as a structural source until general API access improves.
 
