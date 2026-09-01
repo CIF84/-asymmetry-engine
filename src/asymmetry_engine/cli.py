@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .db import Repository
 from .pipeline import run_collection
+from .sources.azure_prices import AzureRetailPriceCollector
 from .sources.cfpb import CFPBCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.eurostat import EurostatCollector
@@ -28,6 +29,8 @@ def parser() -> argparse.ArgumentParser:
     ted.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     eurostat = subcommands.add_parser("collect-eurostat")
     eurostat.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    azure = subcommands.add_parser("collect-azure-prices")
+    azure.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -43,6 +46,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = TEDCollector()
     elif args.command == "collect-eurostat":
         collector = EurostatCollector()
+    elif args.command == "collect-azure-prices":
+        collector = AzureRetailPriceCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
