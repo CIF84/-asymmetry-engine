@@ -8,6 +8,7 @@ from .pipeline import run_collection
 from .sources.cfpb import CFPBCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.stackexchange import StackExchangeCollector
+from .sources.ted import TEDCollector
 
 
 def parser() -> argparse.ArgumentParser:
@@ -22,6 +23,8 @@ def parser() -> argparse.ArgumentParser:
     cfpb.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     keyword_demand = subcommands.add_parser("collect-keyword-demand")
     keyword_demand.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    ted = subcommands.add_parser("collect-ted")
+    ted.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -33,6 +36,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = CFPBCollector(sample_size=args.sample_size)
     elif args.command == "collect-keyword-demand":
         collector = DataForSEOKeywordCollector()
+    elif args.command == "collect-ted":
+        collector = TEDCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
