@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .db import Repository
 from .pipeline import run_collection
+from .sources.cfpb import CFPBCollector
 from .sources.stackexchange import StackExchangeCollector
 
 
@@ -15,27 +16,31 @@ def parser() -> argparse.ArgumentParser:
     collect.add_argument("--site", default="money")
     collect.add_argument("--sample-size", type=int, default=25)
     collect.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    cfpb = subcommands.add_parser("collect-cfpb")
+    cfpb.add_argument("--sample-size", type=int, default=25)
+    cfpb.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     if args.command == "collect-stackexchange":
-        args.database.parent.mkdir(parents=True, exist_ok=True)
-        repository = Repository(args.database)
-        try:
-            result = run_collection(
-                StackExchangeCollector(site=args.site, sample_size=args.sample_size),
-                repository,
-            )
-        finally:
-            repository.close()
-        print(
-            f"run={result.run_id} status={result.status} fetched={result.fetched_count} "
-            f"inserted={result.inserted_count} duplicates={result.duplicate_count} "
-            f"database={args.database}"
-        )
-        if result.error:
-            print(f"error={result.error}")
-        return 0 if result.status == "succeeded" else 1
-    return 2
+        collector = StackExchangeCollector(site=args.site, sample_size=args.sample_size)
+    elif args.command == "collect-cfpb":
+        collector = CFPBCollector(sample_size=args.sample_size)
+    else:
+        return 2
+    args.database.parent.mkdir(parents=True, exist_ok=True)
+    repository = Repository(args.database)
+    try:
+        result = run_collection(collector, repository)
+    finally:
+        repository.close()
+    print(
+        f"run={result.run_id} status={result.status} fetched={result.fetched_count} "
+        f"inserted={result.inserted_count} duplicates={result.duplicate_count} "
+        f"database={args.database}"
+    )
+    if result.error:
+        print(f"error={result.error}")
+    return 0 if result.status == "succeeded" else 1
