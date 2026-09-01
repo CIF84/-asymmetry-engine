@@ -6,6 +6,7 @@ from pathlib import Path
 from .db import Repository
 from .pipeline import run_collection
 from .sources.cfpb import CFPBCollector
+from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.stackexchange import StackExchangeCollector
 
 
@@ -19,6 +20,8 @@ def parser() -> argparse.ArgumentParser:
     cfpb = subcommands.add_parser("collect-cfpb")
     cfpb.add_argument("--sample-size", type=int, default=25)
     cfpb.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    keyword_demand = subcommands.add_parser("collect-keyword-demand")
+    keyword_demand.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -28,6 +31,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = StackExchangeCollector(site=args.site, sample_size=args.sample_size)
     elif args.command == "collect-cfpb":
         collector = CFPBCollector(sample_size=args.sample_size)
+    elif args.command == "collect-keyword-demand":
+        collector = DataForSEOKeywordCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
