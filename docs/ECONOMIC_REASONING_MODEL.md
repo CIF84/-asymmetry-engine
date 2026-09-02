@@ -53,9 +53,11 @@ Historical backtests exposed several failure modes in a flat trend-and-score arc
 - broad source taxonomies can combine multiple economically distinct concepts;
 - research data can be more valuable for semantic decomposition and topology than for raw publication counts;
 - trade data can change the interpretation of a signal rather than merely increase confidence;
-- policy can causally alter rights, obligations, access, deadlines, costs, and market structure before commercial outcomes appear.
+- policy can causally alter rights, obligations, access, deadlines, costs, and market structure before commercial outcomes appear;
+- broad economic aggregates can contain large opposing child-level movements that cancel at the parent level;
+- partner or supplier decomposition can reveal substitution and concentration that are invisible at product-only level.
 
-These failures imply that cross-source reasoning must preserve semantic and causal structure.
+These failures imply that cross-source reasoning must preserve semantic, hierarchical and causal structure.
 
 ## Architectural Invariants
 
@@ -77,7 +79,7 @@ REASON FOR CHANGE: new model + new evidence
 
 ### Never destroy reasoning through aggregation
 
-A score may be useful as a view, but it must not replace the components beneath it.
+A score or parent-level aggregate may be useful as a view, but it must not replace the components beneath it.
 
 Persist or reconstruct, where justified:
 
@@ -85,6 +87,7 @@ Persist or reconstruct, where justified:
 evidence
 measurement
 concept mapping
+parent/child lineage
 relationship
 assumption
 uncertainty
@@ -93,6 +96,8 @@ interpretation version
 decision
 outcome
 ```
+
+Aggregate anomalies should be treated as prompts for investigation, not as explanations. A parent-level movement may represent coherent change, product-mix change, supplier substitution, or cancellation between large opposing child movements.
 
 ### Operator is abstract
 
@@ -143,6 +148,24 @@ PSD2                   = regulation
 
 The exact taxonomy is not frozen.
 
+### Hierarchy is not semantics
+
+A source-native parent/child taxonomy is useful evidence in its own right, but it must not be confused with a universal economic ontology.
+
+For example:
+
+```text
+CN2 machinery
+    contains
+CN8 portable computers
+```
+
+is a source-native hierarchical relationship.
+
+That does not by itself establish that the same child maps cleanly to a NACE industry, CPV procurement code, patent field, OpenAlex topic, or market concept.
+
+Hierarchical lineage should therefore retain its source and classification provenance.
+
 ## Relationship Model
 
 Useful relationship semantics discovered so far include:
@@ -161,6 +184,7 @@ regulated_by
 mandated_for
 benefits_from
 exposed_to
+contains / child_of
 ```
 
 Relationships may have provenance, confidence, direction, temporal validity, and interpretation version.
@@ -175,6 +199,8 @@ semiconductors
 
 That relationship allows the Engine to reason about semiconductor dependency pressure even when semiconductor sales themselves temporarily decline.
 
+A source-native hierarchy relationship such as CN2 → CN8 should normally have high structural confidence but limited semantic reach outside that classification.
+
 ## Measurements
 
 A source observation may support one or more measurements.
@@ -188,6 +214,7 @@ ACCELERATION
 RELATIVE VELOCITY
 CONCENTRATION
 DISPERSION
+CONTRIBUTION
 ```
 
 Examples:
@@ -204,6 +231,54 @@ solution_count
 ```
 
 Measurements need clear units, time windows, geography, entity mapping, and provenance.
+
+Derived measures require lineage to their inputs. In particular, trade-value-per-mass is a diagnostic of composition/unit economics and must not automatically be interpreted as a product price.
+
+## Hierarchical Reasoning
+
+Spec 010 established that hierarchy is not merely a storage convenience; it can be a directed uncertainty-reduction operation.
+
+The empirically useful reasoning pattern is:
+
+```text
+PARENT-LEVEL ANOMALY
+        ↓
+DECOMPOSE TO CHILDREN
+        ↓
+MEASURE CONTRIBUTIONS / CANCELLATION
+        ↓
+IDENTIFY COHERENT VS COMPOSITIONAL MOVEMENT
+        ↓
+DECOMPOSE IMPORTANT CHILDREN BY ORTHOGONAL DIMENSION
+(e.g. partner / geography)
+        ↓
+REVISE INTERPRETATION
+        ↓
+SELECT NEXT EVIDENCE BASED ON DOMINANT UNKNOWN
+```
+
+Five Czech Comext cases showed that this materially changes interpretation:
+
+- CN84 and CN85 broad movements concealed large opposing product changes;
+- CN28 split into shrinking high-value precious-metal compounds and expanding bulk chemicals;
+- CN18 retained broad value acceleration but with mixed physical-volume behavior;
+- CN75 retained a coherent physical expansion concentrated in unwrought nickel alloys and a small number of supplier countries.
+
+This implies several useful concepts:
+
+```text
+PARENT SIGNAL
+CHILD CONTRIBUTION
+CANCELLATION
+COMPOSITION EFFECT
+SURVIVING CHILD ANOMALY
+SUPPLIER / PARTNER SUBSTITUTION
+CONCENTRATION CHANGE
+```
+
+The system should not automatically drill every hierarchy. Drill-down should be triggered when expected information gain is high: for example when parent-level value and quantity diverge, when net movement is small relative to gross positive/negative child contributions, or when concentration/partner uncertainty dominates interpretation.
+
+Hierarchical reasoning is therefore best understood as **evidence-directed research planning**, not generic recursive aggregation.
 
 ## Evidence Relations
 
@@ -443,6 +518,7 @@ why it is unusual
 which entities are involved
 which observations support it
 which observations contradict it
+which parent/child contributions explain or cancel the aggregate
 how source taxonomies were mapped
 what causal interpretation is proposed
 what assumptions are being made
@@ -484,7 +560,7 @@ The system should eventually be able to re-evaluate historical evidence under ne
 
 ## Architectural Restraint
 
-This document does not authorize building a graph database, ontology framework, vector database, or agent orchestration platform.
+This document does not authorize building a graph database, ontology framework, vector database, recursive hierarchy engine, or agent orchestration platform.
 
 For the present modular monolith, concepts and relationships may remain simple Python structures and SQLite tables when a real vertical slice requires them.
 
