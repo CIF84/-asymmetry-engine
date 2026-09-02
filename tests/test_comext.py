@@ -14,6 +14,9 @@ from asymmetry_engine.sources.comext import (
     INDICATORS,
     PRODUCTS,
     YEARS,
+    CN75_CHILD_PRODUCT,
+    CN75_PRODUCT,
+    ComextCN75Collector,
     ComextCollector,
     ComextError,
     comext_source,
@@ -105,6 +108,32 @@ def test_one_official_bounded_czech_world_import_request():
     assert query["product"] == list(PRODUCTS)
     assert query["indicators"] == list(INDICATORS)
     assert query["time"] == list(YEARS)
+
+
+def test_cn75_slice_uses_two_fixed_official_requests():
+    requests = []
+
+    def opener(request, timeout):
+        requests.append((request, timeout))
+        return Response(json.dumps(PAYLOAD).encode())
+
+    collector = ComextCN75Collector(opener=opener, clock=lambda: NOW)
+    collector.collect()
+    assert len(requests) == 2
+    parent = parse_qs(urlparse(requests[0][0].full_url).query)
+    child = parse_qs(urlparse(requests[1][0].full_url).query)
+    assert requests[0][0].full_url.startswith(API_URL)
+    assert requests[1][0].full_url.startswith(API_URL)
+    assert parent["product"] == [CN75_PRODUCT]
+    assert parent["partner"] == ["WORLD"]
+    assert child["product"] == [CN75_CHILD_PRODUCT]
+    assert "partner" not in child
+    for query in (parent, child):
+        assert query["reporter"] == ["CZ"]
+        assert query["flow"] == ["1"]
+        assert query["indicators"] == list(INDICATORS)
+        assert query["time"] == list(YEARS)
+    assert collector.successful_request_count == 2
 
 
 def test_json_stat_dimensions_map_value_and_quantity_to_separate_cells():

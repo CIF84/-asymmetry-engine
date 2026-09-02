@@ -7,7 +7,8 @@ from .db import Repository
 from .pipeline import run_collection
 from .sources.azure_prices import AzureRetailPriceCollector
 from .sources.cfpb import CFPBCollector
-from .sources.comext import ComextCollector
+from .reasoning import ReasoningError, build_cn75_argument
+from .sources.comext import ComextCN75Collector, ComextCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.eurostat import EurostatCollector
 from .sources.openalex import OpenAlexCollector
@@ -35,13 +36,28 @@ def parser() -> argparse.ArgumentParser:
     azure.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     comext = subcommands.add_parser("collect-comext")
     comext.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    cn75 = subcommands.add_parser("collect-comext-cn75")
+    cn75.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     openalex = subcommands.add_parser("collect-openalex")
     openalex.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    reason_cn75 = subcommands.add_parser("reason-cn75")
+    reason_cn75.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
+    if args.command == "reason-cn75":
+        repository = Repository(args.database)
+        try:
+            argument = build_cn75_argument(repository)
+        except ReasoningError as exc:
+            print(f"error={exc}")
+            return 1
+        finally:
+            repository.close()
+        print(argument.render())
+        return 0
     if args.command == "collect-stackexchange":
         collector = StackExchangeCollector(site=args.site, sample_size=args.sample_size)
     elif args.command == "collect-cfpb":
@@ -56,6 +72,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = AzureRetailPriceCollector()
     elif args.command == "collect-comext":
         collector = ComextCollector()
+    elif args.command == "collect-comext-cn75":
+        collector = ComextCN75Collector()
     elif args.command == "collect-openalex":
         collector = OpenAlexCollector()
     else:

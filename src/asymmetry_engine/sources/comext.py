@@ -24,6 +24,8 @@ INDICATORS = ("VALUE_IN_EUROS", "QUANTITY_IN_100KG")
 PRODUCTS = tuple(f"{chapter:02d}" for chapter in range(1, 98) if chapter != 77) + (
     "99",
 )
+CN75_PRODUCT = "75"
+CN75_CHILD_PRODUCT = "75022000"
 MEASURE_DETAILS = {
     "VALUE_IN_EUROS": ("Trade value", "EUR", "euro"),
     "QUANTITY_IN_100KG": ("Net mass", "100KG", "100 kilograms"),
@@ -128,7 +130,11 @@ def normalize_cell(
             "reporter_label": labels["reporter"],
             "partner_code": partner,
             "partner_label": labels["partner"],
-            "product_classification": "Combined Nomenclature, broad 2-digit chapter",
+            "product_classification": (
+                "Combined Nomenclature, broad 2-digit chapter"
+                if len(product) == 2
+                else "Combined Nomenclature, 8-digit product"
+            ),
             "product_code": product,
             "product_label": labels["product"],
             "flow_code": flow,
@@ -174,5 +180,69 @@ class ComextCollector:
             ]
             observed_at = self.clock()
             return [normalize_cell(cell, observed_at, request_url) for cell in cells]
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ComextError(f"Invalid Comext JSON-stat response: {exc}") from exc
+
+
+def cn75_query_parameters(product: str) -> list[tuple[str, str]]:
+    parameters = [
+        ("lang", "en"),
+        ("freq", "A"),
+        ("reporter", REPORTER),
+        ("flow", FLOW),
+        ("product", product),
+    ]
+    if product == CN75_PRODUCT:
+        parameters.append(("partner", PARTNER))
+    parameters.extend(("indicators", indicator) for indicator in INDICATORS)
+    parameters.extend(("time", year) for year in YEARS)
+    return parameters
+
+
+class ComextCN75Collector:
+    """Fixed evidence acquisition for the Spec 012 CN75 reasoning case."""
+
+    def __init__(
+        self,
+        opener: Callable[..., Any] = urlopen,
+        clock: Callable[[], datetime] = utc_now,
+    ) -> None:
+        self.opener = opener
+        self.clock = clock
+        self.source = comext_source()
+        self.successful_request_count = 0
+        self.response_bytes = 0
+
+    def collect(self) -> list[SourceObservation]:
+        self.successful_request_count = 0
+        self.response_bytes = 0
+        payloads: list[tuple[dict[str, Any], str]] = []
+        for product in (CN75_PRODUCT, CN75_CHILD_PRODUCT):
+            request_url = f"{API_URL}?{urlencode(cn75_query_parameters(product))}"
+            request = Request(request_url, headers={"Accept": "application/json"})
+            try:
+                with self.opener(request, timeout=90) as response:
+                    raw = response.read()
+                payload = json.loads(raw)
+            except (HTTPError, URLError, TimeoutError, OSError, json.JSONDecodeError):
+                raise ComextError("Eurostat Comext API request failed") from None
+            if not isinstance(payload, dict):
+                raise ComextError("Invalid Comext JSON-stat response: expected an object")
+            self.successful_request_count += 1
+            self.response_bytes += len(raw)
+            payloads.append((payload, request_url))
+
+        try:
+            observed_at = self.clock()
+            observations: list[SourceObservation] = []
+            for payload, request_url in payloads:
+                if payload.get("class") != "dataset":
+                    raise ValueError("response is not a JSON-stat dataset")
+                observations.extend(
+                    normalize_cell(cell, observed_at, request_url)
+                    for cell in decode_cells(payload)
+                    if cell["value"] is not None or cell["status"] is not None
+                )
+            return observations
         except (KeyError, TypeError, ValueError) as exc:
             raise ComextError(f"Invalid Comext JSON-stat response: {exc}") from exc
