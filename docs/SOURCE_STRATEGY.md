@@ -70,9 +70,15 @@ Paid validation should normally occur after cheaper discovery and structural evi
 
 ## Empirical Connector Tests
 
-### Comext — EARNED
+### Comext — EARNED AND DRILL-DOWN VALIDATED
 
 Historical testing showed that physical-flow evidence can correct a patent false positive and can reveal import dependence and supply-chain structure that knowledge signals cannot.
+
+Spec 009 then confirmed on live Czech data that trade value and physical quantity often move differently enough to justify preserving them as separate evidence dimensions.
+
+Spec 010 established a second, stronger role: **hierarchical decomposition can materially reduce uncertainty**.
+
+CN2 parent anomalies often concealed large offsetting CN8 movements. Product drill-down distinguished coherent movement from composition/cancellation; partner drill-down then revealed supplier substitution, concentration changes and geographically concentrated collapses or expansions.
 
 Unique contribution:
 
@@ -81,12 +87,24 @@ trade value
 trade quantity
 origin / destination
 partner concentration
-implied unit value
+implied unit-value diagnostics
 physical-flow velocity
 import dependence
+hierarchical contribution analysis
+supplier substitution
+composition / cancellation detection
 ```
 
-Important limitation: not relevant to all domains, especially pure software and many services.
+Important limitations:
+
+- trade is not final demand;
+- mass is not economically comparable across all goods;
+- implied value per mass is a diagnostic, not automatically a product price;
+- broad classifications can hide economically different child products;
+- WORLD partner hides geographic concentration;
+- not relevant to all domains, especially pure software and many services.
+
+The preferred future use is not exhaustive recursive expansion. Parent anomalies should trigger selective drill-down when the expected information gain is high.
 
 ### OpenAlex — EARNED
 
@@ -188,6 +206,9 @@ CANDIDATE DISEQUILIBRIA
 STRUCTURAL JOIN
 Comext + Prodcom + Eurostat + EPREL + TED + legitimate marketplaces
         ↓
+SELECTIVE HIERARCHICAL DRILL-DOWN
+only where parent-level ambiguity is economically material
+        ↓
 ECONOMIC CONSEQUENCE / ASYMMETRY
         ↓
 COMPETITION + SOLUTION INTELLIGENCE
@@ -223,6 +244,25 @@ After each source or evidence investment, ask:
 4. Which remaining blind spot now dominates uncertainty?
 5. Is another data source more valuable than running a commercial experiment?
 
+## Evidence-Directed Research
+
+Spec 010 strengthens the case for choosing the next evidence source from the shape of the unresolved anomaly rather than running every connector indiscriminately.
+
+Examples:
+
+```text
+value ↑, mass → in cocoa
+    → commodity / producer price evidence
+
+mass ↑↑, implied unit value ↓ in nickel alloy imports
+    → commodity price + production + inventory evidence
+
+battery / PV imports ↓ while other electronics ↑
+    → policy + domestic production + installation evidence
+```
+
+A future agentic system should therefore reason about the **dominant unknown** before deciding which query, connector, paid dataset or drill-down is worth acquiring.
+
 ## Information Acquisition as Capital Allocation
 
 A future agentic Engine may decide whether to purchase evidence.
@@ -252,8 +292,16 @@ This should leave an audit trail explaining why the information was purchased an
 
 ## Next Implementation Priority
 
-The next connector should be **Comext physical-flow evidence**, because it has passed an incremental historical test and contributes a signal family not represented by the current codebase.
+The next empirical implementation priority is **OpenAlex knowledge-topology evidence**.
 
-OpenAlex and EUR-Lex should follow only after the Comext slice is inspected against real data and the next uncertainty is reassessed.
+Why now:
 
-Do not build the economic knowledge graph yet. The current research model should guide future slices, but implementation remains small and empirical.
+- Comext has passed both connector-level and hierarchical-drill-down tests.
+- The next dominant architectural uncertainty is whether a very different semantic source can be represented honestly while preserving fine-grained topics and historical model-time caveats.
+- OpenAlex has already corrected an important conceptual weakness in backtesting: broad technology fields can hide capability/application intersections and dependency relationships.
+
+The next slice should remain small. It should test one bounded historical knowledge domain and preserve enough source-native topic structure to inspect research velocity and cross-topic convergence without implementing the economic knowledge graph.
+
+EUR-Lex should remain the next likely orthogonal source after OpenAlex unless the OpenAlex result changes the information priority.
+
+Do not build a graph database, generic ontology, automatic recursive research planner, or opportunity engine yet.
