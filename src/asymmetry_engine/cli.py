@@ -10,6 +10,7 @@ from .sources.cfpb import CFPBCollector
 from .sources.comext import ComextCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.eurostat import EurostatCollector
+from .sources.openalex import OpenAlexCollector
 from .sources.stackexchange import StackExchangeCollector
 from .sources.ted import TEDCollector
 
@@ -34,6 +35,8 @@ def parser() -> argparse.ArgumentParser:
     azure.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     comext = subcommands.add_parser("collect-comext")
     comext.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    openalex = subcommands.add_parser("collect-openalex")
+    openalex.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -53,6 +56,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = AzureRetailPriceCollector()
     elif args.command == "collect-comext":
         collector = ComextCollector()
+    elif args.command == "collect-openalex":
+        collector = OpenAlexCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
