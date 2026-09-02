@@ -7,6 +7,7 @@ from .db import Repository
 from .pipeline import run_collection
 from .sources.azure_prices import AzureRetailPriceCollector
 from .sources.cfpb import CFPBCollector
+from .sources.comext import ComextCollector
 from .sources.dataforseo import DataForSEOKeywordCollector
 from .sources.eurostat import EurostatCollector
 from .sources.stackexchange import StackExchangeCollector
@@ -31,6 +32,8 @@ def parser() -> argparse.ArgumentParser:
     eurostat.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     azure = subcommands.add_parser("collect-azure-prices")
     azure.add_argument("--database", type=Path, default=Path("asymmetry.db"))
+    comext = subcommands.add_parser("collect-comext")
+    comext.add_argument("--database", type=Path, default=Path("asymmetry.db"))
     return result
 
 
@@ -48,6 +51,8 @@ def main(argv: list[str] | None = None) -> int:
         collector = EurostatCollector()
     elif args.command == "collect-azure-prices":
         collector = AzureRetailPriceCollector()
+    elif args.command == "collect-comext":
+        collector = ComextCollector()
     else:
         return 2
     args.database.parent.mkdir(parents=True, exist_ok=True)
