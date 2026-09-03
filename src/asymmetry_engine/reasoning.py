@@ -109,11 +109,7 @@ def _fmt_percent(value: float) -> str:
 
 
 def _load_observations(repository: Repository) -> list[dict[str, Any]]:
-    rows = repository.connection.execute(
-        """SELECT external_id, metadata_json FROM source_observations
-           WHERE source_id=? ORDER BY external_id""",
-        (SOURCE_ID,),
-    ).fetchall()
+    rows = repository.latest_observations(SOURCE_ID)
     observations = []
     for row in rows:
         metadata = json.loads(row["metadata_json"])

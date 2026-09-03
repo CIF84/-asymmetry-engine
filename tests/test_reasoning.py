@@ -1,4 +1,5 @@
-from datetime import datetime, timezone
+from dataclasses import replace
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -147,3 +148,41 @@ def test_cli_output_is_deterministic_for_fixed_evidence(tmp_path, capsys):
     assert first == second
     assert "DETECTED\n" in first
     assert "LINEAGE\n" in first
+
+
+def test_reasoning_consumes_only_latest_capture_of_each_logical_item(tmp_path):
+    repository = populated_repository(tmp_path / "reason.db")
+    original = next(
+        item
+        for item in evidence()
+        if item.metadata["product_code"] == "75"
+        and item.metadata["partner_code"] == "WORLD"
+        and item.metadata["measure_code"] == "VALUE_IN_EUROS"
+        and item.metadata["reference_period"] == "2024"
+    )
+    revised = replace(
+        original,
+        observed_at=NOW + timedelta(hours=1),
+        metadata={**original.metadata, "value": 130},
+        content=original.content.replace("126.74", "130"),
+    )
+
+    class RevisionCollector:
+        source = comext_source()
+
+        def collect(self):
+            return [revised]
+
+    result = run_collection(
+        RevisionCollector(), repository, lambda: NOW + timedelta(hours=1)
+    )
+    argument = build_cn75_argument(repository)
+
+    assert result.inserted_count == 1
+    assert repository.connection.execute(
+        "SELECT count(*) FROM source_observations WHERE external_id=?",
+        (original.external_id,),
+    ).fetchone()[0] == 2
+    assert argument.measurement("CN75 2024 trade value").value == 130
+    assert argument.measurement("CN75 value growth").value == pytest.approx(30)
+    repository.close()
