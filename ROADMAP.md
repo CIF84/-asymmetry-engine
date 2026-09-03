@@ -1,582 +1,161 @@
-# Roadmap
+# Evidence-Gated Roadmap
 
 ## Objective
 
-This roadmap exists to prevent Asymmetry Engine from becoming an interesting research project that never generates revenue.
+Asymmetry Engine seeks to discover and resolve economically consequential decisions, test whether better information creates value, learn whether that value can be captured repeatably, and eventually compound validated mechanisms into low-maintenance assets.
 
-The overriding optimization target is:
+This objective is not yet validated commercial performance. Revenue, willingness to pay, repeatability, scalable economics, and autonomous operation remain unproven.
 
-> **Minimize time to first independent revenue while building reusable infrastructure that compounds over time.**
+## How work is selected
 
-Architecture, tooling, automation, and research are subordinate to that objective.
+This roadmap is governed by unresolved uncertainty, not a predetermined sequence of software components.
 
-## Core Constraints
-
-### Revenue is evidence
-
-The system is not validated by code volume, architectural sophistication, number of signals collected, number of asymmetries detected, number of generated assets, GitHub stars, or model accuracy in isolation.
-
-The strongest early evidence is:
+For each possible next step ask:
 
 ```text
-someone paid
+What decision would this work change?
+What uncertainty blocks that decision?
+What is the cheapest valid observation capable of resolving it?
+What controls and authorization apply?
+What is the stop condition?
+Would implementation reduce repeated cost or merely encode uncertainty?
 ```
 
-### Do not build a platform before a business experiment needs one
+An experiment may observe, discriminate, resolve, interact, measure, or consolidate learning. It need not traverse a fixed pipeline. A cheap, well-supported rejection is useful progress.
 
-Avoid authentication, multi-user accounts, dashboards, billing systems, complex frontends, and distributed infrastructure.
+## Current operating priorities
 
-CSV, SQLite, scripts, static pages, hosted checkout, and external analytics are acceptable.
+### Preserve open empirical boundaries
 
-### No speculative product building
+Experiments 030 and 035 remain independent observation windows. Their initialized publications establish delivery, not response, decision effect, value, or failure. Interpret them only after their defined windows and controls permit it.
 
-Every commercial experiment must reference an observed asymmetry with evidence.
+### Preserve evidence quality and reconstructability
 
-Do not build products because they sound interesting.
+Keep specifications, results, checkpoints, and model updates distinct. Record unknowns as unknowns. Preserve source/run provenance, revision history where implemented, and explicit evidence classes where consequence requires them.
 
-### Automate volume, not uncertainty
+### Make only evidence-earned technical adaptations
 
-Automate collection, normalization, extraction, classification, clustering, scoring, monitoring, reporting, and repetitive publishing.
-
-Do not automate unresolved assumptions merely because orchestration is possible.
-
-### Prefer reversible bets
-
-Initial experiments should be cheap, fast, independently deployable, easy to kill, low maintenance, low capital, and low compliance.
-
-### Prefer self-service economics
-
-Initial preference:
-
-- B2C,
-- prosumer,
-- self-service,
-- low-friction checkout,
-- direct economic value,
-- automated delivery.
-
-Avoid dependence on enterprise procurement, long sales cycles, account management, custom implementation, and networking-heavy acquisition.
-
-### Advertising is allowed, but not assumed
-
-Ads, affiliate revenue, sponsorships, referrals, subscriptions, and direct sales are all valid.
-
-Do not force every asymmetry into a direct-payment model. Do not force every asymmetry into content. The experiment model should follow the economics of the problem.
-
-## Phase 0 — Repository Skeleton
-
-Goal: create only enough structure to begin automated discovery.
-
-Deliverables:
+Experiment 038 implemented revision-aware observation captures because repeated freshness and history needs exposed a concrete defect. Future technical work must pass the same filter:
 
 ```text
-README.md
-ROADMAP.md
-ARCHITECTURE.md
-
-src/
-tests/
-config/
-data/
+repeated observed pain
+→ mechanical reuse
+→ better experiment economics
+→ small reversible implementation
 ```
 
-Technology preference:
+Do not fill conceptual architecture boxes merely because they have names.
 
-- Python,
-- SQLite,
-- CSV/Parquet,
-- simple CLI,
-- APIs,
-- LLM APIs only where useful.
+### Use lightweight prospective telemetry
 
-No UI required.
+Record active time, incremental spend, human attention, controls, interactions, verdict, uncertainty change, and evidence yield in experiment artifacts where meaningful. The baseline is partial; no dashboard, database, synthetic efficiency score, or quantitative compounding claim is justified.
 
-Exit condition:
+## Next empirical gate
+
+After already-authorized observation windows close:
+
+1. interpret preserved exposure/response/effect evidence without treating silence as automatic value failure;
+2. update operational or opportunity beliefs only to the degree supported;
+3. identify the dominant remaining uncertainty;
+4. choose one cheapest bounded experiment capable of changing the next decision.
+
+This is a decision rule, not a commitment to a particular future experiment or product.
+
+## Evidence gates toward economic value
+
+### 1. Opportunity discrimination
+
+Establish a still-changeable actor decision, material consequence, meaningful uncertainty, recoverability, inadequate exact resolution, intervention access, observable effect, and acceptable controls.
+
+Do not infer opportunity from signal volume, novelty, information dispersion, or friction alone. Do not combine fatal constraints into an additive score.
+
+### 2. Disposable resolution
+
+When a candidate survives, create the smallest defensible resolution that converts unstructured uncertainty into explicit options, discriminators, caveats, and a testable next question.
+
+Keep semantic comparison and adversarial challenge manual while judgment remains cheaper and more reliable than software.
+
+### 3. Legitimate interaction
+
+Place a resolution into a real decision only through a bounded, authorized path. Preserve the natural baseline where required and distinguish delivery from exposure, engagement, decision effect, and downstream action.
+
+No autonomous outreach or generalized interaction machinery is authorized by this roadmap.
+
+### 4. Value creation
+
+Test whether the resolution improves comprehension, framing, shortlist, confidence, next action, or decision quality. An accessible surface or successful publication does not prove effect.
+
+### 5. Value capture
+
+Only after credible value evidence should the project test an appropriate capture mechanism. Payment can be strong evidence, but pricing, willingness-to-pay, and commercial outreach each require their own explicit scope and controls.
+
+### 6. Repeatability
+
+Determine whether the mechanism works across decisions or actors without hiding manual effort, platform dependency, maintenance, compliance, acquisition, or support cost.
+
+One success is mechanism evidence, not a market-size or portfolio claim.
+
+### 7. Earned automation
+
+Automate only stable repeated mechanics whose implementation measurably reduces future experiment cost or error. Preserve human governance, consequential authorization, and independent challenge until evidence earns narrower treatment for a specific decision class.
+
+### 8. Durable asset and portfolio
+
+Promote a workflow to a durable asset only after value creation, capture, and operational economics survive testing. Diversify only after one mechanism is understood well enough that a second tests repeatability rather than multiplying unknowns.
+
+## Technical direction when earned
+
+Potential technical work must originate in observed scar tissue. Suitable bounded changes may include improvements to evidence preservation, deterministic execution QA, or repeated mechanical resolution support—but only after their exact problem, benefit, and boundary are demonstrated.
+
+The following are not current roadmap commitments:
+
+- generic decision extraction or clustering;
+- a generic opportunity registry;
+- opportunity scoring and ranked lists;
+- monitoring or orchestration engines;
+- experiment, telemetry, or outcome databases;
+- generic policy, permission, or regulatory systems;
+- generic decision engines;
+- knowledge graphs or vector-store ATLAS;
+- autonomous research, interaction, or outreach;
+- governance UI, revenue platform, or portfolio software.
+
+## Automation policy
+
+> Automation should multiply validated asymmetries and repeated mechanical work, not compensate for weak opportunities or unresolved assumptions.
+
+Collection and normalization code already exists for bounded sources. That does not imply that candidate generation, semantic evaluation, opportunity selection, or commercialization should be automated. Manual work is correct when it remains the cheapest reliable discriminator.
+
+## Commercial discipline
+
+- Software is not the default resolution.
+- A correct resolution without distribution or observable effect is not yet a validated opportunity.
+- A delivered interaction without actor effect is not value evidence.
+- Value creation is not value capture.
+- Value capture once is not repeatability.
+- Revenue is a strong future signal, but absence of a tested payment mechanism is not itself a negative result.
+- Unknown operational cost must not be represented as zero.
+- Stop rather than rescue a weak branch through feature expansion.
+
+## Long-term direction
+
+The intended flywheel remains:
 
 ```text
-python -m asymmetry_engine
+ATLAS → RADAR → FORGE → PORTFOLIO → FREEDOM
+  ↑          learning from evidence           │
+  └───────────────────────────────────────────┘
 ```
 
-runs successfully.
+This is a strategic direction, not a software deployment diagram. Long-term success would mean:
 
-## Phase 1 — Signal Acquisition v0
+- progressively cheaper production of discriminating economic evidence;
+- repeatable resolution of consequential decisions;
+- demonstrated value creation and capture;
+- reusable infrastructure only where repetition earns it;
+- multiple low-maintenance assets without hidden concentration or human burden;
+- greater freedom from external control rather than maximum software volume.
 
-Goal: collect real evidence from legitimate public sources.
+## Historical roadmap note
 
-Start with 2–3 sources.
-
-Good candidates:
-
-- Stack Exchange API,
-- Hacker News API,
-- YouTube Data API,
-- government/open datasets.
-
-Do not wait for ideal coverage.
-
-Deliverables:
-
-- source abstraction,
-- collectors,
-- source metadata,
-- pipeline-run tracking,
-- persisted observations.
-
-Exit condition:
-
-At least `1,000 observations` have been collected and persisted from more than one independent source.
-
-## Phase 2 — Decision Extraction v0
-
-Goal: turn raw observations into candidate decision demand.
-
-Detect patterns such as:
-
-```text
-Should I buy X?
-X vs Y?
-Is X worth it?
-Should I repair or replace?
-Should I switch?
-When should I buy?
-How much do I need?
-What is best for my constraints?
-```
-
-Deliverables:
-
-- decision taxonomy,
-- extraction pipeline,
-- transaction-proximity score,
-- confidence score,
-- provenance for derived fields.
-
-Exit condition:
-
-At least `100 plausible decision signals` are extracted automatically from real observations.
-
-## Phase 3 — Asymmetry Detection v0
-
-Goal: cluster decision signals into persistent economic problems.
-
-Example:
-
-```text
-"Should I replace my iPhone?"
-"Should I wait for the next model?"
-"When is the cheapest time to upgrade?"
-
-              ↓
-
-Optimal smartphone replacement timing
-```
-
-Deliverables:
-
-- asymmetry entity,
-- clustering logic,
-- deduplication,
-- evidence relationships,
-- basic lifecycle.
-
-Exit condition:
-
-Produce approximately `20 evidence-backed candidate asymmetries` without manually inventing them.
-
-## Phase 4 — Asymmetry Registry v0
-
-Goal: make asymmetries persistent and longitudinal.
-
-Minimum entities:
-
-```text
-SignalSource
-PipelineRun
-Observation
-DecisionSignal
-Asymmetry
-AsymmetryObservation
-ScoreSnapshot
-```
-
-Minimum lifecycle:
-
-```text
-DISCOVERED
-OBSERVED
-WATCHING
-EMERGING
-VALIDATED
-DECLINING
-ARCHIVED
-```
-
-Exit condition:
-
-A second pipeline run updates existing asymmetries rather than simply duplicating them.
-
-## Phase 5 — Economic Scoring v0
-
-Goal: rank asymmetries by commercial attractiveness.
-
-Initial dimensions:
-
-- signal confidence,
-- demand,
-- transaction proximity,
-- economic consequence,
-- information fragmentation,
-- automation feasibility,
-- data accessibility,
-- answer verifiability,
-- competition,
-- distribution accessibility,
-- maintenance burden,
-- regulatory risk.
-
-Keep scoring decomposable. Do not optimize the formula prematurely.
-
-Exit condition:
-
-The system produces a ranked `TOP 10` worth human review.
-
-## Phase 6 — Monitoring v0
-
-Goal: track how asymmetries evolve.
-
-Measure where possible:
-
-- new evidence,
-- demand velocity,
-- search growth,
-- CPC change,
-- complaint frequency,
-- competition change,
-- regulatory change,
-- score trajectory.
-
-Exit condition:
-
-Known asymmetries accumulate historical snapshots and can be classified as rising, stable, or declining.
-
-## Phase 7 — First Commercial Experiment
-
-Goal: attempt the first real monetization.
-
-Choose one highly ranked asymmetry.
-
-Generate candidate commercialization models:
-
-```text
-digital product
-decision tool
-content engine
-affiliate workflow
-lead engine
-intelligence product
-micro-SaaS
-marketplace
-```
-
-Score each by time to launch, cost, automation, revenue potential, distribution, maintenance, and platform dependency.
-
-Choose the cheapest credible test.
-
-Target build time:
-
-```text
-≤ 7 days
-```
-
-Preferred shape:
-
-```text
-one decision
-one user type
-one outcome
-one monetization mechanism
-```
-
-Exit condition:
-
-A real user can exchange money, attention, or economically meaningful intent for value.
-
-Direct payment is preferred where sensible, but affiliate, referral, ad, or lead economics are valid if they match the opportunity.
-
-## Phase 8 — First Real Revenue
-
-Primary objective:
-
-```text
-€0 → €1
-```
-
-The purpose is not income replacement. The purpose is proving the ownership loop:
-
-```text
-problem
-  ↓
-solution
-  ↓
-distribution
-  ↓
-customer
-  ↓
-money
-```
-
-Measure traffic, acquisition source, conversion, price, usage, abandonment, revenue, refund, and repeat behaviour.
-
-If evidence is weak:
-
-```text
-mutate once
-```
-
-then:
-
-```text
-kill
-```
-
-Avoid indefinite polishing.
-
-## Phase 9 — Outcome Feedback
-
-Every experiment returns structured evidence to the registry.
-
-Example:
-
-```text
-ASYM-00142
-
-MODEL:
-decision_tool
-
-PRICE:
-€7
-
-VISITORS:
-243
-
-PURCHASES:
-11
-
-CONVERSION:
-4.5%
-
-REVENUE:
-€77
-
-RESULT:
-PROMISING
-```
-
-Failed experiments are equally useful.
-
-The registry should eventually learn:
-
-```text
-asymmetry type
-        ×
-commercialization model
-        ×
-distribution channel
-        ↓
-observed outcome
-```
-
-## Phase 10 — Second Independent Asset
-
-Do not immediately spend months scaling the first success.
-
-Return to the registry, select another opportunity, and launch a second independent experiment.
-
-Exit condition:
-
-Revenue or other meaningful commercial value has been generated from at least two independently discovered asymmetries.
-
-This tests whether the system is repeatable rather than lucky.
-
-## Phase 11 — Workflow Automation
-
-Only automate commercialization patterns after repeated evidence shows that the pattern works.
-
-Possible reusable workflows:
-
-- research,
-- landing-page generation,
-- report generation,
-- digital-product generation,
-- content generation,
-- publishing,
-- checkout,
-- fulfillment,
-- analytics,
-- marketing asset generation,
-- monitoring.
-
-The goal is not to automate everything. The goal is to reduce marginal human effort for proven economic processes.
-
-## Phase 12 — Revenue Asset Portfolio
-
-Successful experiments become persistent assets.
-
-Possible categories:
-
-```text
-decision tools
-digital products
-affiliate properties
-content engines
-data products
-alerts
-micro-SaaS
-lead workflows
-APIs
-marketplaces
-```
-
-Track each asset on:
-
-```text
-monthly revenue
-growth
-gross margin
-maintenance hours
-support burden
-automation level
-platform dependency
-concentration risk
-```
-
-Kill or sell assets whose operational burden exceeds strategic value.
-
-## Phase 13 — Asymmetry Registry as Product
-
-Only consider this after the registry contains meaningful longitudinal evidence.
-
-Possible products:
-
-- opportunity database,
-- emerging-friction alerts,
-- sector intelligence,
-- founder research,
-- investor intelligence,
-- Decision Demand Index,
-- API access,
-- research reports.
-
-This is a secondary monetization path. Do not allow it to delay the first commercial experiments.
-
-## Time Discipline
-
-### First 7 days
-
-Repository skeleton, first source collectors, persisted observations.
-
-### First 14 days
-
-Automated decision extraction, first asymmetry clusters, ranked preliminary output.
-
-### First 30 days
-
-Persistent registry, initial economic scoring, top candidates selected.
-
-### First 45 days
-
-First commercialization experiment live.
-
-### First 60 days
-
-At least one meaningful demand test completed.
-
-Result must be one of:
-
-```text
-SCALE
-MUTATE
-KILL
-```
-
-Never:
-
-```text
-KEEP POLISHING
-```
-
-### First 90 days
-
-Target:
-
-- repeatable multi-source signal pipeline,
-- living asymmetry registry,
-- longitudinal monitoring,
-- multiple scored opportunities,
-- at least one commercial experiment,
-- first reusable commercialization workflow,
-- ideally first revenue.
-
-## Anti-Roadmap
-
-The following are explicitly not priorities until required:
-
-- beautiful UI,
-- mobile application,
-- Kubernetes,
-- microservices,
-- event streaming,
-- enterprise collaboration,
-- elaborate user management,
-- custom ML infrastructure,
-- custom foundation models,
-- vector databases without demonstrated need,
-- complex orchestration frameworks,
-- perfect taxonomy,
-- perfect scoring,
-- full internet coverage,
-- massive scraping infrastructure.
-
-## Success Hierarchy
-
-From weakest to strongest evidence:
-
-```text
-code exists
-    ↓
-pipeline runs
-    ↓
-signals collected
-    ↓
-decision demand extracted
-    ↓
-asymmetry detected
-    ↓
-asymmetry persists over time
-    ↓
-user sees experiment
-    ↓
-user interacts
-    ↓
-user returns
-    ↓
-economic value captured
-    ↓
-revenue repeats
-    ↓
-multiple assets produce value
-    ↓
-portfolio operates with little human intervention
-```
-
-The roadmap should always prioritize moving one step downward in this hierarchy.
-
-## Roadmap Rule
-
-When choosing between two tasks, prefer the one that more directly improves:
-
-```text
-signal → asymmetry → experiment → payment → learning
-```
-
-If a task does not strengthen that loop, it should require explicit justification.
+The original roadmap used numbered build phases and count/calendar milestones for collection, extraction, generic detection, registry, scoring, monitoring, and commercialization. Those assumptions helped initiate empirical work but no longer govern sequencing. Later experiments showed that exact-resolution competition, recoverability, accessible decision surfaces, effect observability, controls, and cheap semantic discrimination can dominate signal volume or additive ranking. Git retains the original plan; this roadmap states the present evidence-gated policy.

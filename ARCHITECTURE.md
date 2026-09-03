@@ -1,675 +1,265 @@
 # Architecture
 
-## Purpose
+## Status and purpose
 
-Asymmetry Engine is an evidence-driven opportunity detection and commercialization system.
+This document describes the architecture that exists now, the manual empirical system around it, and the evidence threshold for future implementation. It does not map every concept in the learned operating model to software.
 
-The architecture should support this loop:
+Asymmetry Engine remains a modular monolith. The implemented software is a bounded evidence-ingestion and reasoning substrate; the wider RADAR/FORGE/INTERACT/MEASURE/LEARN loop is currently operated through specifications, artifacts, checkpoints, tools, and human governance.
+
+## Actual system boundary
 
 ```text
-OBSERVE
-   ↓
-NORMALIZE
-   ↓
-EXTRACT
-   ↓
-DETECT
-   ↓
-PERSIST
-   ↓
-SCORE
-   ↓
-MONITOR
-   ↓
-EXPERIMENT
-   ↓
-MEASURE
-   ↓
-LEARN
-   ↺
+EXTERNAL SOURCES
+      ↓
+BOUNDED SOURCE ADAPTERS
+      ↓
+NORMALIZED SOURCE OBSERVATIONS
+      ↓
+SQLITE RUN + REVISION-AWARE CAPTURE PERSISTENCE
+      ↓
+DOMAIN-SPECIFIC REASONING WHERE EARNED
+
+──────────── manual empirical boundary ────────────
+
+RADAR → DISCRIMINATE → FORGE → INTERACT → MEASURE → LEARN
 ```
 
-The architecture should optimize for rapid experimentation, traceability, longitudinal observation, source independence, low operational complexity, low cost, incremental automation, and economic learning.
+The lower loop is an operating practice, not an implemented orchestration pipeline. It may branch, stop early, or revisit prior evidence.
 
-## Architectural Principles
+## Current repository implementation
 
-### Modular monolith first
+```text
+src/asymmetry_engine/
+├── models.py
+├── db.py
+├── pipeline.py
+├── reasoning.py
+├── cli.py
+└── sources/
+    ├── stackexchange.py
+    ├── cfpb.py
+    ├── dataforseo.py
+    ├── ted.py
+    ├── eurostat.py
+    ├── azure_prices.py
+    ├── comext.py
+    └── openalex.py
 
-Start with one repository and one deployable application. Do not introduce microservices unless real operational pressure requires them.
+tests/
+docs/
+specs/
+experiments/
+```
 
-### Domain terminology over metaphors
+### Source adapters
 
-Use concrete software and business concepts: signals, observations, decisions, asymmetries, scores, experiments, assets, outcomes.
+Each adapter owns source-specific request construction, response validation, normalization, stable external identity, access metadata, and semantic caveats. Adapters return `SourceObservation` objects and do not know about SQLite.
 
-Avoid forcing implementation into conceptual metaphors that no longer improve clarity.
+Collectors are intentionally bounded. Tests inject clocks and network openers, making normalization and failure behavior deterministic without live collection.
+
+### Domain records
+
+`SignalSource` records source identity, access method, terms reference, commercial-use considerations, selection biases, and source metadata.
+
+`SourceObservation` is a frozen normalized capture input containing:
+
+```text
+source_id
+external_id
+observed_at
+occurred_at
+item_kind
+content
+canonical_url
+metadata
+```
+
+Source-specific facts stay in metadata rather than leaking into generic columns. Source registry records currently represent mutable current metadata; historical source-policy snapshots are not implemented.
+
+### Persistence
+
+SQLite owns three tables:
+
+- `signal_sources` — current source definitions and caveats;
+- `pipeline_runs` — start, completion/failure, fetched/inserted/duplicate counts, and errors;
+- `source_observations` — immutable first or changed captures associated with their observing run.
+
+Logical and capture identity are separate:
+
+```text
+logical source item
+    (source_id, external_id)
+
+capture
+    observation_id
+    capture_sequence within logical item
+    material evidence fields
+    pipeline_run_id
+```
+
+Material equality compares `occurred_at`, item kind, content, canonical URL, and canonicalized metadata against the latest stored capture. `observed_at` and run identity do not by themselves create revisions.
+
+```text
+A → store sequence 1
+A → duplicate
+B → store sequence 2
+B → duplicate
+A → store sequence 3
+```
+
+Current readers select the highest sequence per logical item. Historical captures remain available without being interpreted as simultaneous current evidence.
+
+Existing pre-038 databases receive one bounded transactional table migration. This is not a general migration framework, event store, or temporal database.
+
+### Pipeline runs
+
+`run_collection()` executes one collector. It creates a run before acquisition, commits a successful observation batch atomically, and records failure without leaving a partial capture batch.
+
+Run accounting means:
+
+- inserted: first sightings plus materially changed captures;
+- duplicate: observations materially equal to their latest capture.
+
+There is no multi-source scheduler. Source-level isolation arises from one collector per run.
+
+### Domain-specific reasoning
+
+The implemented reasoner handles one Czech CN75 trade slice. It produces explicit economic entities, measurements, source-native relationships, lineage, supported interpretations, unsupported claims, alternative explanations, and next evidence.
+
+It is not a generic opportunity detector. Its decomposition condition does not score opportunity quality. It uses current/latest persisted observations so historical revisions are not double-counted.
+
+### CLI and tests
+
+The CLI exposes bounded source-collection commands and one CN75 reasoning command. There is no UI, scheduler, or service process.
+
+Tests protect request bounds, source-native identity, missing-value discipline, timestamps, source caveats, failures, atomic rollback, revision transitions, safe legacy upgrade, current-view semantics, deterministic reasoning, lineage, and unsupported inference.
+
+## Architectural principles earned by evidence
+
+### Keep the architecture small
+
+Use one repository, one Python package, SQLite, and a CLI until real operating pressure requires more. Complexity must shorten or strengthen the path to discriminating economic evidence.
 
 ### Immutable evidence, mutable interpretation
 
-Observations should be append-only where practical. Interpretations such as clustering, scoring, and lifecycle state may change over time.
+Materially changed observations append; they do not rewrite prior captures. Interpretations may change without changing evidence history. Persistent generic interpretation versioning is not yet implemented.
 
-### Source independence
+### Stable logical identity, explicit recapture
 
-External source-specific structures must not leak into the core domain model.
+Source-native identity groups observations across time. Capture sequence records material state transitions without treating collection time alone as change.
 
-### Explicit provenance
+### Source independence and source honesty
 
-Every important derived field should be traceable to source, timestamp, transformation, model or rule version, and confidence where applicable.
+Generic persistence must not acquire source-specific semantics. Every adapter states its access method, limitations, and selection biases. Public visibility is not equivalent to permission for ingestion, retention, reuse, contact, or commercialization.
 
-### Economic observability
+### Explicit provenance proportional to consequence
 
-The system should eventually be able to answer:
+The code retains source/run/timestamp/content metadata and the reasoner retains observation lineage. Later manual decision artifacts strengthen provenance, evidence classes, freshness, estimates, and unknowns as consequence increases. A generic provenance graph is not implied.
 
-- What did this asymmetry cost to discover?
-- What did it cost to evaluate?
-- What did its experiment cost?
-- How much revenue did it generate?
-- How much maintenance does it require?
+### Determinism where appropriate
 
-## Initial Repository Shape
+Use deterministic normalization, arithmetic, identity, serialization, and tests when semantic inference is unnecessary. Keep judgment visible when equivalence, relevance, or decision effect cannot be reduced safely.
 
-```text
-asymmetry-engine/
-│
-├── README.md
-├── ROADMAP.md
-├── ARCHITECTURE.md
-│
-├── src/
-│   └── asymmetry_engine/
-│       ├── signals/
-│       ├── observations/
-│       ├── decisions/
-│       ├── asymmetries/
-│       ├── scoring/
-│       ├── monitoring/
-│       ├── experiments/
-│       ├── assets/
-│       ├── outcomes/
-│       ├── infrastructure/
-│       └── cli/
-│
-├── tests/
-├── config/
-├── data/
-└── scripts/
-```
+### Evidence pressure before abstraction
 
-This structure is directional, not sacred. The codebase should evolve based on pressure from real use.
+Implement only when a problem is repeatedly observed, mechanically reusable, likely to improve experiment economics, and solvable with a small reversible change.
 
-## High-Level Architecture
+## Manual empirical architecture
+
+The learned operating loop is:
 
 ```text
-                       EXTERNAL WORLD
-
-        APIs          Open Data         Market Signals
-         │                │                  │
-         └────────────────┼──────────────────┘
-                          ▼
-                  Signal Acquisition
-                          │
-                          ▼
-                     Observation
-                          │
-                          ▼
-                  Decision Extraction
-                          │
-                          ▼
-                  Asymmetry Detection
-                          │
-                          ▼
-                  Asymmetry Registry
-                          │
-              ┌───────────┴───────────┐
-              ▼                       ▼
-       Monitoring + Scoring      Human Review
-              │                       │
-              └───────────┬───────────┘
-                          ▼
-                Commercial Experiment
-                          │
-                          ▼
-                     Revenue Asset
-                          │
-                          ▼
-                        Outcome
-                          │
-                          └────────────→ Registry
+OBSERVE → RADAR → DISCRIMINATE → FORGE → INTERACT → MEASURE → LEARN
 ```
 
-## Core Components
+Repository artifacts currently implement the durable boundary:
 
-### Signal Acquisition
+- specs preregister questions, evidence, controls, budgets, stops, and verdicts;
+- experiment artifacts preserve execution and outcomes;
+- checkpoints consolidate learning without rewriting prior results;
+- Git records revisions and supports independent review;
+- human authorization governs consequential external action.
 
-Responsibility: retrieve external signals through legitimate access mechanisms.
+This arrangement is considered current architecture even though most of it is documentary and procedural rather than runtime software.
 
-Examples include official APIs, open datasets, permitted feeds, aggregate search metrics, and public market data.
+## Opportunity selection and scoring
 
-Possible structure:
+The early design proposed additive ranking across demand, consequence, accessibility, competition, automation, and other dimensions. That is superseded as primary selection policy.
+
+Current practice first tests fatal constraints:
 
 ```text
-signals/
-├── sources/
-├── collectors/
-├── policies/
-└── pipeline.py
+live decision?
+economic consequence?
+recoverable information?
+inadequate exact resolution?
+legitimate actor access?
+observable effect?
+controls permit the experiment?
 ```
 
-Each source should define:
+One failed necessary condition can dominate attractive characteristics elsewhere. Ranking may eventually help among candidates that pass hard gates, but no generic scoring engine or stable score model is implemented or earned.
+
+## Exact-resolution and decision compression
+
+Exact functional resolution checking is a repeated early discriminator. It compares actor, decision, inputs, output, timing, and residual gap. The comparison remains semantic and manual; no resolver service, competition database, ontology, or embedding system is justified.
+
+FORGE has repeatedly compressed unstructured uncertainty into options, discriminators, and testable next questions. This is a provisional reusable practice, not a generic decision engine.
+
+## Interaction, controls, and authorization
+
+Delivery, exposure, engagement, decision effect, value creation, value capture, and repeatability are distinct states. No software currently measures or automates them.
+
+The governing invariant is:
 
 ```text
-source_id
-name
-access_method
-terms_reference
-commercial_use_status
-retention_policy
-rate_limit
-active
+SPECIFICATION ≠ AUTHORIZATION ≠ CAPABILITY ≠ ACCESS
 ```
 
-Collector interface:
+Consequential external action requires explicit user authorization. Controls remain procedural and proportional to consequence. There is no permission service, policy engine, autonomous action layer, or regulatory rules database.
 
-```python
-collect() -> list[ObservationInput]
-```
+## Operational telemetry
 
-Collectors independently handle authentication, pagination, throttling, retries, and source-specific schemas.
+Experiment 036 established a partial historical baseline and a prospective manual logging standard. Experiment artifacts should record active time, spend, human attention, controls, interactions, verdict, uncertainty change, and evidence yield where useful.
 
-### Observations
+Pipeline-run timestamps and counts are ingestion telemetry, not experiment economics. A telemetry database or dashboard is not earned.
 
-An Observation is immutable evidence captured at a point in time.
+## Deliberately unimplemented
 
-Example fields:
+Current evidence does not justify:
+
+- generic opportunity detection, clustering, or registry software;
+- additive or learned opportunity scoring;
+- generic monitoring and scheduled orchestration;
+- experiment, outcome, asset, or portfolio databases;
+- automated research-policy selection;
+- generic FORGE or decision software;
+- automated interaction, outreach, response tracking, or attribution;
+- permission, governance, or regulatory services;
+- generic ontology, graph, vector store, or ATLAS knowledge system;
+- telemetry infrastructure;
+- microservices, event streaming, or a web application.
+
+Absence is not unfinished negligence. Several concepts remain unimplemented because manual evidence work is cheaper, safer, and more adaptable today.
+
+## Evolution rule
+
+Future changes follow:
 
 ```text
-id
-source_id
-observed_at
-external_reference
-content_hash
-signal_type
-payload
-provenance
+repeated observed problem?
+→ mechanically reusable?
+→ improves experiment economics?
+→ small and reversible?
+→ specify, implement, validate, and measure
 ```
 
-The payload may be raw or derived depending on source policy. Large raw payload retention should be avoided unless genuinely useful.
+If any answer is no, document, keep manual, or defer. Automation should multiply validated asymmetries and repeated mechanical work, not compensate for weak opportunities or unresolved assumptions.
 
-### Decision Extraction
+## Economic direction
 
-Responsibility: identify evidence of economically meaningful human decisions.
+The architectural objective remains to support discovery and resolution mechanisms capable of creating and eventually capturing repeatable economic value. The code has not validated revenue, willingness to pay, repeatability, or autonomous operation. Portfolio and FREEDOM language describes the long-term economic target, not current software.
 
-Example decision types:
+## Historical design note
 
-```text
-BUY_OR_WAIT
-X_VS_Y
-REPAIR_OR_REPLACE
-SWITCH_OR_STAY
-HOW_MUCH
-BEST_FOR_CONSTRAINT
-PRICE_FAIRNESS
-RISK_ACCEPTANCE
-```
-
-A DecisionSignal may contain:
-
-```text
-id
-observation_id
-decision_text
-decision_type
-economic_domain
-transaction_proximity
-confidence
-extraction_version
-```
-
-LLMs may be used for semantic extraction. Deterministic rules should be used where they are simpler and more reliable.
-
-### Asymmetry Detection
-
-Multiple DecisionSignals may point to the same underlying problem.
-
-```text
-"Should I replace my iPhone now?"
-"Should I wait for the next iPhone?"
-"Is buying last year's model smarter?"
-"When is the cheapest time to upgrade?"
-
-                 ↓
-
-ASYM-00121
-Optimal smartphone replacement timing
-```
-
-Detection may combine semantic similarity, embeddings, shared taxonomy, deterministic matching, LLM judgment, and human correction.
-
-The output is not a product idea. It is a persistent hypothesis that a recurring information asymmetry exists.
-
-### Asymmetry Registry
-
-The registry is the persistent memory of the system.
-
-It owns asymmetry identity, description, decision context, history, evidence relationships, lifecycle state, score history, experiment relationships, and outcome relationships.
-
-Example entity:
-
-```text
-Asymmetry
-
-id
-title
-description
-domain
-decision_holder
-economic_consequence
-information_gap
-created_at
-last_observed_at
-lifecycle_state
-```
-
-Possible lifecycle states:
-
-```text
-DISCOVERED
-OBSERVED
-WATCHING
-EMERGING
-VALIDATED
-DECLINING
-ARCHIVED
-```
-
-States should remain easy to change as evidence accumulates.
-
-### Monitoring
-
-Monitoring revisits known asymmetries over time.
-
-It should track new evidence, signal volume, demand growth, search velocity, CPC changes, competition changes, regulatory changes, pricing changes, solution quality, and score trajectory.
-
-The trajectory may be more useful than the absolute score.
-
-### Scoring
-
-Scoring should remain decomposable. Never retain only `score = 87`.
-
-Store the underlying dimensions:
-
-```text
-signal_confidence
-demand
-transaction_proximity
-economic_consequence
-information_fragmentation
-automation_feasibility
-data_accessibility
-answer_verifiability
-competition
-distribution_access
-maintenance_burden
-regulatory_risk
-commercial_attractiveness
-```
-
-Historical scores should be stored as snapshots.
-
-```text
-ScoreSnapshot
-
-id
-asymmetry_id
-calculated_at
-scoring_version
-dimension_values
-final_score
-```
-
-Weights should live in configuration rather than code where practical:
-
-```text
-config/scoring.yaml
-```
-
-### Commercial Experiments
-
-An Experiment tests a monetization hypothesis.
-
-```text
-id
-asymmetry_id
-model
-hypothesis
-price
-distribution_channel
-started_at
-ended_at
-status
-```
-
-Possible models:
-
-```text
-DIGITAL_PRODUCT
-DECISION_TOOL
-CONTENT_ENGINE
-LEAD_ENGINE
-INTELLIGENCE_PRODUCT
-MICRO_SAAS
-MARKETPLACE
-```
-
-The experiment layer should remain business-model agnostic. Its job is not to build apps. Its job is to test whether value can be converted into revenue.
-
-### Revenue Assets
-
-A successful experiment may become a persistent revenue-generating asset.
-
-Examples include a report workflow, calculator, newsletter, affiliate property, alerting service, micro-SaaS, lead workflow, dataset, or API.
-
-Asset metadata should eventually include:
-
-```text
-monthly_revenue
-gross_margin
-maintenance_hours
-support_burden
-automation_level
-platform_dependencies
-growth
-risk
-```
-
-### Outcomes
-
-Outcomes represent observable market evidence.
-
-Examples:
-
-```text
-visitor
-signup
-usage
-purchase
-subscription
-refund
-repeat_purchase
-revenue
-churn
-```
-
-Example entity:
-
-```text
-Outcome
-
-experiment_id
-metric
-value
-timestamp
-source
-```
-
-Outcomes must flow back into the registry. This closes the learning loop.
-
-## Persistence
-
-### Initial choice: SQLite
-
-Reasons:
-
-- zero infrastructure,
-- relational domain,
-- transactions,
-- easy inspection,
-- easy backup,
-- strong enough for early scale,
-- simple migration path.
-
-Suggested initial tables:
-
-```text
-signal_sources
-pipeline_runs
-observations
-decision_signals
-asymmetries
-asymmetry_observations
-score_snapshots
-experiments
-outcomes
-assets
-```
-
-Use CSV or Parquet for analytical exports when useful. Raw large payloads can move to object storage later if justified.
-
-## Pipeline Runs
-
-Every execution should have a run record.
-
-```text
-PipelineRun
-
-id
-started_at
-completed_at
-status
-sources_attempted
-observations_created
-decision_signals_created
-asymmetries_created
-asymmetries_updated
-errors
-api_cost
-llm_cost
-```
-
-A failed source should not invalidate successful work from other sources. Prefer source-level transactional isolation.
-
-## Data Flow
-
-```text
-external source
-      ↓
-collector
-      ↓
-Observation
-      ↓
-DecisionSignal
-      ↓
-candidate cluster
-      ↓
-Asymmetry
-      ↓
-ScoreSnapshot
-      ↓
-monitoring
-      ↓
-Experiment
-      ↓
-Outcome
-      ↓
-Asymmetry history
-```
-
-## LLM Usage
-
-LLMs are useful for semantic extraction, classification, summarization, clustering assistance, asymmetry descriptions, and hypothesis generation.
-
-Each LLM-derived result should retain:
-
-```text
-provider
-model
-prompt_version
-timestamp
-confidence
-```
-
-where practical.
-
-This allows later reprocessing when prompts or models improve.
-
-Do not use an LLM when deterministic computation is simpler.
-
-## Scheduling
-
-Start with the simplest mechanism that works:
-
-```text
-local scheduler
-cron
-GitHub Actions
-```
-
-Only add orchestration frameworks if recurring pipelines become operationally difficult.
-
-Potential later options:
-
-```text
-Prefect
-Dagster
-Temporal
-```
-
-None are initial requirements.
-
-## Interfaces
-
-Initial interface:
-
-```text
-CLI
-```
-
-Potential commands:
-
-```text
-asymmetry-engine signals collect
-asymmetry-engine detect run
-asymmetry-engine asymmetries list
-asymmetry-engine asymmetries show ASYM-00142
-asymmetry-engine monitor run
-asymmetry-engine experiments evaluate ASYM-00142
-```
-
-Initial outputs:
-
-```text
-terminal
-CSV
-JSON
-SQLite
-```
-
-A web interface should appear only when interactive exploration creates real value.
-
-## Testing Strategy
-
-Prioritize source normalization, deduplication, deterministic scoring, asymmetry identity, persistence, lifecycle transitions, experiment attribution, and outcome attribution.
-
-Avoid excessive testing of throwaway integrations.
-
-## Data Ethics and Source Policy
-
-Prefer, in order:
-
-1. official APIs,
-2. open datasets,
-3. explicitly licensed sources,
-4. aggregate public signals.
-
-Scraping must not be a foundational dependency.
-
-For each source record, capture:
-
-```text
-commercial_use_status
-terms_reference
-retention_policy
-rate_limits
-data_scope
-```
-
-Where possible, retain derived economic signals rather than unnecessary copies of user-generated content.
-
-## Source Convergence
-
-No high-confidence opportunity should depend on one signal source.
-
-Prefer convergence:
-
-```text
-search demand
-      +
-question frequency
-      +
-commercial CPC
-      +
-complaint data
-      +
-poor incumbent solutions
-      ↓
-higher confidence
-```
-
-Source diversity should contribute directly to confidence scoring.
-
-## Human Role
-
-Automate collection, normalization, extraction, clustering, monitoring, scoring, and reporting.
-
-Reserve human attention for strategy, ambiguous interpretation, opportunity selection, ethical judgment, product taste, capital allocation, and scale / mutate / kill decisions.
-
-The goal is not removing humans. The goal is concentrating human judgment where it has the highest economic value.
-
-## Evolution Path
-
-```text
-Phase 1
-Python + SQLite + CLI
-        ↓
-Phase 2
-multi-source signal collection
-persistent asymmetry registry
-        ↓
-Phase 3
-scheduled monitoring
-economic scoring
-        ↓
-Phase 4
-commercial experiments
-payment + analytics integrations
-        ↓
-Phase 5
-multiple live revenue assets
-        ↓
-Phase 6
-portfolio monitoring
-        ↓
-Phase 7
-interactive registry / API
-        ↓
-Phase 8
-data-driven prediction of promising
-asymmetry × monetization combinations
-```
-
-## Architectural North Star
-
-The shortest meaningful system loop is:
-
-```text
-PUBLIC SIGNAL
-     ↓
-ASYMMETRY
-     ↓
-EXPERIMENT
-     ↓
-PAYMENT
-     ↓
-LEARNING
-```
-
-Any architectural component that does not strengthen or shorten this loop should require strong justification.
+The original architecture described automatic decision extraction, generic asymmetry detection, a persistent registry, additive score snapshots, monitoring, experiment/outcome persistence, scheduling, and revenue assets as a staged system. Experiments 013–038 showed that hard discriminators, semantic judgment, accessible decision surfaces, explicit authorization, and disposable resolutions often matter before those components. Git preserves the original architecture; this file now describes the system that exists and the rules governing evidence-earned evolution.
