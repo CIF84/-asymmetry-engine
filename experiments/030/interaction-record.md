@@ -91,12 +91,15 @@ The following was drafted only after the natural baseline above was recorded:
 - Post timestamp: 2026-09-02T20:41:55.014Z
 - Publication verification: the permalink resolved to a public comment attributed to u/Nervous_Ad9605, and its content matched the recorded reply text apart from editor-rendered whitespace.
 - Observation-window end: **2026-09-05T20:41:55.014Z** (72 hours after publication).
-- Final read-only check initiated after the observation window closed, at approximately 2026-09-05T20:44Z.
+- Final read-only observation timestamp: **2026-09-05T21:24:51Z**, after the observation window closed.
 - Project replies posted: **1**. No second project reply was posted.
 - Initialization check actor responses: **0**.
-- At final check, no post-intervention response from the fixed actor was observable in the public evidence available to the check.
-- A fresh public search surfaced the original Reddit thread and pre-intervention discussion, but did not surface the intervention comment or any post-intervention actor-response evidence. Direct exhaustive retrieval of the current Reddit comment tree/permalink was not available in the observation environment.
-- Therefore the final check does **not** establish that no response exists anywhere on Reddit; it establishes only that no actor-response evidence was observable through the available read-only evidence path.
+- Final observation path: one direct read-only load of the recorded public reply permalink, followed by one read-only structured inspection of that rendered thread state. No actor profile or adjacent Reddit activity was inspected.
+- The permalink resolved to the intervention comment, attributed to u/Nervous_Ad9605 with creation timestamp `2026-09-02T20:41:55.014Z`; the rendered text matched the persisted reply.
+- Observable actor response evidence: **0 direct replies from the fixed actor.** The intervention comment contained zero nested comment nodes. The three loaded comments attributed to u/Maleficent-Ad1562 were dated 2026-08-13 or 2026-08-16 and therefore belong to the pre-intervention baseline.
+- Qualifying other response evidence: **0.** No direct reply from any other participant was nested under the intervention comment. Other thread comments were not treated as intervention responses.
+- The intervention comment displayed score `1`, and the thread displayed `57` comments. Neither establishes actor exposure, response, comprehension, or decision effect and neither is used as a behavioral signal.
+- The final check establishes the public state observable at that timestamp. Whether a response existed earlier and was subsequently removed is **UNKNOWN**; no such response evidence was observed.
 - Current experimental state: **Closed at observation-window end with exposure/effect unresolved.**
 
 ## Measurement results M1–M6
@@ -108,26 +111,33 @@ The following was drafted only after the natural baseline above was recorded:
 - M5 — Next action: **UNKNOWN.** No observable post-intervention actor response establishes a new or changed concrete next action.
 - M6 — Challenge / trust: **UNKNOWN.** No observable post-intervention actor response validates, corrects, rejects, or materially challenges the analysis.
 
+## Stated intent versus observed action
+
+- Pre-intervention stated intent: obtain a community reality check on negotiation, migration, alternatives, Agentforce, and internal-build viability; the actor also reported having demoed HubSpot and approached Salesforce about retention.
+- Post-intervention observed action: **UNKNOWN.** The direct final observation revealed no actor reply or other actor-authored post-intervention statement under the intervention comment.
+- The absence of an observable reply does not establish that the actor took no action privately or elsewhere, abandoned the decision, or rejected the proposed tests.
+
 ## Material decision effect
 
 **UNKNOWN.** Delivery to the public surface was verified, but actor exposure was not. With no observable actor-response evidence, none of Spec 030's material-decision-effect thresholds can be established. This is not a negative value finding.
 
 ## No-response or failure-mode classification
 
+- Predefined Spec 030 classification: **DELIVERY UNKNOWN** — publication to the surface is confirmed, but it could not be established that the actor saw the reply.
 - Surface delivery: **CONFIRMED.** The project reply was published and its permalink was verified at execution.
 - Actor exposure: **UNKNOWN.** Reddit provided no reliable view/read evidence for the fixed actor, and the final read-only observation path did not establish exposure.
 - Attention failure: **NOT ESTABLISHED.** Exposure is not sufficiently evidenced to interpret non-engagement as attention failure.
 - Comprehension / trust failure: **NOT ESTABLISHED.** There is no actor response from which comprehension or trust can be evaluated.
 - Value failure: **NOT ESTABLISHED.** There is no evidence that the actor understood the resolution and found it non-improving.
 
-The supported failure state is therefore **DELIVERY TO SURFACE CONFIRMED; ACTOR EXPOSURE UNKNOWN**. Under Spec 030, the absence of observable actor-response evidence with exposure unestablished cannot be converted into C or into evidence against value.
+The supported state is therefore **DELIVERY UNKNOWN**, qualified by **surface publication confirmed; actor exposure unknown**. Under Spec 030, the absence of observable actor-response evidence with exposure unestablished cannot be converted into C or into evidence against value.
 
 ## Interpretation limits
 
 - The baseline contains only public statements and does not imply private intent, exposure, comprehension, or subsequent action.
 - Comment count, score, thread availability, and unrelated commenter activity are not decision-effect evidence.
 - Public availability proves successful publication, not actor exposure.
-- The final observation environment could not exhaustively retrieve the live Reddit comment tree, so the check cannot assert universal absence of a response; it can only report the absence of actor-response evidence in the public evidence it could inspect.
+- The direct permalink rendered the intervention comment with zero nested replies at the final observation timestamp. This is point-in-time public evidence, not proof that the actor saw the reply or that no removed response ever existed.
 - Because exposure is unknown, silence cannot distinguish delivery-to-actor failure from attention, comprehension/trust, or value failure.
 - No evidence supports changing UNKNOWN values to zero, failure, or no effect.
 
@@ -145,7 +155,7 @@ The supported failure state is therefore **DELIVERY TO SURFACE CONFIRMED; ACTOR 
 
 - Same-surface delivery is operationally feasible: a decision-resolution artifact was compressed into one case-specific, non-promotional public reply while preserving the narrowed option set, evidence boundaries, critical discriminator, and concrete next actions.
 - Surface delivery and stable publication are not equivalent to actor exposure.
-- On this public Reddit interaction, the available observation path did not provide the exposure evidence needed to distinguish attention, comprehension/trust, or value failure when no actor response was observable.
+- On this public Reddit interaction, a direct final observation found no reply under the intervention comment, while the surface still provided no reliable actor-exposure signal. Attention, comprehension/trust, and value failure therefore remain indistinguishable.
 - Therefore this experiment demonstrated **delivery capability**, not decision-effect capability.
 
 ## What remains unproven
@@ -172,16 +182,20 @@ The supported failure state is therefore **DELIVERY TO SURFACE CONFIRMED; ACTOR 
 - Active preparation time: Approximately 20 minutes, including repository/spec verification, artifact review, live baseline reconstruction, and bounded reply preparation.
 - Posting/execution time: Less than 1 minute from final confirmed submission to permalink verification.
 - Number of project replies posted: 1
-- Elapsed observation time: 72 hours
+- Predeclared observation window: 72 hours
+- Elapsed time from publication to final observation: approximately 72 hours 42 minutes 56 seconds
 - Actor replies observed at initialization: 0
 - Actor-response evidence observable at final check: 0
-- Other public replies materially relevant to the intervention: none established
+- Other public replies materially relevant to the intervention: 0
+- Final observation timestamp: 2026-09-05T21:24:51Z
+- Final observation execution: one direct permalink load and one read-only structured inspection; combined external-tool wall time approximately 7.2 seconds
+- Human/agent active analysis time outside the external observation calls: UNKNOWN; it was not prospectively instrumented
 - Paid spend: €0
 - Entering uncertainty: Whether a compact decision resolution delivered on the original public surface changes a decision-relevant state for the fixed actor.
 - Leaving uncertainty: Surface delivery is proven; actor exposure, comprehension, trust, value, and decision effect remain UNKNOWN.
-- Dominant measurement limitation: No reliable actor-exposure signal, compounded by inability of the final observation environment to exhaustively retrieve the live Reddit comment tree.
+- Dominant measurement limitation: No reliable actor-exposure signal; a directly observed absence of replies cannot distinguish unseen delivery from attention, comprehension/trust, or value failure.
 - Evidence yield: **LOW** — execution/delivery evidence is strong, but behavioral evidence is insufficient.
 
 ## Final verdict
 
-**D — INTERACTION INVALID / UNINTERPRETABLE FOR DECISION EFFECT.** The interaction itself was validly executed and surface delivery was verified, but at the end of the bounded window actor exposure could not be established and no post-intervention actor-response evidence was observable through the available read-only public evidence path. Under Spec 030 this does **not** support C, attention failure, comprehension/trust failure, value failure, or a claim of no material effect. It is a measurement-limited D, not evidence against the resolution's value.
+**D — INTERACTION INVALID / NOT EXECUTED.** The interaction itself was validly executed and surface delivery was verified, but under Spec 030 the target behavioral observation is invalid because actor exposure could not be established and no post-intervention actor-response evidence was observable in the directly rendered comment thread at the end of the bounded window. This does **not** support C, attention failure, comprehension/trust failure, value failure, or a claim of no material effect. It is a measurement-limited D, not evidence against the resolution's value.
