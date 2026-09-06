@@ -201,3 +201,122 @@ These values apply immediately after verified delivery. Publication alone does n
 - Publication proves delivery only, not exposure.
 - Do not infer attention, comprehension, trust, or value failure from silence.
 - Do not perform the final observation before the 72-hour deadline unless separately instructed to record independently surfaced evidence; never respond under this spec.
+
+---
+
+## Final observation — 2026-09-06
+
+### Final observation status
+
+- **Experiment phase:** final read-only observation
+- **Final observation performed:** yes, at `2026-09-06T01:53:37Z`, after the predeclared `2026-09-06T01:51:13Z` deadline
+- **Final verdict:** **A — MATERIAL DECISION EFFECT OBSERVED**
+- **Interaction outcome class:** **REFINEMENT**
+- **Delivery state:** verified; the original `CIF84` comment remains publicly retrievable with the same body and unchanged creation/update timestamp
+- **Issue state at final observation:** OPEN; 9 top-level comments; last updated `2026-09-05T13:05:26Z`
+- **Reactions on the intervention comment:** 0
+- **Follow-ups by `CIF84`:** 0
+
+### Actor response evidence
+
+The fixed primary actor, SIP-225 proposal author **tomerkl65**, posted a substantive top-level response at `2026-09-05T13:05:26Z`, within the 72-hour window:
+
+https://github.com/apache/superset/issues/43331#issuecomment-5552015432
+
+The response is directly attributable to the intervention despite being top-level rather than threaded: it opens by agreeing with the sequencing, repeatedly references the proposed `configured source → resolve once → ordered drillable dimensions → existing drill interaction` seam, addresses the "narrow boundary if it stays cheap" stop rule, and answers the dependency question.
+
+Material actor-supplied evidence:
+
+- the interaction layer already has a single implicit resolution step that normalizes the configured chart-local source against the primary dimension and yields an ordered drillable sequence;
+- downstream click progression, query/filter updates, cross-filter emission, and breadcrumb behavior already consume that resolved sequence rather than the raw `drilldown_hierarchy: string[]` directly;
+- making the source/resolve seam explicit is therefore described by the proposal author as a small concentration of existing normalization rather than broad refactoring or a new persistence/API/provider model;
+- the actor also reports no known concrete dataset/semantic-layer hierarchy contract, saved shape, or in-flight implementation that currently requires waiting, while preserving the caveat that someone closer to that work could still surface an incompatible interface;
+- the actor refines the proposed contract: place the explicit boundary on the **source → resolve seam**, but do not permanently bind the output to bare `string[]`; describe it as an ordered sequence of drillable levels with the level kept minimally opaque enough to accommodate future parent-child or provider-native semantics;
+- the actor's resulting disposition is to ship now and make the seam explicit because it is cheap in the current implementation.
+
+No additional response, reaction, edit, or follow-up was required to interpret this evidence.
+
+### Final M1–M6
+
+| Measure | Final classification | Evidence |
+|---|---|---|
+| M1 — Exposure | **HIGH** | The fixed actor explicitly responds to the intervention's sequencing claim, seam, stop rule, and dependency question. |
+| M2 — Understanding / comprehension | **OBSERVED** | The response engages the exact S2 sequencing claim and explains the current implementation structure behind the source-resolution boundary. |
+| M3 — Challenge / trust | **ACCEPTED / ENDORSED** | The actor says they largely agree, strengthens the ship-now case, and accepts the explicit seam while supplying a bounded refinement. |
+| M4 — Decision framing change | **MATERIAL** | The previously implicit architectural seam becomes explicit, and the relevant distinction shifts from raw `string[]` to a source-resolution contract with a more durable ordered-level abstraction. |
+| M5 — Next-action change | **MATERIAL** | The actor states a concrete next action: ship now, make the source/resolve seam explicit, and phrase the contract around an ordered sequence of levels rather than bare strings, subject only to confirmation of any hidden incompatible near-term interface. |
+| M6 — Resolution validity update | **REFINED** | The S2 sequencing survives contact with the actor and is strengthened by implementation evidence, while its output-contract wording is improved. |
+
+### Material decision effect
+
+**YES — observed.**
+
+The evidence does not establish that the entire SIP has been formally accepted, merged, or closed. It does establish a material effect under Spec 035 because the proposal author directly adopts the intervention's source-resolution seam, supplies implementation facts showing the stop rule is satisfied cheaply, and refines the contract in a way that changes the decision framing and next action.
+
+The causal connection is unusually strong for this experiment: the response explicitly discusses the intervention's exact seam, its cost condition, its future-hierarchy caveat, and its dependency question.
+
+### Interaction outcome class
+
+**REFINEMENT.**
+
+The actor substantively accepts the S2 sequencing direction and adds missing implementation state plus a better abstraction boundary. This improves the resolution without rejecting it.
+
+### No-response classification
+
+Not applicable. Exposure and substantive comprehension are directly evidenced by the fixed actor's response.
+
+### Resolution changes required
+
+Spec 034's core recommendation remains **S2 — ship now with a narrow source-resolution boundary if cheap**. The actor response requires only a bounded refinement:
+
+1. Treat the source/resolve seam as the durable boundary.
+2. Phrase its output as an **ordered sequence of drillable levels**, not as permanently bare `string[]`.
+3. Record the actor-supplied implementation fact that the seam already exists implicitly, so making it explicit is currently expected to be cheap.
+4. Preserve the remaining stop condition: if concrete near-term semantic-layer work surfaces an incompatible saved/query/interface shape, re-evaluate before binding the seam.
+
+This final observation does not modify Spec 034 or implementation artifacts; it records the evidence earned by Spec 035.
+
+### What INTERACT learned
+
+A bounded disposable resolution can survive contact with the actual decision participant and return more useful state than static reconstruction alone. In this case, the intervention produced direct evidence of exposure and comprehension, confirmed the sequencing direction, revealed that the proposed seam already exists implicitly, and improved the abstraction boundary.
+
+The useful effect was not mere agreement. The interaction converted an architectural hypothesis into actor-supplied implementation evidence and a sharper contract.
+
+### Spec 032 policy implication
+
+This n=1 result supports the Spec 032 policy change toward candidates with an observable actor, live decision, legitimate same-surface intervention path, and observable effect. Here that topology produced a highly interpretable result: exposure was directly evidenced, the actor engaged the intended discriminator, and the response supplied decision-relevant state.
+
+Do not generalize this result into a universal claim that same-surface public intervention will work across domains or projects.
+
+### What remains unproven
+
+- formal SIP consensus or maintainer adoption;
+- whether the issue body or PR implementation will actually be changed to encode the explicit seam;
+- whether PR #41907 will merge or ship;
+- whether an incompatible semantic-layer hierarchy contract exists but has not surfaced publicly;
+- end-user value from the shipped feature;
+- willingness to pay, market size, repeatability, scalable acquisition, or value capture;
+- Superset as a commercial opportunity;
+- generalization of this interaction mechanism across domains.
+
+### Final operational telemetry
+
+| Metric | Final value |
+|---|---|
+| Preparation + publication active time | approximately 18 minutes |
+| Post/publication time | approximately 1 minute for publication and verification |
+| Final observation time | `2026-09-06T01:53:37Z`; brief bounded read-only check; exact active duration not prospectively instrumented and remains UNKNOWN |
+| Incremental spend | €0 |
+| External comments posted | 1 |
+| Follow-ups posted | 0 |
+| Control escalations | 0 |
+| Human authorization events | 1 |
+| Delivery verified | yes |
+| Exposure classification | HIGH |
+| Substantive responses | 1, from fixed primary actor tomerkl65 |
+| Material decision effect | yes |
+| Evidence yield | **HIGH** |
+
+### Exactly one recommended next action
+
+Close Experiment 035 and perform one bounded **030 × 035 interaction-topology comparison** before changing any canonical opportunity, experimentability, or operating-model policy.
