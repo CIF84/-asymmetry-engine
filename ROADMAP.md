@@ -25,9 +25,9 @@ An experiment may observe, discriminate, resolve, interact, measure, or consolid
 
 ## Current operating priorities
 
-### Preserve open empirical boundaries
+### Preserve interaction evidence boundaries
 
-Experiments 030 and 035 remain independent observation windows. Their initialized publications establish delivery, not response, decision effect, value, or failure. Interpret them only after their defined windows and controls permit it.
+Experiments 030, 035, and 043 show why exposure, semantic engagement, authority, authorship provenance, decision-state refinement, downstream action, and economic effect must remain distinct. Future actor-facing hypotheses should require appropriate observable exposure and effect paths; a refined decision state is not downstream action or economic value.
 
 ### Preserve evidence quality and reconstructability
 
@@ -52,12 +52,13 @@ Record active time, incremental spend, human attention, controls, interactions, 
 
 ## Next empirical gate
 
-After already-authorized observation windows close:
+When a future candidate reaches INTERACT:
 
-1. interpret preserved exposure/response/effect evidence without treating silence as automatic value failure;
-2. update operational or opportunity beliefs only to the degree supported;
-3. identify the dominant remaining uncertainty;
-4. choose one cheapest bounded experiment capable of changing the next decision.
+1. define which interaction evidence states are required by the hypothesis;
+2. confirm exposure and effect observability before publication;
+3. execute only through a legitimate authorized path;
+4. classify the resulting evidence without collapsing decision-state refinement into downstream action or value;
+5. choose the next experiment from the dominant remaining uncertainty.
 
 This is a decision rule, not a commitment to a particular future experiment or product.
 

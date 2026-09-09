@@ -156,7 +156,7 @@ The governing automation rule is:
 
 The project has demonstrated useful rejection policy, bounded decision compression, low-cost resolution construction, controlled publication, and revision-aware source persistence. It has only a partial operational telemetry baseline. It has not established repeatable actor effect, willingness to pay, revenue, or economic compounding.
 
-Experiments 030 and 035 remain independent observation windows. Their publication initialization does not establish response or value.
+Experiments 030 and 035 are closed. Experiment 030 was measurement-limited at actor exposure: publication was verified, but exposure and value effect remain `UNKNOWN`, so silence is not value-failure evidence. Experiment 035 produced one bounded material refinement of a public decision state under an authoritative actor identity; authorship provenance remains `UNKNOWN`, and this n=2 record does not establish repeatable actor effect, platform superiority, downstream implementation, or economic value. Experiment 043 therefore requires exposure, semantic engagement, authority, authorship provenance, decision-state effect, downstream action, and economic effect to remain separate.
 
 ## Long-term direction
 
