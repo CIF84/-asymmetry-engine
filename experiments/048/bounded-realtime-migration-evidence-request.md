@@ -168,3 +168,114 @@ No external post, reply, reaction, vote, message, follow, tag, benchmark, promot
 ## 19. Exactly one next action
 
 Establish an authenticated session on the fixed forum thread, then obtain a fresh explicit authorization before any new execution attempt.
+
+---
+
+# Fresh Authorized Execution Attempt 2 — 2026-09-11
+
+## 20. Fresh authorization
+
+The user supplied a new, explicit execution authorization for one fresh attempt. It applied only to exactly one SAME-surface public reply on the fixed OpenAI Developer Community thread, using the preserved 204-word draft unchanged and subject to every SPEC-048 stop condition. The user expressly prohibited follow-up, private contact, tagging, attention-seeking reactions, duplicate posting, cross-posting, alternate identity, promotion, benchmarking, code contribution, raw or confidential evidence requests, and requests for a new benchmark.
+
+This authorization was recognized as distinct from the first failed attempt. It was valid only for this second execution window and is not reusable after the control failure recorded below.
+
+## 21. Prior attempt preservation
+
+Sections 1–19 above remain the complete historical record of the first failed authentication attempt and are unchanged. That attempt published nothing, consumed no publication allowance, opened no observation window, and produced no behavioral evidence.
+
+## 22. Fresh natural baseline
+
+Observed on the fixed native thread during the second pre-post check, completed at `2026-09-11T20:07:55Z`:
+
+- correct thread title and URL;
+- fixed actor/account `WebPlanning_SIM-Ltd`;
+- one-post topic state (`1 / 1`) with no public replies;
+- 55 displayed views and 2 displayed reactions;
+- the actor's production migration question remained visibly unresolved;
+- no public paired aggregate discriminator or equivalent evidence package had appeared;
+- no actor update visibly closed or materially moved the decision;
+- no Spec-048 reply existed, so the one-comment publication allowance remained unused.
+
+The view-count change from 54 to 55 since Attempt 1 is surface telemetry only. It does not establish exposure, semantic engagement, or any decision effect because no Spec-048 intervention was published.
+
+## 23. Fresh pre-post control check
+
+| # | Required control | Result | Fresh evidence |
+|---|---|---|---|
+| 1 | Correct thread | PASS | The native URL and title matched SPEC-048. |
+| 2 | Fixed actor | PASS | The sole post remained attributable to `WebPlanning_SIM-Ltd`. |
+| 3 | Decision still live | PASS | The post still described the unresolved production migration and no closing update was present. |
+| 4 | Authenticated posting capability actually available | **FAIL** | The in-app browser displayed `Log In`, proving that session was unauthenticated. The already-running Safari session did not produce a usable interactive thread after one bounded load and one reload, so authenticated capability could not be established there either. |
+| 5 | Reply control/path available | FAIL as an authenticated path | A `Reply` control was visible in the unauthenticated in-app view, but no authenticated editor or executable publication path was available. |
+| 6 | No equivalent discriminator already public | PASS | The topic remained `1 / 1`; no paired per-class table, rubric, configuration context, or equivalent evidence package was visible. |
+| 7 | No exact resolver emerged | PASS | Current official OpenAI documentation describes `gpt-realtime-2.1`, configurable reasoning effort, and tool support, but does not resolve this actor's workload-specific paired qualification or substitute for the requested actor-held aggregate evidence. |
+| 8 | Current community rules permit the interaction | PASS | Current guidelines welcome relevant technical troubleshooting and constructive collaboration while prohibiting sensitive-data disclosure, impersonation, spam, and unrelated promotion; the bounded draft complies. |
+| 9 | Reviewed draft remains within scope | PASS | The preserved draft remained byte-for-byte equal to the SPEC-048 draft and counted 204 words. |
+| 10 | No confidential-data issue | PASS | The draft explicitly states that raw prompts, tool schemas, logs, transcripts, customer data, and confidential implementation details are not needed. |
+| 11 | One-comment publication allowance unused | PASS | No Spec-048 reply had been published; the thread showed no public replies. |
+| 12 | Fresh explicit authorization present | PASS | The user explicitly authorized this second bounded execution window. |
+
+Control 4 was material and mandatory. Under SPEC-048 and the user's instruction, execution stopped without opening an editor, authenticating, posting, or attempting to rescue the interaction.
+
+## 24. Attempt 2 execution state
+
+- Pre-post control result: **FAIL**
+- Authenticated posting capability: **NOT AVAILABLE / NOT ESTABLISHED**
+- Interaction executed: **NO**
+- Public replies published in Attempt 2: `0`
+- Exact published text: `NOT APPLICABLE — nothing was published`
+- Published identity: `NOT APPLICABLE`
+- Permalink: `NOT APPLICABLE`
+- Publication timestamp: `NOT APPLICABLE`
+- Delivery: `NOT EXECUTED`
+- Observation window: `NOT OPENED`
+- Observation deadline: `NOT APPLICABLE`
+- Follow-up or other actor contact: `0`
+- Publication allowance consumed: **NO**
+
+## 25. Attempt 2 evidence ledger
+
+| State | Value after Attempt 2 | Basis |
+|---|---|---|
+| Surface access | PARTIAL | Public thread content and a logged-out Reply control were visible; authenticated posting access was not available. |
+| Intervention permission | FRESHLY AUTHORIZED / RULE-COMPATIBLE / WINDOW CLOSED ON FAILURE | The user supplied fresh authorization and the rules permitted the bounded draft, but the attempt ended at the failed control. |
+| Delivery | NOT EXECUTED | No reply was published. |
+| Exposure | UNKNOWN | Publication did not occur; no exposure inference is possible. |
+| Semantic engagement | UNKNOWN | No delivered intervention or qualifying response exists. |
+| Account/channel identity | Fixed target identified; response state NOT APPLICABLE | `WebPlanning_SIM-Ltd` remained the fixed actor/account. |
+| Decision authority/accountability | DIRECT for own migration only | No OpenAI roadmap or general model authority is inferred. |
+| Authorship provenance | UNKNOWN | No authorship inference was made. |
+| Decision-state refinement | UNKNOWN | No interaction occurred. |
+| Stated next action | UNKNOWN | No interaction occurred. |
+| Observed downstream action | UNKNOWN | Not tested. |
+| Economic effect | UNKNOWN | Not tested. |
+| Value capture | UNKNOWN | Not tested. |
+
+## 26. Attempt 2 response classification and verdict
+
+Response classes R1–R6 do not apply because the interaction was not delivered. No silence, attention, comprehension, trust, behavioral, value, or decision-effect conclusion is justified.
+
+**Attempt 2 verdict: E — INVALID / NOT EXECUTED**
+
+The failure is limited to authenticated posting capability and the resulting unavailable reply path. It does not change the candidate's evidentiary state.
+
+## 27. Attempt 2 operational telemetry
+
+- Fresh control-check completion timestamp: `2026-09-11T20:07:55Z`
+- Fresh authorization events: `1`
+- Material control failures: `1` — authenticated posting capability unavailable/not established
+- External interactions: `0`
+- Published replies: `0`
+- Incremental spend: `€0`
+- Observation window: `NOT OPENED`
+- Evidence yield: fresh surface, policy, exact-resolution, draft-integrity, and posting-capability control evidence only
+- Active minutes: `UNKNOWN` — a prospective start timestamp was not captured, so elapsed tool time is not substituted
+- Compute/model cost: `UNKNOWN`
+
+## 28. Attempt 2 integrity boundary
+
+No post, reply, reaction, vote, tag, message, follow, private contact, benchmark, code contribution, promotion, duplicate publication, or cross-post occurred. No credentials were entered. No actor profile or unrelated activity was inspected. The prior Attempt 1 record remains intact. Only this appended Experiment 048 execution record is permitted to change.
+
+## 29. Exactly one current next action
+
+Restore and verify authenticated posting capability on the fixed thread before requesting a third, separately authorized execution window.
