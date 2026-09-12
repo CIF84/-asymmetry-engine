@@ -279,3 +279,122 @@ No post, reply, reaction, vote, tag, message, follow, private contact, benchmark
 ## 29. Exactly one current next action
 
 Restore and verify authenticated posting capability on the fixed thread before requesting a third, separately authorized execution window.
+
+---
+
+# Fresh Authorized Execution Attempt 3 — 2026-09-12
+
+## 30. Current-state override and fresh authorization
+
+The user supplied a third, fresh, explicit authorization for exactly one bounded SAME-surface reply on the fixed thread, conditional on every fresh pre-post control passing. This authorization followed an independent capability-only verification that established the authenticated identity `CIF84`, an available normal reply control, and no interaction. It did not alter either prior attempt.
+
+Sections 1–29 above remain the verbatim historical record of the two failed/non-executed attempts. The current Experiment 048 state is now **SUBMITTED / AWAITING PLATFORM APPROVAL — PUBLIC DELIVERY NOT VERIFIED**. This appended state supersedes the earlier top-level closed status without rewriting historical evidence.
+
+## 31. Fresh current-state and exact-resolution check
+
+The fixed native thread was inspected read-only before any draft was loaded into the editor.
+
+- Correct thread and fixed actor/account `WebPlanning_SIM-Ltd`: confirmed.
+- Authenticated identity `CIF84` and normal reply path: confirmed.
+- Thread state before treatment: one public post (`1 / 1`), no public replies, 63 displayed views, and 2 displayed reactions.
+- Decision state: still live; the actor continued to report no viable replacement and requested a migration path before the stated shutdown date.
+- Apparent new qualification-results material: **not new after SPEC-048**. The actor post was last edited on 2026-09-09, while SPEC-048 was committed on 2026-09-11. The same fixed-corpus 100% versus approximately 25% evidence was already the basis of SPEC-048.
+- Public discriminator: **PARTIAL**. The post reports aggregate outcomes, held controls, failure modes, and one example, but not the paired per-class distribution and configuration/evaluation fields requested by the frozen treatment.
+- Exact-resolution check: directly relevant current official OpenAI model and Realtime configuration documentation confirms configurable reasoning effort and tool/function-calling controls, but supplies no workload-specific paired result, no substitute for the actor-held matrix, and no exact resolution of this migration decision.
+- Original treatment validity: **YES**. The reviewed 204-word request remained current, necessary, non-duplicative, and unchanged.
+
+## 32. Attempt 3 fresh pre-post controls
+
+| # | Required control | Result | Fresh evidence |
+|---|---|---|---|
+| 1 | Correct thread | PASS | Native URL and title matched SPEC-048. |
+| 2 | Fixed actor | PASS | The sole public post remained attributable to `WebPlanning_SIM-Ltd`. |
+| 3 | Decision still live | PASS | No public closing or migration-completion update was present. |
+| 4 | Authenticated posting capability | PASS | Authenticated session and identity `CIF84` were established; a normal reply editor was available. |
+| 5 | Reply control/path available | PASS | The fixed thread accepted a normal same-thread reply draft. |
+| 6 | No equivalent discriminator already public | PASS | Only the partial aggregate qualification evidence was public; the requested paired fields remained absent. |
+| 7 | No exact resolver emerged | PASS | Bounded official-documentation review found no workload-specific resolution or equivalent evidence package. |
+| 8 | Current community rules permit the interaction | PASS | The relevant technical, constructive, non-promotional request complies and requests no sensitive data. |
+| 9 | Reviewed draft remains within scope | PASS | It remained byte-for-byte equal to the reviewed SPEC-048 draft and 204 words. |
+| 10 | No confidential-data issue | PASS | Raw prompts, schemas, logs, transcripts, customer data, and confidential implementation details are expressly excluded. |
+| 11 | One-comment publication allowance unused | PASS | No prior Spec-048 reply had been submitted or published. |
+| 12 | Fresh explicit authorization present | PASS | The user explicitly opened this third conditional execution window. |
+
+**Pre-post control result: PASS.** The treatment was loaded only after the freshness and exact-resolution checks were complete.
+
+## 33. Attempt 3 submitted interaction
+
+- Interaction executed: **YES — one reply submitted**
+- Submitted identity: `CIF84`
+- Follow-ups: `0`
+- Reactions, tags, messages, private contact, cross-posts, duplicate posts, benchmark execution, or other interventions: `0`
+- Platform state at initial verification: **AWAITING APPROVAL**
+- Public publication: **NOT YET VERIFIED**
+- Public permalink: `NOT AVAILABLE — the pending item exposed no public post permalink`
+- Exact publication timestamp: `NOT AVAILABLE — public publication has not been verified`
+- Initial delivery-verification timestamp: `2026-09-12T06:55:18Z`
+- Observation window: `NOT OPENED`
+- Observation deadline: `NOT APPLICABLE until a public publication timestamp is verified`
+
+The forum rendered the complete submitted text under `CIF84` with an `AWAITING APPROVAL` label while the topic still displayed `1 / 1`. Submission is therefore verified, but public delivery, public availability, and exposure are not.
+
+## 34. Exact submitted text
+
+The following is the unchanged reviewed 204-word treatment submitted once:
+
+> It looks like you may already have the one comparison that could make this migration question much more tractable: the fixed-corpus qualification you ran with the application, instructions, tools, voice setup and language held constant while changing the model.
+>
+> The public 100% vs ~25% aggregate is enough to show a reported regression, but not enough to tell whether the failures are broad across the workload or concentrated in a smaller class such as required-tool use, reasoning/tool-choice configuration, prompting, or the evaluation contract.
+>
+> If you already have the results in aggregate form, would you be willing to share one anonymized table with roughly:
+>
+> `intent/test class | case count | legacy passes | 2.1 passes | tool required? | correct/wrong/no-tool counts (if relevant)`
+>
+> plus the pass rubric/acceptance threshold, `gpt-realtime-2.1` reasoning-effort setting, tool-choice mode, retry policy, and confirmation of which controls were held constant?
+>
+> Raw prompts, tool schemas, logs, transcripts, customer data or confidential implementation details are not needed.
+>
+> That should be enough to distinguish whether there is a bounded adaptation hypothesis worth testing versus a broader capability/roadmap dependency where more migration advice would just be guesswork. If the decision has already moved or I have framed the comparison incorrectly, that would also be useful to know.
+
+## 35. Attempt 3 initial evidence ledger
+
+| State | Value after Attempt 3 | Basis |
+|---|---|---|
+| Surface access | VERIFIED | Correct native thread and working authenticated reply path were observed. |
+| Intervention permission | FRESHLY AUTHORIZED / RULE-COMPATIBLE / CONSUMED BY ONE SUBMISSION | All controls passed and exactly one submission occurred. No retry or follow-up is authorized. |
+| Delivery | PENDING MODERATION — NOT VERIFIED | The submitted reply is labeled `AWAITING APPROVAL`; it is not yet a verified public publication. |
+| Exposure | UNKNOWN | Submission and moderation visibility do not establish actor exposure. |
+| Semantic engagement | UNKNOWN | No qualifying actor response has been observed. |
+| Account/channel identity | Fixed target `WebPlanning_SIM-Ltd`; submitter `CIF84` | Both account identities were directly displayed on the fixed thread. |
+| Decision authority/accountability | DIRECT for the actor's own migration only | No OpenAI roadmap or general model authority is inferred. |
+| Authorship provenance | UNKNOWN | No human/AI authorship inference was made. |
+| Decision-state refinement | UNKNOWN | The submitted request has not produced observable actor evidence. |
+| Stated next action | UNKNOWN | No qualifying response exists. |
+| Observed downstream action | UNKNOWN | Not observed or required at initialization. |
+| Economic effect | UNKNOWN | Not tested. |
+| Value capture | UNKNOWN | Not tested. |
+
+## 36. Evidence and candidate state
+
+The refreshed public evidence establishes only that the fixed actor/account reported a same-corpus comparison with 100% legacy success versus approximately 25% `gpt-realtime-2.1` success, claimed the application, instructions, tools, voice setup, language, and corpus were held constant, described several failure modes, and still framed its own migration as unresolved.
+
+Still missing are paired per-intent case counts and pass counts, the success rubric and acceptance threshold, required-tool outcome counts, the `gpt-realtime-2.1` reasoning-effort setting, tool-choice mode, and retry policy. No causal model conclusion, verified human cognition, downstream migration action, economic effect, value capture, or FORGE entitlement is established.
+
+Candidate state: **HOLD — treatment submitted, public delivery pending moderation**. Experiment 048 remains **OPEN only for platform-delivery resolution; the 72-hour behavioral observation window has not opened**.
+
+## 37. Attempt 3 operational telemetry and integrity
+
+- Fresh authorization events: `1`
+- Authorized submissions used: `1`
+- Public delivery confirmations: `0`
+- Follow-ups/retries: `0`
+- Incremental spend: `€0`
+- Observation window: `NOT OPENED`
+- Compute/model cost: `UNKNOWN`
+- Evidence yield: refreshed current-state, exact-resolution, control, authenticated-submission, and moderation-state evidence
+
+The two prior failed attempts remain unchanged. No actor profile or unrelated activity was inspected. No confidential or raw material was requested. No benchmark, code contribution, promotion, private contact, tag, reaction, duplicate, or cross-post occurred. Only this Experiment 048 record changes.
+
+## 38. Exactly one next action
+
+Wait for the forum's moderation outcome to surface independently; do not poll, re-submit, or follow up.
