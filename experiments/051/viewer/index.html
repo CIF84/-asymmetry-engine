@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>AE Static Control Plane V0</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#overview">Skip to opportunity overview</a>
+    <header class="masthead">
+      <div class="masthead__eyebrow">EXPERIMENT 051 · REPRESENTATION V0</div>
+      <div class="masthead__grid">
+        <div>
+          <h1>What AE knows</h1>
+          <p class="masthead__lede">A repository-grounded map of opportunity distance—not a scorecard, ranking, or live-world monitor.</p>
+        </div>
+        <div class="horizon-card">
+          <span>Evidence boundary</span>
+          <strong>Historical repository state</strong>
+          <small>No external freshness is implied.</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="legend-panel" aria-labelledby="legend-title">
+        <div>
+          <p class="section-kicker">READING THE MAP</p>
+          <h2 id="legend-title">Independent dimensions, explicit uncertainty</h2>
+        </div>
+        <div id="distance-legend" class="legend" aria-label="Distance vocabulary"></div>
+        <p class="legend-note"><strong>UNKNOWN ≠ FAR.</strong> <strong>BLOCKED ≠ TERMINAL.</strong> Lifecycle describes the opportunity; each distance describes one evidence axis.</p>
+      </section>
+
+      <section id="overview" class="section-block" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">OPPORTUNITY OVERVIEW</p>
+            <h2 id="overview-title">Business possibility space</h2>
+            <p>Chronological by first experiment. The interface does not rank or recommend automatically.</p>
+          </div>
+          <div id="lifecycle-counts" class="lifecycle-counts" aria-label="Lifecycle counts"></div>
+        </div>
+
+        <div class="controls" aria-label="Overview controls">
+          <label>
+            <span>Filter lifecycle</span>
+            <select id="lifecycle-filter">
+              <option value="ALL">All lifecycle states</option>
+              <option value="ACTIVE">Active</option>
+              <option value="DORMANT">Dormant</option>
+              <option value="TERMINAL">Terminal</option>
+              <option value="REVIEW">Review</option>
+            </select>
+          </label>
+          <label>
+            <span>Find an opportunity</span>
+            <input id="opportunity-search" type="search" placeholder="Name, blocker, experiment…" autocomplete="off">
+          </label>
+          <button id="reset-controls" class="quiet-button" type="button">Reset</button>
+        </div>
+
+        <div class="table-wrap">
+          <table class="opportunity-table">
+            <caption class="sr-only">Historical opportunities and their six independent distance states</caption>
+            <thead>
+              <tr>
+                <th scope="col">Opportunity</th>
+                <th scope="col">Lifecycle</th>
+                <th scope="col">Resolution</th>
+                <th scope="col">Access</th>
+                <th scope="col">Adoption</th>
+                <th scope="col">Control</th>
+                <th scope="col">Regulatory</th>
+                <th scope="col">Economic</th>
+                <th scope="col">Blocker / next observation</th>
+                <th scope="col">Evidence horizon</th>
+              </tr>
+            </thead>
+            <tbody id="opportunity-rows"></tbody>
+          </table>
+        </div>
+        <p id="empty-state" class="empty-state" hidden>No fixture matches the current filter.</p>
+      </section>
+
+      <section id="detail" class="section-block detail-shell" aria-labelledby="detail-title">
+        <div class="section-heading section-heading--detail">
+          <div>
+            <p class="section-kicker">OPPORTUNITY DETAIL</p>
+            <h2 id="detail-title">Inspect the evidence state</h2>
+          </div>
+          <label class="detail-picker">
+            <span>Selected opportunity</span>
+            <select id="detail-select"></select>
+          </label>
+        </div>
+        <div id="detail-content" aria-live="polite"></div>
+      </section>
+
+      <section class="boundary-panel" aria-labelledby="boundary-title">
+        <p class="section-kicker">ARCHITECTURE BOUNDARY</p>
+        <h2 id="boundary-title">Static evidence lens only</h2>
+        <p>This V0 reads fixed local fixtures. It performs no inference, scoring, prioritization, migration, monitoring, reactivation, actor contact, or external lookup.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Asymmetry Engine · Experiment 051</span>
+      <span id="fixture-version"></span>
+    </footer>
+
+    <script src="../opportunities.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
