@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>AE Human Attention Control Plane V1</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#control-plane">Skip to control plane</a>
+    <header class="masthead">
+      <div class="eyebrow">EXPERIMENT 052 · CONTROL V1</div>
+      <div class="masthead-grid">
+        <div>
+          <h1>What needs me?</h1>
+          <p>A bounded attention map above the frozen opportunity evidence—not a rank, urgency score, live monitor, or authorization system.</p>
+        </div>
+        <div class="boundary-card">
+          <span>Evidence boundary</span>
+          <strong>Historical repository state + labeled synthetic scenarios</strong>
+          <small>No live-world freshness or automatic classification.</small>
+        </div>
+      </div>
+      <div class="reading-path" aria-label="Reading path">
+        <span><b>CONTROL</b> What needs me?</span><i>→</i>
+        <span><b>STATE</b> What does AE know?</span><i>→</i>
+        <span><b>WHY</b> Why?</span><i>→</i>
+        <span><b>EVIDENCE</b> How did belief evolve?</span>
+      </div>
+    </header>
+
+    <main id="control-plane">
+      <section class="guardrail" aria-labelledby="guardrail-title">
+        <div>
+          <p class="section-kicker">HOW TO READ THIS</p>
+          <h2 id="guardrail-title">Control state and opportunity state are orthogonal</h2>
+        </div>
+        <p><strong>Attention is not priority.</strong> NO ACTION does not mean low value. BLOCKED does not mean bad. DORMANT does not mean dead. Synthetic scenarios are striped and never count as historical AE evidence.</p>
+      </section>
+
+      <section class="control-summary" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">TOP CONTROL LAYER</p>
+            <h2 id="summary-title">Human attention at a glance</h2>
+          </div>
+          <p id="summary-note" class="summary-note"></p>
+        </div>
+        <div id="control-groups"></div>
+      </section>
+
+      <section id="detail" class="detail-shell" aria-labelledby="detail-title">
+        <div class="section-heading detail-heading">
+          <div>
+            <p class="section-kicker">AUDITABLE DRILL-DOWN</p>
+            <h2 id="detail-title">State → why → movement → evidence</h2>
+          </div>
+          <label>
+            <span>Inspect item</span>
+            <select id="detail-select"></select>
+          </label>
+        </div>
+        <div id="detail-content" aria-live="polite"></div>
+      </section>
+
+      <section class="architecture-boundary">
+        <p class="section-kicker">ARCHITECTURE BOUNDARY</p>
+        <h2>Static experimental lens only</h2>
+        <p>This viewer performs no inference, ranking, prioritization, monitoring, notification, actor contact, external lookup, state transition, or consequential action. Every control state is manually authored for this bounded experiment.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Asymmetry Engine · Experiment 052</span>
+      <span id="fixture-version"></span>
+    </footer>
+
+    <script src="../../051/opportunities.js"></script>
+    <script src="control-fixtures.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
