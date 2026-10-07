@@ -226,3 +226,40 @@ Commit SHA: the local commit introducing these two artifacts and the `IMPLEMENTA
 - **[RECORDED]** Integrity: exactly six cohort rows; all 35 required sections present; repository source links resolve; each independent frontier distribution sums to six; family/instance/blocker arithmetic checked. All tracked baseline files except mechanical STATUS unchanged; only the two permitted 054 files added; pre-existing untracked files preserved.
 - **[RECORDED]** Existing tests: **89 passed**. `git diff --check`: PASS. Final staged scope/whitespace check is required before commit.
 - Operational endpoint: **IMPLEMENTATION_FROZEN**; local execution complete, independent review recommended, debrief/acceptance not fabricated, no push authorized or performed.
+
+## Approved debrief and local closure — 2026-10-07
+
+### Durable approved source and scope
+
+**[RECORDED]** [Independent ChatGPT review](review.md) at `8aac66fb49602fada2dce0c4a5da7b2124be8d35` approves the published report and manual fixture with **VERDICT A SUPPORTED; NO CORRECTIONS REQUIRED BEFORE DEBRIEF/CLOSURE**. Reviewed preparation ref: `2482e36f9fc8b341d01175848583c6b534bbffc8`; frozen execution: `29b36c0d12514138998952b21c423b6af5c138ba`; canonical review base: `00ac720cd98974d5354aafe1bf5fae3a165b4fba`.
+
+The human handoff `Record the approved debrief and close the active work.` authorizes mechanical transcription of that already-approved interpretation and local closure under the operating protocol. The original report above is preserved byte-for-byte as a historical prefix; the reviewed manual fixture and source review are unchanged. This append supplies no new empirical evidence or human testing result.
+
+### Final approved interpretation
+
+- **Final verdict: A — MANUAL IDENTITY/EVIDENCE CONTRACT VALIDATED**, within SPEC-054's bounded manual meaning.
+- Six bounded family hypotheses are represented; three supported historical decision instances are CRM, Superset and realtime. Cocoa, EV and Canadian remain family-only with instance identity UNKNOWN/UNRESOLVED; no actor is manufactured from classes, configurations, benchmarks or demo shipments.
+- All six historical inventory admission events/times remain UNKNOWN. Selection into this validation cohort is separate from historical admission; proposed prospective admission is not backdated.
+- Independent frontiers preserve delivery versus exposure, decision effect versus downstream action, economic consequence versus AE-caused effect, intended paid pilot versus WTP, and submission/moderation versus verified delivery.
+- Scoped lifecycle/control is supported at each recorded historical horizon. CRM family DORMANT and instance REVIEW are defensible; EV TERMINAL concerns the historical tested residual thesis. Historical permissions are not reusable authority; current opportunity control remains NO CURRENT EVIDENCE.
+- Blocker/reactivation semantics preserve contingent, structural-at-horizon and unresolved distinctions. Rediscovery or new evidence does not automatically create unique opportunities; continuity must be supported or remain UNRESOLVED. Historical verdicts are preserved.
+- Counts are bounded cohort-validation arithmetic at mixed historical horizons, with explicit units and missingness. They are not Engine totals, current external states, or conversion claims.
+- Actor, beneficiary, product buyer, AE buyer/payer, exchange path and economic effect remain distinct; no AE counterparty evidence is invented.
+- **Opportunity Memory: PARTIAL overall**: three STRONG bounded historical-instance memories and three PARTIAL family-only memories. The manual contract preserves settled reasoning and fresh-evidence requirements without recovering absent facts.
+- Nine manual field groups are supported by cohort pressure and do not constitute nine production entities. No ranking, registry, automated deduplication, event store or transition metric is earned.
+- **READY FOR PROSPECTIVE CAPTURE** is approved as manual semantic readiness only. The hypothetical cases do not prove prospective consistency, operator usability at scale or production architecture.
+- **Historical-backfill disposition: start prospectively and preserve older history as partial.** No full backfill or further archaeology is earned by this cohort result.
+- **Later Engine-state representation: conditionally supported, not authorized.** A fresh contract may test representation using explicitly prospective/manual contract data and clearly labeled partial history. The six-case cohort is not a complete Engine population.
+- **Required corrections: none before debrief/closure.** No production software/schema/backfill entitlement follows. **RECOVERY ≠ EXECUTION** remains a separately alignable finding; no protocol edit is authorized.
+
+### Approved direction and authority boundary
+
+The approved future direction is to start prospectively while preserving older history as partial, under a separately bounded authorized contract. The independently reviewed semantic result may support a later representation contract; this local closure executes neither direction. The report's original next action requesting independent review has been satisfied and remains historical text.
+
+The review and this handoff do not authorize merge/push to main, closure publication on any branch, prospective capture execution, Experiment 055, Engine/funnel UI, production identity/persistence, broader backfill, living-document alignment, protocol edits or external action. No new packet is created or activated.
+
+### Local closure endpoint
+
+Approved interpretation has been transcribed without strengthening UNKNOWN or changing the reviewed evidence. The original execution timing/spend and freeze seal remain historical; this bookkeeping append does not extend or replace them. Integrity/tests are checked for the closure commit. The operational endpoint is **CLOSURE_READY**, pending a fresh explicit `Publish the approved closure.` handoff. Earlier review-branch publication authority does not authorize pushing this local closure or merging it into main.
+
+**Closure integrity [RECORDED]:** 89 existing tests passed; whitespace checks passed; original reviewed report bytes preserved as prefix; fixture and approved review unchanged; only this append and mechanical STATUS differ from the approved-review commit. Prior experiments (including 051/052/053), specifications, living/protocol documents, production source/tests/schema, unrelated files and both main refs are preserved. Commit only those two permitted closure files locally; no push.

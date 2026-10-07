@@ -4,7 +4,7 @@
 
 **Branch:** `codex/review-054`
 
-**Operational state:** `REVIEW_READY`
+**Operational state:** `CLOSURE_READY`
 
 ## Current project state
 
@@ -26,7 +26,7 @@ Bounded representation milestones:
 - Secondary goal: test whether the contract is sufficient for prospective truthful Engine accounting.
 - Result: `experiments/054/opportunity-identity-evidence-contract-test.md`.
 - Manual fixture: `experiments/054/manual-cohort-fixture.md`.
-- Execution verdict: **A — MANUAL IDENTITY/EVIDENCE CONTRACT VALIDATED** [DERIVED; independent review pending].
+- Final approved verdict: **A — MANUAL IDENTITY/EVIDENCE CONTRACT VALIDATED** [approved bounded interpretation].
 - Semantic readiness: **READY FOR PROSPECTIVE CAPTURE**, manual and bounded; actual prospective use and current whole-Engine totals remain unproven.
 - Identity result: six represented family hypotheses; three supported historical decision instances; three family-only records with instance identity/relationship unresolved.
 - Opportunity Memory: **PARTIAL overall** (three strong bounded historical-instance records, three partial family-only records).
@@ -34,34 +34,36 @@ Bounded representation milestones:
 - Execution baseline: `00ac720cd98974d5354aafe1bf5fae3a165b4fba`.
 - Prospective interval: `2026-10-07T10:16:55Z` → `2026-10-07T10:27:12Z`; 10m 17s.
 - Integrity: 89 tests passed; scope/source-link/arithmetic/whitespace checks passed; prior evidence, specifications, living/protocol docs, source/tests/schema unchanged.
-- Frozen execution commit: `29b36c0d12514138998952b21c423b6af5c138ba`; the report and manual fixture remain byte-for-byte unchanged.
+- Frozen execution commit: `29b36c0d12514138998952b21c423b6af5c138ba`; its reviewed report text remains unchanged as the original prefix; manual fixture unchanged.
+- Approved debrief/local closure: appended section `Approved debrief and local closure — 2026-10-07` in the report.
+- Local closure commit: the commit appending that section and this STATUS transition; no closure publication is authorized.
 - Review branch: `codex/review-054`.
 - Review base: canonical `main` at `00ac720cd98974d5354aafe1bf5fae3a165b4fba`.
-- Review scope: the two frozen 054 artifacts and mechanical STATUS transitions only; review preparation changes only STATUS.
+- Review preparation scope: the two frozen 054 artifacts and mechanical STATUS transitions only; preparation at `2482e36` changed only STATUS.
 - Review location: `https://github.com/CIF84/-asymmetry-engine/tree/codex/review-054`.
-- Review publication authority: explicit human handoff `Prepare the active work for review.` on 2026-10-07, Class D under `docs/OPERATING_PROTOCOL.md`; only the bounded review branch may be pushed.
+- Review preparation ref: `2482e36f9fc8b341d01175848583c6b534bbffc8`.
+- Durable approved review: `experiments/054/review.md`, introduced at `8aac66fb49602fada2dce0c4a5da7b2124be8d35`.
+- Review outcome: **APPROVED — VERDICT A SUPPORTED; NO CORRECTIONS REQUIRED BEFORE DEBRIEF/CLOSURE**.
+- The approved review covers the exact frozen report and fixture; its source text is preserved unchanged.
+- Current debrief authority: explicit human handoff `Record the approved debrief and close the active work.`; local transcription/closure only, no push.
 - No database/schema/UI/software implementation is authorized.
 - No historical backfill beyond the six-case cohort is authorized.
 
 ## Authority now
 
-Bounded execution remains frozen. This handoff permits review preparation and publication of only `codex/review-054`. Allowed now:
-- inspect the exact frozen artifacts and integrity evidence;
-- publish the bounded review branch and verify its synchronization;
-- preserve the six-case result and unchanged historical evidence;
-- await independent ChatGPT review of the published Git state.
+Approved debrief transcription and local closure are complete. Allowed now:
+- inspect the closure, approved review and integrity evidence;
+- preserve the reviewed evidence and local closure;
+- await fresh explicit publication authority.
 
 Not authorized:
-- push Experiment 054 to `main` or merge the review branch into `main`;
-- iterate the frozen result before prescribed review;
-- execute prospective capture, a new experiment, or UI work from this result alone;
-- implement Engine UI/funnel;
+- push closure commits to any branch or merge the review branch into `main`;
+- execute prospective capture, Experiment 055 or UI work from this result alone;
 - create production opportunity identity/persistence;
 - backfill the full repository;
-- modify 051/052/053;
+- modify 051/052/053 frozen artifacts;
 - modify living or protocol docs;
-- run fresh RADAR;
-- use external research;
+- run fresh RADAR or external research;
 - perform consequential external action.
 
 ## Frozen and historical pointers
@@ -69,32 +71,19 @@ Not authorized:
 - Experiment 051 CLOSED and frozen.
 - Experiment 052 CLOSED; V1 remains frozen.
 - Experiment 053 CLOSED at published closure; verdict B — data-contract repair first.
-- Experiment 054 frozen execution at `29b36c0d12514138998952b21c423b6af5c138ba`; bounded review packet at REVIEW_READY on `codex/review-054`; independent approval and closure publication remain pending.
+- Experiment 054 approved report/fixture and review are exposed through `codex/review-054`. Local closure is complete at CLOSURE_READY; closure publication and merge into main remain unauthorized.
 - Historical evidence remains in `specs/` and `experiments/`; inspect only as required by SPEC-054.
 
-## Independent review packet
+## Completed independent review
 
-Review the actual `codex/review-054` Git state against SPEC-054, using the report and manual fixture at exact frozen commit `29b36c0d12514138998952b21c423b6af5c138ba`. Repository source evidence is linked from the artifacts. No conversation-only input is required.
-
-Required judgments:
-- whether verdict A is justified rather than a B/C/D/E outcome;
-- whether six family hypotheses, three supported decision instances and three unresolved family-only records are faithful and avoid invented identities;
-- whether historical admission UNKNOWN and retrospective cohort inclusion remain distinct;
-- whether independent frontiers, missingness and mixed historical horizons support the bounded arithmetic without Engine-total or current-state claims;
-- whether CRM family DORMANT versus instance REVIEW and EV historical terminal reassessment preserve original evidence/verdicts;
-- whether the seven identity tests and five hypothetical prospective-use cases safely distinguish new instance, new evidence, rediscovery and unresolved continuity;
-- whether nine manual field groups meet the minimality challenge and Opportunity Memory PARTIAL is supported;
-- whether READY FOR PROSPECTIVE CAPTURE and the conditional later representation gate are justified only within their stated manual/review/fresh-contract bounds;
-- whether any correction is required before debrief/closure, while preserving the software/non-build and historical-backfill boundaries.
-
-The reviewer must durably record findings and explicit approval/corrections in Git before a debrief handoff. Review preparation supplies no approval or acceptance evidence.
+The durable approved review at `8aac66fb49602fada2dce0c4a5da7b2124be8d35` supports verdict A, the six-family/three-supported-instance distinction, historical admissions UNKNOWN, independent frontiers and truthful bounded counts, Opportunity Memory PARTIAL, manual semantic readiness, prospective/partial-history disposition and conditional later representation under a fresh contract. No corrections are required before closure. The source review, manual fixture and reviewed report prefix remain intact.
 
 ## Next unresolved decision
 
-Does independent ChatGPT review support the exact manual contract, six-case identity distinctions, bounded counts, verdict A, manual readiness and conditional later representation gate? No review approval or human acceptance has been supplied for Experiment 054.
+Whether to authorize publication of the exact local Experiment 054 closure history. The approved future direction is to start prospectively and preserve older history as partial under a fresh bounded contract; prospective capture execution, Experiment 055, UI, software, broader backfill, living-truth alignment and protocol edits remain unauthorized.
 
 ## Next operation
 
-Independent ChatGPT review of the published `codex/review-054` packet. Preserve the frozen report and fixture. Debrief transcription requires durable approved reviewer evidence and a fresh handoff; prospective capture, UI work and new experiments require separately bounded contracts.
+Await fresh explicit `Publish the approved closure.` authority. Verify the exact closure commit, approved history, clean scope and normal publication path before any merge or push.
 
-Review-branch publication authorizes neither merge nor a push to `main`, nor closure publication.
+Remain CLOSURE_READY until approved publication. The earlier review handoff does not authorize pushing this local closure or merging into main.
