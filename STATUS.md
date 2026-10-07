@@ -4,7 +4,7 @@
 
 **Branch:** `main`
 
-**Operational state:** `DEBRIEF_READY`
+**Operational state:** `BLOCKED`
 
 ## Current project state
 
@@ -19,12 +19,13 @@ Asymmetry Engine is an experimental system for discovering economically conseque
 - Acceptance packet: `experiments/052/acceptance-packet.md`
 - Implementation commit: `1ffb110bc2cd564ddeaf05f51dc2db5ebe33730c`
 - Implementation state: frozen; do not modify the V1 viewer, fixtures, or implementation evidence.
-- Human acceptance evidence: supplied and approved for debrief interpretation, but not yet recorded in the Experiment 052 closure.
-- Current operation: record the approved human debrief, reconcile the Experiment 052 result, run integrity checks, and prepare a local closure commit.
+- Human acceptance evidence: reported as supplied and approved, but the exact observations, timing, answers, and judgment are not present in Git or the current durable handoff. The frozen acceptance packet still contains only `HUMAN ANSWER REQUIRED` placeholders.
+- Blocker: Codex cannot transcribe or interpret evidence it cannot inspect, and must not reconstruct human acceptance from the implementation.
+- Clearing condition: provide a durable repository/Git reference containing the exact approved Experiment 052 acceptance evidence, or provide that exact evidence in a fresh bounded handoff for immediate transcription.
 
 ## Authority now
 
-Allowed after a fresh bounded handoff:
+Allowed after the blocker is cleared through a fresh bounded handoff:
 
 - inspect repository evidence;
 - transcribe already-approved human acceptance evidence without changing its meaning;
@@ -49,10 +50,10 @@ Not authorized:
 
 ## Next unresolved decision
 
-Does the approved Experiment 052 human evidence earn Control V1 under the specification's verdict rules, and what single next action follows?
+Does the approved Experiment 052 human evidence earn Control V1 under the specification's verdict rules, and what single next action follows? This cannot be decided until the exact evidence is inspectable.
 
 ## Next operation
 
-`Record the approved debrief and close the active work.`
+Provide the durable location or exact content of the already-approved Experiment 052 acceptance evidence.
 
-This means prepare the local closure and move to `CLOSURE_READY`. It does **not** authorize pushing to `main`.
+Do not rerun the human test, infer answers, modify frozen V1, or begin Experiment 053. Once the evidence is inspectable, return to `DEBRIEF_READY` and execute `Record the approved debrief and close the active work.` Pushing remains unauthorized.
