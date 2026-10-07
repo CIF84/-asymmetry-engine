@@ -4,7 +4,7 @@
 
 **Branch:** `codex/review-053`
 
-**Operational state:** `REVIEW_READY`
+**Operational state:** `CLOSURE_READY`
 
 ## Current project state
 
@@ -26,12 +26,17 @@ The next uncertainty is the Engine layer: **How is AE itself performing?**
 - Goal: determine whether AE can reconstruct a truthful system-level opportunity funnel/state view from existing repository evidence before any funnel UI is built.
 - Secondary goal: assess whether historical sidelined opportunities are recoverable enough to support future Opportunity Memory/reactivation learning.
 - Audit artifact: `experiments/053/engine-state-funnel-semantics-audit.md`.
-- Execution verdict: **B — PARTIAL SEMANTICS; DATA-CONTRACT REPAIR FIRST**.
+- Final approved verdict: **B — PARTIAL SEMANTICS; DATA-CONTRACT REPAIR FIRST**.
 - Opportunity Memory recoverability: **PARTIAL**; selected chain histories are strong, complete population/identity/current-state evidence is missing.
-- Frozen audit commit: `282a2eeaf55764d4a6da309b6d94e4275344b410`; audit contents remain unchanged.
+- Frozen audit commit: `282a2eeaf55764d4a6da309b6d94e4275344b410`; its reviewed text remains unchanged as the original prefix of the artifact.
+- Approved debrief/local closure: appended section `Approved debrief and local closure — 2026-10-07` in the audit artifact.
+- Local closure commit: the commit appending that section; no closure publication is authorized.
 - Review branch: `codex/review-053`.
 - Review base: canonical `main` at `71c28d2568c95958d0ef9b3b3ba86f8069e928a2`.
-- Review scope: only `experiments/053/engine-state-funnel-semantics-audit.md` and mechanical `STATUS.md` transitions. The branch retains the original audit commit and adds only this review-state update.
+- Review preparation scope at `6f34fcc02868e6a68153e9afdc86b7816d69c27f`: the frozen audit and mechanical STATUS transitions.
+- Durable approved review: `experiments/053/review.md`, introduced at `ce442caa364b9da5f01d36421cab2322f15748e5`.
+- Review outcome: **APPROVED — VERDICT B SUPPORTED; NO CORRECTIONS REQUIRED BEFORE DEBRIEF/CLOSURE**.
+- Approved review covers the exact frozen audit at `282a2eeaf55764d4a6da309b6d94e4275344b410`; the source review is preserved unchanged.
 - Review location: `https://github.com/CIF84/-asymmetry-engine/tree/codex/review-053`.
 - Integrity: 89 tests passed; tracked working tree was clean before preparation; frozen audit, prior experiments, specifications, living/protocol docs, source, tests and schema are unchanged by review preparation.
 - No UI/software implementation is authorized.
@@ -39,15 +44,15 @@ The next uncertainty is the Engine layer: **How is AE itself performing?**
 
 ## Authority now
 
-The human handoff `Prepare the active work for review.` authorizes Class D publication of this bounded review branch only. Allowed now:
+Approved debrief transcription and local closure are complete. Allowed now:
 
-- publish and verify only `codex/review-053` under this handoff;
-- perform independent ChatGPT review of the actual published audit and linked evidence;
-- preserve frozen evidence and await a durable approved review/debrief input before closure.
+- inspect the closure, approved review, and integrity evidence;
+- preserve frozen work and the local closure commit;
+- await fresh explicit publication authority.
 
 Not authorized:
 
-- merge the review branch or push Experiment 053 to `main`;
+- push closure commits to any branch or merge the review branch into `main`;
 - implement a funnel/dashboard;
 - create or modify production opportunity identity/persistence;
 - modify 051/052 frozen artifacts;
@@ -60,26 +65,19 @@ Not authorized:
 
 - Experiment 051 is CLOSED at `a4e71855ef9fabc7d74b979d330381f1b77fbbc7`.
 - Experiment 052 is CLOSED; approved closure published before this contract; its V1 implementation remains frozen.
-- Experiment 053 audit is frozen and exposed through the bounded review branch; closure and main-branch publication remain unauthorized.
+- Experiment 053 approved audit/review are exposed through the review branch. Local closure is complete at `CLOSURE_READY`; closure publication and merge into main remain unauthorized.
 - Earlier contracts/evidence remain in `specs/` and `experiments/`; inspect only as required by SPEC-053.
 
-## Independent review packet
+## Completed independent review
 
-Read SPEC-053 and the frozen audit at the published branch, then inspect its repository evidence links as needed. Assess:
-
-1. Whether verdict B follows from the specification's gate and verdict rules, including whether explicitly bounded historical semantics might instead earn verdict A.
-2. Whether identity distinctions, all material counts, historical/sample labels, evidence horizons and UNKNOWN fields are faithful to their cited sources.
-3. Whether terminal/contingent interpretations and PARTIAL Opportunity Memory recoverability preserve source verdicts without inventing identities or current regulatory/actor facts.
-4. Whether the single recommended manual data-contract repair is proportionate, preserves the non-build boundary, and is supported over a later bounded UI test.
-
-Persist the approved review/debrief with the exact reviewed Git ref, verdict assessment, required corrections or their absence, and approved next-action judgment in Git or another explicitly referenced durable source. Do not treat the execution verdict or this review preparation as approval.
+The approved review at `ce442caa364b9da5f01d36421cab2322f15748e5` confirms verdict B, Opportunity Memory = PARTIAL, deferred Engine-state UI, and the single next research recommendation. No corrections are required before closure. The source review and reviewed audit text remain intact.
 
 ## Next unresolved decision
 
-Independent review of whether the audit supports verdict B and the single recommended next action: a bounded manual opportunity identity/evidence-contract repair before Engine-state UI. No repair packet execution, new experiment, living-truth alignment, or UI is authorized by this recommendation.
+Whether to authorize publication of the exact local Experiment 053 closure history. Its approved next research recommendation is a bounded repository-only manual opportunity identity/evidence-contract repair on an explicitly limited existing-evidence cohort; no repair execution, Experiment 054, software, living-truth alignment, or protocol edit is authorized.
 
 ## Next operation
 
-Independent ChatGPT review of `codex/review-053`, followed by durable approved review evidence. Only after that evidence is inspectable and the handoff is complete may `Record the approved debrief and close the active work.` proceed.
+Await fresh explicit authorization for `Publish the approved closure.` Verify the exact closure commit, approved history, and publication path before any merge or push.
 
-Do not execute the recommended repair, infer acceptance, merge, or publish to `main`. Review-branch publication authorizes none of those operations.
+Remain at `CLOSURE_READY` until approved publication. Nothing in the earlier review-branch handoff authorizes pushing this local closure or merging into main.

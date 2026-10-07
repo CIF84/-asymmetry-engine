@@ -379,3 +379,52 @@ This is a recommendation for the next specification/review, not authorization to
 **Commit SHA:** supplied in the completion report after the immutable local execution commit; discoverable as the commit introducing this artifact. No amend or push.
 
 **Operational endpoint:** `IMPLEMENTATION_FROZEN`; audit complete locally, awaiting independent review under a fresh bounded handoff. No review-branch publication, closure, repair execution, or later experiment is performed.
+
+
+## Approved debrief and local closure — 2026-10-07
+
+### Durable review and exact reviewed evidence
+
+- Independent ChatGPT review: [review.md](review.md), introduced at `ce442caa364b9da5f01d36421cab2322f15748e5` on `codex/review-053`.
+- Reviewed preparation ref: `6f34fcc02868e6a68153e9afdc86b7816d69c27f`.
+- Reviewed frozen audit: `282a2eeaf55764d4a6da309b6d94e4275344b410`.
+- Approved outcome: **APPROVED — VERDICT B SUPPORTED; NO CORRECTIONS REQUIRED BEFORE DEBRIEF/CLOSURE**.
+- Local closure baseline: `ce442caa364b9da5f01d36421cab2322f15748e5`, obtained by a normal fast-forward of the same review branch. Neither local nor remote main was merged or changed.
+
+The review inspected the actual published audit and its linked evidence. Its interpretation is the durable input for this debrief. The original audit text above remains byte-for-byte intact as reviewed; this section appends the later approved closure record. Earlier workflow endpoint statements describe their historical freeze, not the current operational state.
+
+### Final verdict and approved interpretation
+
+**B — PARTIAL SEMANTICS; DATA-CONTRACT REPAIR FIRST.**
+
+The independent review supports B under SPEC-053. Historical run summaries and selected chains are reconstructable, but the whole-Engine view lacks supportable system-wide identities, admission/deduplication, dated lifecycle/current states, and attention counts. B is narrower than A because the desired Engine-state UI could turn incomplete records into apparently authoritative totals. C/D do not fit because the operator question is useful, the semantic distinctions are recoverable, and the missing contract is bounded. Required corrections before closure: **NONE**.
+
+**Opportunity Memory: PARTIAL.** Selected chains preserve strong thesis, evidence, history, and blocker context; broader history lacks consistent row-level identity, admission, transition dates, deduplication, and reactivation fields. STRONG would overstate recoverability, while WEAK would understate selected-chain evidence.
+
+The review approves the separation of source records, economic signals, run-local candidates, opportunity referents, and experiments. Heterogeneous historical arithmetic remains run-local evidence, not a deduplicated Engine population. The six curated fixtures remain samples; synthetic attention scenarios establish no real attention count. Missing economic/WTP/transaction/capture evidence remains unestablished or UNKNOWN, not proof of zero external effect.
+
+Terminal/contingent classifications remain later bounded semantic interpretations, preserving original KILL/PARK verdicts and conditional reopening. No current actor, regulatory, or platform state is inferred. The combined branching history, lifecycle distribution, evidence frontier, and orthogonal control model is supported; ENGINE / CONTROL / POSSIBILITY SPACE / EVIDENCE remains a semantic hypothesis, not production architecture.
+
+### UI, software and alignment disposition
+
+**Later Engine-state UI: DEFER / DATA-CONTRACT REPAIR FIRST.** A labeled historical-report UI could be truthful, but the approved review finds that it would not answer the desired whole-Engine question without the missing evidence contract.
+
+No software/build entitlement, full historical backfill, database migration, identity service, event store, production Opportunity model, living-document alignment, or protocol edit follows. **RECOVERY ≠ EXECUTION** is accepted as a protocol-alignment candidate only; no protocol file changes.
+
+### Exactly one approved next research action
+
+A bounded repository-only manual opportunity identity/evidence-contract repair on an explicitly limited existing-evidence cohort.
+
+Keep it manual, bounded, cohort-limited, evidence-preserving, non-architectural, and non-UI until tested. Family/instance identity and admission semantics remain hypotheses to validate, not facts already established by 053. This approved recommendation does not authorize repair execution or Experiment 054.
+
+### Local closure integrity and authority
+
+- Approved review source unchanged; no acceptance or corrections invented.
+- Reviewed audit bytes preserved as the original prefix of this artifact; all earlier findings, counts, horizons, UNKNOWN values, and timing remain unchanged.
+- Only this append-only debrief and mechanical STATUS transitions change in the closure commit.
+- Prior experiments including frozen 051/052, specifications, living/protocol docs, production source, tests, and schema remain unchanged.
+- Existing deterministic suite: **89 passed**; staged whitespace/scope checks pass before commit.
+- No fresh research, RADAR, actor interaction, UI/software implementation, merge into main, or push occurs.
+- Operational transition: `REVIEW_READY → DEBRIEF_READY → CLOSURE_READY`, using durable approval and this fresh local-closure handoff.
+
+The local closure commit is the commit appending this section and is reported after creation. Experiment 053 remains **CLOSURE_READY**, not CLOSED, until a separate explicit publication handoff. Closure commits may not be pushed to the review branch or main under this handoff.
