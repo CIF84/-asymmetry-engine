@@ -2,9 +2,9 @@
 
 **Recorded:** 2026-10-07
 
-**Branch:** `main`
+**Branch:** `codex/review-057`
 
-**Operational state:** `IMPLEMENTATION_FROZEN`
+**Operational state:** `REVIEW_READY`
 
 ## Current project state
 
@@ -17,13 +17,23 @@ Experiment 056 remains CLOSED with final reviewed B: directional Phase II reset;
 - Specification: `specs/057-value-capture-topology-selection.md`.
 - Canonical execution baseline: `e710318530b49c4d62e0da3c1c67ffb6dce3430e`.
 - Frozen invalid-run artifact: `experiments/057/value-capture-topology-selection.md`.
+- Frozen execution commit: `4d3bd17d685f1c28a3c5a61800df8d9eda651c6c`.
+- Artifact SHA-256: `3ba962deae91d4dd201510fd5cc03809d05a183cc4e83e581284d920e699c1f5`.
 - Failed prerequisite: blind topology generation/completeness challenge/freeze before exposure to 056's named topology conclusions and review.
 - Cause: this executor conversation already contains those conclusions from preceding 056 review, correction, closure and publication work.
 - Contract stop: “If the executor cannot enforce this ordering, stop INVALID rather than pretend independence.”
 - Blind candidate-space freeze: **NONE**. The invalid-run report's evidence seal is not a blind taxonomy freeze.
 - External feasibility research: **NOT EXECUTED**, because its valid blind-freeze prerequisite was absent.
-- Integrity/tests: **PASS** — `git diff --check` clean; existing tests **89 passed** (0.21s); all forty report fields and evidence links checked; permitted two-file scope; baseline refs, prior artifacts and unrelated files preserved. Prospective invalid-run timing is recorded in the artifact seal.
-- Scope: required 057 artifact and mechanical STATUS only. Publication is not authorized.
+- Integrity/tests: **PASS** — `git diff --check` clean; existing tests rerun for review preparation: **89 passed** (0.22s); all forty report fields and evidence links checked; permitted two-file scope; baseline refs, prior artifacts and unrelated files preserved. Prospective invalid-run timing is recorded in the artifact seal.
+- Scope: frozen 057 artifact and mechanical STATUS only. The review-preparation commit changes STATUS only; Class D publication is limited to `codex/review-057`.
+
+## Independent review packet
+
+- Review ref: `codex/review-057`, published as the bounded [GitHub review branch](https://github.com/CIF84/-asymmetry-engine/tree/codex/review-057).
+- Review baseline: canonical main `e710318530b49c4d62e0da3c1c67ffb6dce3430e`; compare that baseline with the review branch. The bounded diff contains only this STATUS pointer and the required 057 invalid-run artifact.
+- Read the immutable specification and the frozen invalid-run artifact above. The artifact's section 9 links the durable 056 evidence; section 40 records the single conditional recovery recommendation.
+- Required independent ChatGPT review: assess whether E correctly follows the mandatory ordering stop, whether prior exposure and UNKNOWN causal influence are distinguished, whether the report avoids claiming a blind freeze or feasibility evidence, and whether the proposed recovery needs a fresh enforceable handoff. Verify preservation and bounded scope.
+- Review outcome remains **PENDING**. No human acceptance, corrected verdict, debrief or reactivation is inferred. No additional human test is required by this review packet.
 
 ## Evidence boundary
 
@@ -37,10 +47,10 @@ Reissue 057 to a fresh isolated executor context with the prereveal input bounda
 
 ## Authority now
 
-Stop at the frozen invalid-run record. No continuation of blind generation, comparison or feasibility research is authorized from this exposed context under the current contract. Review the invalid disposition before any reactivation or fresh execution handoff.
+The human's review-preparation handoff and Operating Protocol Class D authorize publication of only `codex/review-057` for independent ChatGPT review. Stop at REVIEW_READY after that bounded publication. No continuation of blind generation, comparison or feasibility research is authorized from this exposed context under the current contract. Review the invalid disposition before any reactivation or fresh execution handoff.
 
-Not authorized by this execution handoff:
-- push Experiment 057 or main;
+Not authorized by this review handoff:
+- push main, merge the review branch or publish other local branches;
 - rewrite this frozen result before the prescribed review;
 - continue the research phases after the invalidity stop;
 - trade, backtest, connect accounts or deploy capital;
@@ -55,6 +65,6 @@ Experiments 051–056 remain closed/frozen. The accepted 055 V2.1 surface, 054 m
 
 ## Next operation
 
-`Prepare the active work for review.`
+Independent ChatGPT review of the published `codex/review-057` invalid-run record.
 
-The active output is the invalid-run record. A fresh isolated execution requires an explicit reactivation/handoff that can enforce the specification's blind ordering; this frozen state does not authorize a silent retry.
+The active output remains the frozen invalid-run record. Record a review decision durably before any debrief/closure handoff. A fresh isolated execution requires an explicit reactivation/handoff that can enforce the specification's blind ordering; REVIEW_READY does not authorize a silent retry.
