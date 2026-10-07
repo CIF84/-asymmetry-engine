@@ -2,17 +2,17 @@
 
 **Recorded:** 2026-10-07
 
-**Branch:** `codex/review-056`
+**Branch:** `main`
 
-**Operational state:** `CLOSURE_READY`
+**Operational state:** `CLOSED`
 
 ## Current project state
 
-Experiment 055 remains CLOSED with final A, bounded to V2.1 and this operator. Experiment 056's approved independent-review correction is recorded and local closure is prepared with **final reviewed verdict B — DIRECTIONAL RESET; ONE MATERIAL STRATEGIC QUESTION UNRESOLVED**. The unresolved question is value-capture topology / substrate selection.
+No active work. Experiment 055 remains CLOSED with final A, bounded to V2.1 and this operator. Experiment 056's approved independent-review correction and closure are published with **final reviewed verdict B — DIRECTIONAL RESET; ONE MATERIAL STRATEGIC QUESTION UNRESOLVED**. The unresolved question is value-capture topology / substrate selection.
 
 Economic effect, valid WTP/exchange, transaction, repeatability and captured value remain unestablished. The correction supplies no new market evidence or selected Phase II substrate.
 
-## Active work and durable authority
+## Published closure and durable authority
 
 **Experiment 056 — Strategic Trajectory Review: From Research Engine to Money Machine**
 
@@ -24,9 +24,17 @@ Economic effect, valid WTP/exchange, transaction, repeatability and captured val
 - Independent correction: `experiments/056/review.md`, recovered from published review branch at `f10b756b76d8053afef24ab389187231648e86b8`.
 - Approved correction/debrief: `experiments/056/debrief.md`.
 - Human handoff: `Record the approved independent review correction and close the active work.`
-- Closure scope: new debrief plus mechanical STATUS only; original report, blind challenge and review are preserved.
+- Approved local closure: `28a76405b8ace552ecdbd48f6ab2cd2e57869b04`.
+- Local closure scope: new debrief plus mechanical STATUS only; original report, blind challenge and review are preserved.
 - Closure integrity: **PASS** — `git diff --check` clean; existing tests **89 passed** (0.28s); debrief/STATUS-only scope; local evidence links resolve; frozen report and both reviewer artifacts unchanged; protected refs and unrelated files preserved.
-- Closure publication: **NOT AUTHORIZED / NOT PERFORMED**. Published review branch remains at `f10b756`; local closure is additional unpublished work.
+- Publication handoff: `Publish the approved closure.` — exact approved history to `main` only, with the mechanical CLOSED transition.
+- Published review branch remains at `f10b756`; its ref is not advanced by main publication.
+
+## Publication record
+
+Canonical publication base: `d582d891617c9293e81844e0abe1221fda3154b2`. The approved closure is a normal fast-forward descendant of both that base and local main. All incoming commits are bounded to Experiment 056 evidence and STATUS. Publication adds only this mechanical STATUS transition to CLOSED; the original report, blind challenge, independent correction and approved debrief remain byte-identical to local closure `28a7640`.
+
+Publication validation: `git diff --check` PASS; existing tests **89 passed** (0.27s). Only `refs/heads/main` is pushed. Final remote SHA and local/canonical synchronization are verified by the executor after push. No force-push, rebase, amend, artifact rewrite, review-branch push or unrelated publication is part of this handoff.
 
 ## Corrected current interpretation
 
@@ -48,10 +56,10 @@ This requires a fresh specification and human authorization. It supersedes the o
 
 ## Authority now
 
-The approved independent correction has been transcribed for local closure. The frozen original verdict A remains historical evidence; final reviewed B is recorded in the separate debrief and this operational pointer. No additional human test is required or performed for this closure.
+The approved independent correction and closure are durably published. The frozen original verdict A remains historical evidence; final reviewed B is recorded in the separate debrief and this operational pointer. No additional human test is required or performed. No execution authority remains under Experiment 056.
 
 Not authorized:
-- push the closure/review branch or merge/push to main;
+- further publication of review or unrelated branches/history;
 - rewrite frozen report, blind challenge, review, specifications or prior experiments;
 - Phase II execution or Experiment 057;
 - external market/affiliate/competitor research, RADAR or opportunity reopening;
@@ -63,10 +71,10 @@ Not authorized:
 
 Frozen report SHA256: `cce0d1d215d2af53837e08a7b69d828f90da348a63757826995f0cfa5b3bec1d`. Original execution timing remains 21m 51.2s. Closure external spend is EUR 0; compute/model cost UNKNOWN. Reviewer's conceptual literature check is preserved as reviewer evidence; this closure performs no external research or current-market verification.
 
-Prior artifacts, 051–055, source/tests/schema, living/protocol documents and specifications remain unchanged. Unpublished Experiment 052, frozen Experiment 055, preservation refs and unrelated working-tree files remain preserved. Main and canonical main have not been advanced by closure.
+Prior artifacts, 051–055, source/tests/schema, living/protocol documents and specifications remain unchanged. Unpublished Experiment 052, frozen Experiment 055, preservation refs and unrelated working-tree files remain preserved. Main and canonical main advance only through the bounded approved Experiment 056 closure publication.
 
 ## Next operation
 
-`Publish the approved closure.`
+None under Experiment 056. Await a fresh specification and explicit handoff for the recommended bounded strategy-space completion work.
 
-Stop here until that explicit publication handoff. No Phase II work is active. Value-capture topology remains unresolved; no substrate, capital deployment or external execution authority is earned by local closure.
+No Phase II work is active. Value-capture topology remains unresolved; no substrate, capital deployment or external execution authority is earned by closure publication.
