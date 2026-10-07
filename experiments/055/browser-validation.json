@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "aggregateAudits": 33,
+  "historicalRecords": 6,
+  "frontiers": 13,
+  "dimensionsPerRecord": 6,
+  "syntheticScenarios": 4,
+  "consoleErrors": [],
+  "nonFileRequests": [],
+  "desktop": "1440x1100",
+  "mobile": "390x844",
+  "overflow": false,
+  "drillDowns": "aggregate member + all 6 control + all 6 possibility links verified",
+  "fourLayerNavigation": "PASS: all four anchors update the active layer and align section start below navigation"
+}
