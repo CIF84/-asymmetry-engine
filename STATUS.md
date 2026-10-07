@@ -4,7 +4,7 @@
 
 **Branch:** `main`
 
-**Operational state:** `BLOCKED`
+**Operational state:** `DEBRIEF_READY`
 
 ## Current project state
 
@@ -17,28 +17,30 @@ Asymmetry Engine is an experimental system for discovering economically conseque
 - Specification: `specs/052-human-attention-control-plane-v1.md`
 - Frozen implementation/result: `experiments/052/control-plane-v1-test.md`
 - Acceptance packet: `experiments/052/acceptance-packet.md`
+- Durable approved human evidence: `experiments/052/human-acceptance-evidence.md`
 - Implementation commit: `1ffb110bc2cd564ddeaf05f51dc2db5ebe33730c`
-- Implementation state: frozen; do not modify the V1 viewer, fixtures, or implementation evidence.
-- Human acceptance evidence: reported as supplied and approved, but the exact observations, timing, answers, and judgment are not present in Git or the current durable handoff. The frozen acceptance packet still contains only `HUMAN ANSWER REQUIRED` placeholders.
-- Blocker: Codex cannot transcribe or interpret evidence it cannot inspect, and must not reconstruct human acceptance from the implementation.
-- Clearing condition: provide a durable repository/Git reference containing the exact approved Experiment 052 acceptance evidence, or provide that exact evidence in a fresh bounded handoff for immediate transcription.
+- Implementation state: frozen; do not modify V1 viewer, fixtures, control scenarios, or implementation evidence.
+- Human acceptance evidence is now durable and inspectable in Git.
 
 ## Authority now
 
-Allowed after the blocker is cleared through a fresh bounded handoff:
+Allowed under the minimal handoff `Record the approved debrief and close the active work.`:
 
-- inspect repository evidence;
-- transcribe already-approved human acceptance evidence without changing its meaning;
-- prepare Experiment 052 closure locally;
+- recover the active contract and approved human evidence from Git;
+- transcribe approved human evidence without strengthening or weakening it;
+- apply SPEC-052 verdict rules;
+- update only closure-permitted Experiment 052 debrief/acceptance files;
 - run tests and integrity checks;
-- commit only closure-permitted files.
+- create the local closure commit;
+- update operational state to `CLOSURE_READY`.
 
 Not authorized:
 
-- modify the frozen V1 implementation;
-- invent or reinterpret human acceptance evidence;
+- modify frozen V1 implementation;
+- invent human evidence;
 - push the Experiment 052 closure;
 - start Experiment 053;
+- modify living conceptual truth;
 - perform consequential external action.
 
 ## Frozen and historical pointers
@@ -46,14 +48,14 @@ Not authorized:
 - Experiment 051 is **CLOSED** at `a4e71855ef9fabc7d74b979d330381f1b77fbbc7`.
 - Experiment 052 implementation is **FROZEN** at `1ffb110bc2cd564ddeaf05f51dc2db5ebe33730c`.
 - Experiment 053 has **NOT STARTED**.
-- Earlier contracts and evidence remain in `specs/` and `experiments/`; consult them only when the active work requires it.
+- Earlier contracts and evidence remain in `specs/` and `experiments/`; consult them only when active work requires it.
 
 ## Next unresolved decision
 
-Does the approved Experiment 052 human evidence earn Control V1 under the specification's verdict rules, and what single next action follows? This cannot be decided until the exact evidence is inspectable.
+Apply SPEC-052's verdict rules to the durable approved human evidence and determine the single next action. The current evidence identifies truthful Engine-level funnel/state visibility as the dominant newly exposed information gap, but no funnel implementation or canonical architecture is yet authorized.
 
 ## Next operation
 
-Provide the durable location or exact content of the already-approved Experiment 052 acceptance evidence.
+`Record the approved debrief and close the active work.`
 
-Do not rerun the human test, infer answers, modify frozen V1, or begin Experiment 053. Once the evidence is inspectable, return to `DEBRIEF_READY` and execute `Record the approved debrief and close the active work.` Pushing remains unauthorized.
+Pushing remains unauthorized.
