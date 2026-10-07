@@ -54,6 +54,8 @@ Codex owns:
 
 Git/GitHub is the canonical durable shared memory. Conversation context may inform a bounded handoff, but durable project state, evidence, and authority pointers belong in the repository.
 
+**No context-dependent handoff.** Before issuing a minimal handoff, every non-recoverable input required by the receiving role must already exist in Git or another explicitly referenced durable source. If a fresh executor could not complete the handoff from durable state alone, the upstream role must materialize the missing context first.
+
 ## Non-equivalences
 
 ```text
