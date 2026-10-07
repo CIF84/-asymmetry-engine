@@ -4,7 +4,7 @@
 
 **Branch:** `main`
 
-**Operational state:** `DEBRIEF_READY`
+**Operational state:** `CLOSURE_READY`
 
 ## Current project state
 
@@ -20,19 +20,18 @@ Asymmetry Engine is an experimental system for discovering economically conseque
 - Durable approved human evidence: `experiments/052/human-acceptance-evidence.md`
 - Implementation commit: `1ffb110bc2cd564ddeaf05f51dc2db5ebe33730c`
 - Implementation state: frozen; do not modify V1 viewer, fixtures, control scenarios, or implementation evidence.
-- Human acceptance evidence is now durable and inspectable in Git.
+- Closure debrief: `experiments/052/debrief.md`.
+- Final experiment verdict: **A — CONTROL V1 EARNED**, at the bounded experimental level; visual hierarchy friction and unsupported acceptance fields remain explicit.
+- Approved human evidence has been transcribed without filling unsupported answers; checks passed and the local closure is recorded by the commit introducing `experiments/052/debrief.md`.
+- Publication state: implementation and closure remain local; no push is authorized.
 
 ## Authority now
 
-Allowed under the minimal handoff `Record the approved debrief and close the active work.`:
+Local debrief and closure work is complete. Allowed now:
 
-- recover the active contract and approved human evidence from Git;
-- transcribe approved human evidence without strengthening or weakening it;
-- apply SPEC-052 verdict rules;
-- update only closure-permitted Experiment 052 debrief/acceptance files;
-- run tests and integrity checks;
-- create the local closure commit;
-- update operational state to `CLOSURE_READY`.
+- inspect the closure and its integrity evidence;
+- preserve frozen work and unpublished commits;
+- await a fresh explicit publication handoff.
 
 Not authorized:
 
@@ -52,10 +51,10 @@ Not authorized:
 
 ## Next unresolved decision
 
-Apply SPEC-052's verdict rules to the durable approved human evidence and determine the single next action. The current evidence identifies truthful Engine-level funnel/state visibility as the dominant newly exposed information gap, but no funnel implementation or canonical architecture is yet authorized.
+Whether to authorize publication of the exact approved closure history. The recommended next research action after closure is a bounded repository-evidence audit of truthful Engine-level funnel/lifecycle semantics and counts. No new specification, Experiment 053 execution, funnel implementation, or canonical architecture is authorized.
 
 ## Next operation
 
-`Record the approved debrief and close the active work.`
+Await fresh explicit authorization for `Publish the approved closure.` Verify the exact closure commit, approved history, and fast-forward publication path before any push.
 
-Pushing remains unauthorized.
+Remain at `CLOSURE_READY` until approved publication. Pushing remains unauthorized.
