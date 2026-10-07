@@ -4,7 +4,7 @@
 
 **Branch:** `codex/review-057`
 
-**Operational state:** `BLOCKED`
+**Operational state:** `REVIEW_READY`
 
 ## Current project state
 
@@ -30,7 +30,7 @@ Experiment 056 remains CLOSED with final reviewed B: directional Phase II reset;
 ## Independent review packet
 
 - Prepared local review ref: `codex/review-057`; review-packet commit: `94fa931bc6a119c531764e56122079d754c73507`.
-- Intended publication destination: `https://github.com/CIF84/-asymmetry-engine.git`, remote ref `refs/heads/codex/review-057`. **NOT PUBLISHED**; no remote review ref was created.
+- Publication destination: `https://github.com/CIF84/-asymmetry-engine.git`, remote ref `refs/heads/codex/review-057`; bounded [GitHub review branch](https://github.com/CIF84/-asymmetry-engine/tree/codex/review-057).
 - Review baseline: canonical main `e710318530b49c4d62e0da3c1c67ffb6dce3430e`; compare that baseline with the review branch. The bounded diff contains only this STATUS pointer and the required 057 invalid-run artifact.
 - Read the immutable specification and the frozen invalid-run artifact above. The artifact's section 9 links the durable 056 evidence; section 40 records the single conditional recovery recommendation.
 - Required independent ChatGPT review: assess whether E correctly follows the mandatory ordering stop, whether prior exposure and UNKNOWN causal influence are distinguished, whether the report avoids claiming a blind freeze or feasibility evidence, and whether the proposed recovery needs a fresh enforceable handoff. Verify preservation and bounded scope.
@@ -48,9 +48,9 @@ Reissue 057 to a fresh isolated executor context with the prereveal input bounda
 
 ## Authority now
 
-The human's review-preparation handoff maps to Operating Protocol Class D publication of only `codex/review-057`. Automatic approval review nevertheless rejected that exact push twice: it requires direct user authorization for exporting the bounded two-file payload to the configured GitHub destination, and rejected the protocol/scope verification as insufficient authorization. No push executed. Do not bypass that rejection.
+The human explicitly authorized: “I authorize publishing `codex/review-057` to `https://github.com/CIF84/-asymmetry-engine.git`, limited exactly to the prepared `STATUS.md` and frozen Experiment 057 report. Do not publish or modify anything else.” This clears the missing direct destination/payload authorization identified by the two earlier automatic approval rejections; neither rejected push executed.
 
-**Publication blocker:** direct approval required by automatic approval review for publishing the prepared `codex/review-057` branch to the destination above. The smallest clearing condition is that exact human authorization followed by an approved push and remote verification. Until then this packet is locally prepared, not REVIEW_READY on GitHub. The publication payload remains only STATUS and the frozen 057 artifact relative to canonical main; this blocker record changes STATUS only.
+Publication is limited to that exact review branch and two-file diff relative to canonical main. This publication-state commit changes STATUS only; the 057 artifact remains byte-identical to its frozen execution commit. Stop at REVIEW_READY after the approved push and remote verification. Independent review remains pending; no merge, main push, debrief, fresh execution or other publication is authorized.
 
 No continuation of blind generation, comparison or feasibility research is authorized from this exposed context under the current contract. Review the invalid disposition before any reactivation or fresh execution handoff.
 
@@ -70,6 +70,6 @@ Experiments 051–056 remain closed/frozen. The accepted 055 V2.1 surface, 054 m
 
 ## Next operation
 
-Obtain the direct publication authorization required by automatic approval review, publish only `codex/review-057`, verify remote synchronization and set REVIEW_READY. Then independent ChatGPT review of the frozen invalid-run record.
+Independent ChatGPT review of the published `codex/review-057` frozen invalid-run record.
 
-The active output remains the frozen invalid-run record. Record a review decision durably before any debrief/closure handoff. A fresh isolated execution requires an explicit reactivation/handoff that can enforce the specification's blind ordering; this blocked review-publication state does not authorize a silent retry.
+The active output remains the frozen invalid-run record. Record a review decision durably before any debrief/closure handoff. A fresh isolated execution requires an explicit reactivation/handoff that can enforce the specification's blind ordering; REVIEW_READY does not authorize a silent retry.
