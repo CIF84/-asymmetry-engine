@@ -2,9 +2,9 @@
 
 **Recorded:** 2026-10-07
 
-**Branch:** `codex/review-053`
+**Branch:** `main`
 
-**Operational state:** `CLOSURE_READY`
+**Operational state:** `CLOSED`
 
 ## Current project state
 
@@ -17,7 +17,7 @@ The bounded representation milestones now established are:
 
 The next uncertainty is the Engine layer: **How is AE itself performing?**
 
-## Active work
+## Most recently closed work
 
 **Experiment 053 — Engine-State and Funnel Semantics Audit**
 
@@ -30,7 +30,9 @@ The next uncertainty is the Engine layer: **How is AE itself performing?**
 - Opportunity Memory recoverability: **PARTIAL**; selected chain histories are strong, complete population/identity/current-state evidence is missing.
 - Frozen audit commit: `282a2eeaf55764d4a6da309b6d94e4275344b410`; its reviewed text remains unchanged as the original prefix of the artifact.
 - Approved debrief/local closure: appended section `Approved debrief and local closure — 2026-10-07` in the audit artifact.
-- Local closure commit: the commit appending that section; no closure publication is authorized.
+- Approved local closure commit: `cb074fdbd7f5b545bbe06bb4f603ca594c4d8095`.
+- Publication authority: explicit human handoff `Publish the approved closure.` on 2026-10-07; publish the approved audit, review preparation, review, and local closure history with this bounded STATUS transition to canonical `main`.
+- Closure: **CLOSED**; no work remains under SPEC-053.
 - Review branch: `codex/review-053`.
 - Review base: canonical `main` at `71c28d2568c95958d0ef9b3b3ba86f8069e928a2`.
 - Review preparation scope at `6f34fcc02868e6a68153e9afdc86b7816d69c27f`: the frozen audit and mechanical STATUS transitions.
@@ -44,15 +46,15 @@ The next uncertainty is the Engine layer: **How is AE itself performing?**
 
 ## Authority now
 
-Approved debrief transcription and local closure are complete. Allowed now:
+The approved Experiment 053 closure is the bounded publication scope. After publication, allowed now:
 
-- inspect the closure, approved review, and integrity evidence;
-- preserve frozen work and the local closure commit;
-- await fresh explicit publication authority.
+- inspect the published closure, approved review, and integrity evidence;
+- preserve frozen work and closure history;
+- await a fresh bounded work contract.
 
 Not authorized:
 
-- push closure commits to any branch or merge the review branch into `main`;
+- execute the recommended opportunity identity/evidence-contract repair or start Experiment 054;
 - implement a funnel/dashboard;
 - create or modify production opportunity identity/persistence;
 - modify 051/052 frozen artifacts;
@@ -65,7 +67,7 @@ Not authorized:
 
 - Experiment 051 is CLOSED at `a4e71855ef9fabc7d74b979d330381f1b77fbbc7`.
 - Experiment 052 is CLOSED; approved closure published before this contract; its V1 implementation remains frozen.
-- Experiment 053 approved audit/review are exposed through the review branch. Local closure is complete at `CLOSURE_READY`; closure publication and merge into main remain unauthorized.
+- Experiment 053 is CLOSED. Approved local closure is `cb074fdbd7f5b545bbe06bb4f603ca594c4d8095`; its history and this publication state are published to canonical `main`. The reviewed audit prefix and source review remain unchanged.
 - Earlier contracts/evidence remain in `specs/` and `experiments/`; inspect only as required by SPEC-053.
 
 ## Completed independent review
@@ -74,10 +76,8 @@ The approved review at `ce442caa364b9da5f01d36421cab2322f15748e5` confirms verdi
 
 ## Next unresolved decision
 
-Whether to authorize publication of the exact local Experiment 053 closure history. Its approved next research recommendation is a bounded repository-only manual opportunity identity/evidence-contract repair on an explicitly limited existing-evidence cohort; no repair execution, Experiment 054, software, living-truth alignment, or protocol edit is authorized.
+Whether to commission the approved next research recommendation: a bounded repository-only manual opportunity identity/evidence-contract repair on an explicitly limited existing-evidence cohort. The recommendation does not authorize repair execution, Experiment 054, software, living-truth alignment, or protocol edits.
 
 ## Next operation
 
-Await fresh explicit authorization for `Publish the approved closure.` Verify the exact closure commit, approved history, and publication path before any merge or push.
-
-Remain at `CLOSURE_READY` until approved publication. Nothing in the earlier review-branch handoff authorizes pushing this local closure or merging into main.
+Await a fresh bounded work contract. There is no active execution packet after Experiment 053 closure.
