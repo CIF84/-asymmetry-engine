@@ -2,15 +2,15 @@
 
 **Recorded:** 2026-10-07
 
-**Branch:** `codex/review-057`
+**Branch:** `main`
 
-**Operational state:** `CLOSURE_READY`
+**Operational state:** `CLOSED`
 
 ## Current project state
 
-Experiment 056 remains CLOSED with final reviewed B: directional Phase II reset; value-capture topology unresolved. Experiment 057 Attempt 1 has final independently approved **E — INVALID / CONTEXT CONTAMINATION**. Its approved debrief and local closure are complete; publication is pending. No topology selection, valid shortlist or fresh feasibility evidence was produced. No Phase II substrate or economic action is approved.
+Experiment 056 remains CLOSED with final reviewed B: directional Phase II reset; value-capture topology unresolved. Experiment 057 Attempt 1 is CLOSED with final independently approved **E — INVALID / CONTEXT CONTAMINATION**. Its approved report, independent review and debrief are preserved in the bounded canonical-main closure publication. No topology selection, valid shortlist or fresh feasibility evidence was produced. No Phase II substrate or economic action is approved.
 
-## Active work
+## Closed work
 
 **Experiment 057 Attempt 1 — Value-Capture Topology Selection**
 
@@ -21,13 +21,14 @@ Experiment 056 remains CLOSED with final reviewed B: directional Phase II reset;
 - Artifact SHA-256: `3ba962deae91d4dd201510fd5cc03809d05a183cc4e83e581284d920e699c1f5`.
 - Approved independent review: `experiments/057/review.md`, commit `c58129da3b8e3bf418cc578ab108dbc1deb56c04`.
 - Approved debrief/local closure: `experiments/057/debrief.md`.
+- Exact approved local closure commit: `cf2db1adaa492f940f38317c52eb25a6b68d05b4`.
 - Failed prerequisite: blind topology generation/completeness challenge/freeze before exposure to 056's named topology conclusions and review.
 - Cause: this executor conversation already contains those conclusions from preceding 056 review, correction, closure and publication work.
 - Contract stop: “If the executor cannot enforce this ordering, stop INVALID rather than pretend independence.”
 - Blind candidate-space freeze: **NONE**. The invalid-run report's evidence seal is not a blind taxonomy freeze.
 - External feasibility research: **NOT EXECUTED**, because its valid blind-freeze prerequisite was absent.
 - Integrity/tests: **PASS** — existing tests **89 passed**; whitespace and local evidence links checked; closure changes only the new debrief and STATUS. Frozen report/review, prior artifacts, protected refs and unrelated files preserved. Original prospective invalid-run timing remains unchanged.
-- Closure scope: new `experiments/057/debrief.md` and mechanical STATUS only; local commit, no push.
+- Local closure scope: new `experiments/057/debrief.md` and mechanical STATUS only. Publication adds only this STATUS transition to CLOSED and pushes the approved 057 history to canonical main; frozen report, review and debrief remain unchanged.
 
 ## Independent review disposition
 
@@ -53,14 +54,14 @@ Approved process evidence: **independent generation requires independent informa
 
 ## Authority now
 
-The current human handoff is `Record the approved debrief and close the active work.` Under the Operating Protocol it authorizes the approved debrief, checks and local closure commit, with endpoint CLOSURE_READY. It does not authorize a push. The earlier explicit review-branch publication was completed at `f493ac581464a5d098c448023030578408611216`; it is not authority to publish this new closure.
+The current human handoff is `Publish the approved closure.` Under the Operating Protocol it authorizes the exact approved closure `cf2db1adaa492f940f38317c52eb25a6b68d05b4`, a mechanical STATUS transition to CLOSED, and a normal fast-forward publication to `https://github.com/CIF84/-asymmetry-engine.git`, `refs/heads/main`. The bounded publication diff from canonical baseline `e710318` contains only STATUS and the three Experiment 057 artifacts. The earlier review publication and local closure are preserved as historical authority steps.
 
-Stop at the completed local closure. The frozen report and independent review remain unchanged. No main change, publication, fresh execution, research, topology selection or economic action is authorized here.
+Stop after publishing this approved closure and verifying canonical main synchronization. The frozen report, independent review and debrief remain unchanged. No other branch publication, fresh execution, research, topology selection or economic action is authorized here.
 
 The invalid disposition is reviewed and approved. Any corrected execution still requires a fresh contract and handoff enforcing the independent information context; it cannot continue from this exposed context.
 
-Not authorized by this closure handoff:
-- push any branch, merge the review branch into main or publish the local closure;
+Not authorized by this publication handoff:
+- push any other branch, publish unrelated history or unpublished Experiment 052 work;
 - rewrite the frozen Attempt-1 report or independent review;
 - continue the research phases after the invalidity stop;
 - trade, backtest, connect accounts or deploy capital;
@@ -75,6 +76,6 @@ Experiments 051–056 remain closed/frozen. The accepted 055 V2.1 surface, 054 m
 
 ## Next operation
 
-`Publish the approved closure.`
+No active execution remains under Experiment 057 Attempt 1.
 
-Attempt 1's approved debrief and local closure are complete. CLOSED requires authorized publication. Attempt 2 and both proposed arms remain unactivated; CLOSURE_READY does not authorize a silent retry.
+The single recommended future action is a separately authorized corrected 057 Attempt 2 contract with an isolated, repository-allowlisted blind arm followed after freeze by a separate reveal/research/reviewer arm. Attempt 2 and both arms remain unactivated; CLOSED does not authorize a silent retry.
