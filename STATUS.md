@@ -4,11 +4,11 @@
 
 **Branch:** `codex/055-readability-remediation`
 
-**Operational state:** `IMPLEMENTATION_FROZEN`
+**Operational state:** `HUMAN_REVIEW_REQUIRED`
 
 ## Current project state
 
-Experiment 055 remains OPEN. V2.1 human-language remediation is implemented and frozen locally for a second human acceptance attempt. Implementation and semantic-equivalence checks do not establish improved comprehension or final acceptance.
+Experiment 055 remains OPEN. V2.1 human-language remediation is frozen and prepared for its second human acceptance attempt under Class B. Implementation and semantic-equivalence checks do not establish improved comprehension or final acceptance.
 
 Attempt 1 remains **B — PROMISING BUT INCONCLUSIVE due to language/readability confounder** (interim interpretation, not a final closure verdict).
 
@@ -33,7 +33,7 @@ Explicitly authorized reconciliation merge: `52a99057d0dc1bd94b69ae6a1878dc5aa38
 
 The active remediation STATUS won the single STATUS conflict; both parent histories and all artifacts were retained. No history rewrite or main merge/push occurred. Original V2 remains unchanged at `experiments/055/viewer/index.html`, on local `main` and `codex/preserve-055-frozen-v2-20261007`. Attempt 1 and original reports/packets/screenshots remain frozen. Unpublished Experiment 052 work remains preserved and untouched.
 
-V2.1 freeze ref: local commit introducing the V2.1 report/viewer/acceptance packet; recover the exact SHA from `git log -1 -- experiments/055/v2-1/readability-remediation-report.md`.
+V2.1 freeze ref: `84f982e2f9344035916405169913766f541dbee9`. Review preparation preserves this exact implementation and the existing second acceptance packet.
 
 ## Frozen boundaries and integrity
 
@@ -47,6 +47,17 @@ V2.1 freeze ref: local commit introducing the V2.1 report/viewer/acceptance pack
 - Only new Experiment 055 presentation/evidence/acceptance artifacts and mechanical STATUS transition. Other experiments/specs/living/protocol docs/production code/tests/schema and unrelated untracked files unchanged.
 
 Timing/spend: prospective continuous implementation interval and final timing seal in the report; €0 incremental external spend, compute/model cost UNKNOWN.
+
+## Review preparation
+
+Prepared under `Prepare the active work for review.` on 2026-10-07:
+
+- Reused the frozen second acceptance packet; its 15 questions and all links are intact.
+- Verified all 34 tracked Experiment 055 files against the freeze commit; no viewer, evidence, report, packet or screenshot changed.
+- Verified all four fixture hashes against the recorded passing browser comparison; 33 aggregate comparisons and 0/6/3/3 accounting remain intact. Browser checks were not repeated because the frozen surfaces are unchanged.
+- Existing tests rerun: 89 passed; `git diff --check` passed.
+- Original V2 and unpublished Experiment 052 preservation refs unchanged; unrelated untracked files preserved.
+- Only mechanical STATUS preparation is committed locally. No publication or human acceptance occurred. Attempt 2 responses, timings and judgments remain PENDING / UNKNOWN.
 
 ## Authority now
 
