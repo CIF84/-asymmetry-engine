@@ -2,70 +2,76 @@
 
 **Recorded:** 2026-10-07
 
-**Branch:** `main`
+**Branch:** `codex/055-readability-remediation`
 
 **Operational state:** `READY_FOR_EXECUTION`
 
 ## Current project state
 
-Asymmetry Engine is an experimental system for discovering economically consequential decisions under resolvable uncertainty and testing whether better resolution changes decisions and can eventually create and capture repeatable value. Current conceptual truth begins in `README.md`; authority and execution rules are in `AGENTS.md` and `docs/OPERATING_PROTOCOL.md`.
+Experiment 055 remains OPEN. Its first human acceptance attempt found positive visual/interaction architecture but could not validly complete the Engine-visibility assessment because machine-like terminology created material comprehension burden.
 
-Earned bounded representation sequence:
-- 051 — POSSIBILITY SPACE: what does AE know?
-- 052 — CONTROL: what needs the human operator?
-- 053 — ENGINE semantics audit: whole-Engine counts required identity/evidence repair.
-- 054 — IDENTITY / ACCOUNTING: manual family/decision-instance contract validated for prospective capture; historical evidence remains partial.
+The original V2 baseline is preserved at local implementation commit `412a56f6befe776c7de9232ab9e313bc9abfdb30`.
 
 ## Active work
 
-**Experiment 055 — Engine Control Plane V2**
+**Experiment 055 — V2.1 Human-Language Remediation**
 
-- Specification: `specs/055-engine-control-plane-v2.md`
-- Type: bounded repository-only representation/UI experiment.
-- Primary question: can the operator open AE and truthfully understand how the empirical search process is behaving as a whole?
-- Required hierarchy: ENGINE → CONTROL → POSSIBILITY SPACE → EVIDENCE.
-- Historical bounded cohort and prospective governed population must remain distinct.
-- Prospective governed population begins at zero unless repository evidence under the 054 contract establishes otherwise.
-- Historical partial evidence must never be presented as a complete/current Engine population.
-- Evidence frontier must not imply a false linear conversion funnel.
-- V1 trajectory/auditability remains MUST-HAVE.
-- Human acceptance occurs only after implementation freeze.
+Durable human evidence:
+- `experiments/055/human-acceptance-attempt-1.md`
+
+Active remediation packet:
+- `experiments/055/readability-remediation-packet.md`
+
+Parent specification:
+- `specs/055-engine-control-plane-v2.md`
+
+Interim human interpretation:
+- **B — PROMISING BUT INCONCLUSIVE due to language/readability confounder**
+- not a final closure verdict.
+
+Primary remediation principle:
+**Plain English first. Precision on demand.**
 
 ## Authority now
 
 Allowed under `Execute the active work packet.`:
-- inspect repository evidence required by SPEC-055;
-- implement the bounded static V2 representation under `experiments/055/`;
-- prepare its acceptance packet;
-- mechanically update STATUS;
-- run tests/integrity checks;
-- commit permitted implementation locally.
+- recover the original 055 hypothesis and frozen V2;
+- execute only the bounded human-language remediation packet;
+- preserve the original V2 baseline and acceptance attempt;
+- modify Experiment 055 presentation/copy only as permitted by the packet;
+- run semantic-equivalence/browser/test/integrity checks;
+- commit V2.1 locally.
 
 Not authorized:
-- push Experiment 055;
-- perform human acceptance on the operator's behalf;
-- modify 051/052/053/054;
-- implement live prospective capture;
-- create production identity/persistence/schema;
-- run RADAR or external research;
-- modify living/protocol docs;
-- deploy;
-- perform consequential external action.
+- change underlying Engine/accounting semantics;
+- change historical counts or evidence states;
+- add unrelated features;
+- perform human acceptance;
+- close Experiment 055;
+- push/merge to main;
+- start Experiment 056;
+- modify other experiments/specs/living/protocol docs/production code;
+- use external research or perform consequential action.
 
-## Frozen and historical pointers
+## Frozen boundaries
 
-- 051 CLOSED/frozen — Representation V0.
-- 052 CLOSED/frozen — Control V1.
-- 053 CLOSED — data-contract repair first.
-- 054 CLOSED — manual identity/evidence contract validated; prospective capture semantics ready, actual prospective use untested.
-- 055 has not yet executed.
+Must remain semantically unchanged:
+- historical/prospective population distinctions;
+- six-family / three-supported-instance accounting;
+- evidence-frontier assertions;
+- lifecycle/control states;
+- current opportunity attention UNKNOWN;
+- prospective zero-state;
+- blocker/reactivation semantics;
+- trajectory/provenance;
+- false-funnel/completeness safeguards.
 
 ## Next unresolved decision
 
-Can a truthful Engine-level representation improve whole-system comprehension without turning partial historical evidence into false current totals, while preserving accepted Control/Possibility/Evidence layers?
+Can the same Engine state become understandable enough for a valid human acceptance test when primary UI language is translated from internal research terminology into plain operator language?
 
 ## Next operation
 
 `Execute the active work packet.`
 
-Publication is not authorized.
+After implementation freeze, stop for a second human acceptance attempt. Publication/closure is not authorized.
