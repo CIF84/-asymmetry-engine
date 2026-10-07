@@ -26,6 +26,12 @@ That sequence must answer:
 
 If any answer is missing or repository state conflicts with `STATUS.md`, stop and surface the gap. Do not guess.
 
+### Durable-handoff precondition
+
+Before a minimal handoff is issued, every non-recoverable input required by the receiving role must already exist in Git or another explicitly referenced durable source. Conversation-only evidence is not recoverable project state. If a fresh executor could not complete the handoff from durable state alone, the upstream role must materialize the missing evidence/context before handing off.
+
+A role that can see shared GitHub state must not bridge over unpublished local Codex history. Local-only commits must first be exposed through the appropriate bounded publication/review mechanism; publication authority remains separate from execution authority.
+
 ## 2. Authority boundary
 
 ```text
