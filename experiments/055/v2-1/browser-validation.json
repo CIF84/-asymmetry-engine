@@ -1,0 +1,239 @@
+{
+  "result": "PASS",
+  "baseline": "412a56f6befe776c7de9232ab9e313bc9abfdb30",
+  "fixtureHashes": {
+    "opportunities.js": "c686d30261f21575101c121955a07590d38778bea002f4a2849934df36a6dceb",
+    "control-fixtures.js": "8b517c98220bbbe8dbd5a1441ac29a9d6debf37524bb0ae491261b75c8937f12",
+    "engine-fixtures.js": "a8bafb3aa2d9cc29d6d98b8ed06b57869e1f517fd3e8abf9ecfac4f71ac521cb",
+    "contract-evidence.js": "25759b3902267f94099ff6bed5eb76da0d06764c104a239a38695d578ab1f8d1"
+  },
+  "fixtureObjectsIdentical": true,
+  "frontierBarsIdentical": true,
+  "aggregateComparisons": [
+    {
+      "key": "attention",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "governed",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "families",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "instances",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "unresolved",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:0",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:1",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:2",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:3",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:4",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:5",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:6",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:7",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:8",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:9",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:10",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:11",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "front:12",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:family:ACTIVE",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:family:DORMANT",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:family:REVIEW",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:family:TERMINAL",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:instance:ACTIVE",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:instance:DORMANT",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:instance:REVIEW",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "life:instance:TERMINAL",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "block:CONTINGENT",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "block:STRUCTURAL AT HORIZON",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "block:UNRESOLVED",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "reactivation",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "run:031",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "run:032",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    },
+    {
+      "key": "run:046",
+      "exactFacts": true,
+      "memberIds": true,
+      "sourceLinks": true
+    }
+  ],
+  "governedRecords": 0,
+  "historicalFamilies": 6,
+  "supportedInstances": 3,
+  "unresolvedInstances": 3,
+  "historicalDetails": 6,
+  "dimensionsPerRecord": 6,
+  "trajectoryEntries": 19,
+  "syntheticScenarios": 4,
+  "originalEvidenceRetained": true,
+  "fourLayers": [
+    "engine",
+    "control",
+    "possibility",
+    "evidence"
+  ],
+  "viewports": [
+    390,
+    768,
+    1440
+  ],
+  "noHorizontalOverflow": true,
+  "consoleErrors": [],
+  "nonFileRequests": [],
+  "inventoryUniqueStrings": {
+    "baseline": 744,
+    "v21": 622
+  }
+}
