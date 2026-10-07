@@ -4,11 +4,11 @@
 
 **Branch:** `codex/055-readability-remediation`
 
-**Operational state:** `HUMAN_REVIEW_REQUIRED`
+**Operational state:** `REVIEW_READY`
 
 ## Current project state
 
-Experiment 055 remains OPEN. V2.1 human-language remediation is frozen and prepared for its second human acceptance attempt under Class B. Implementation and semantic-equivalence checks do not establish improved comprehension or final acceptance.
+Experiment 055 remains OPEN. V2.1 is frozen and the second human acceptance attempt is complete. Approved attempt-2 evidence is durable at `experiments/055/human-acceptance-attempt-2.md`. Independent review is now required before debrief/closure.
 
 Attempt 1 remains **B — PROMISING BUT INCONCLUSIVE due to language/readability confounder** (interim interpretation, not a final closure verdict).
 
@@ -21,6 +21,8 @@ Attempt 1 remains **B — PROMISING BUT INCONCLUSIVE due to language/readability
 - Approved attempt 1 evidence: `experiments/055/human-acceptance-attempt-1.md`
 - Frozen V2.1 surface: `experiments/055/viewer-v2-1/index.html`
 - Second acceptance packet: `experiments/055/acceptance-packet-v2-1.md`
+- Approved attempt 2 evidence: `experiments/055/human-acceptance-attempt-2.md`
+- Attempt 2 result: approximately 3 minutes to a useful overall state "download"; operator judgment = **material improvement**.
 - Remediation freeze report: `experiments/055/v2-1/readability-remediation-report.md`
 - Copy review/inventory: `experiments/055/v2-1/copy-review.md`, `experiments/055/v2-1/visible-copy-inventory.json`
 - Mechanical browser/semantic evidence: `experiments/055/v2-1/browser-validation.json`, five sibling screenshots
@@ -57,18 +59,19 @@ Prepared under `Prepare the active work for review.` on 2026-10-07:
 - Verified all four fixture hashes against the recorded passing browser comparison; 33 aggregate comparisons and 0/6/3/3 accounting remain intact. Browser checks were not repeated because the frozen surfaces are unchanged.
 - Existing tests rerun: 89 passed; `git diff --check` passed.
 - Original V2 and unpublished Experiment 052 preservation refs unchanged; unrelated untracked files preserved.
-- Only mechanical STATUS preparation is committed locally. No publication or human acceptance occurred. Attempt 2 responses, timings and judgments remain PENDING / UNKNOWN.
+- Only mechanical STATUS preparation is committed locally. No publication or human acceptance occurred. Attempt 2 is complete. Fields not directly answered remain NOT DIRECTLY TESTED / INSUFFICIENT HUMAN EVIDENCE; no question-by-question answers are fabricated.
 
 ## Authority now
 
 Allowed:
-- inspect the frozen V2/V2.1 comparison, report and mechanical evidence;
+- inspect the frozen V2/V2.1 comparison, report, mechanical evidence, and both durable human attempts;
 - preserve both frozen surfaces;
-- the human performs the second acceptance attempt under the prepared packet.
+- perform independent ChatGPT review of the published Git state;
+- durably record the review before debrief/closure.
 
 Not authorized:
 - iterate the frozen implementation before the prescribed human review;
-- perform human acceptance on the operator's behalf or fabricate attempt 2 evidence;
+- fabricate or expand human acceptance beyond the durable attempt-2 evidence;
 - change Engine/accounting semantics, counts, evidence or UNKNOWN states;
 - close Experiment 055, publish these commits, push/merge to main or start Experiment 056;
 - modify other experiments, specs, living/protocol docs, production code/tests/schema;
@@ -76,10 +79,8 @@ Not authorized:
 
 ## Next unresolved decision
 
-Does the same Engine state become understandable enough for a valid acceptance test, with materially less translation burden, when primary language is plain and precision is available on demand?
+Does the durable V2/V2.1 evidence support a final SPEC-055 verdict, given attempt 1's language blocker and attempt 2's approximately three-minute material-improvement result?
 
 ## Next operation
 
-**Class B — Human performs the second Engine comprehension test against frozen V2.1 using `experiments/055/acceptance-packet-v2-1.md`.**
-
-Record attempt 2 separately after approved human evidence exists; do not overwrite attempt 1. Publication and closure remain unauthorized.
+Independent ChatGPT review of `codex/review-055`, including both durable human acceptance attempts. Preserve frozen V2/V2.1. Debrief/closure requires durable approved review evidence. Publication remains unauthorized.
