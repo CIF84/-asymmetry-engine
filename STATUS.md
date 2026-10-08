@@ -1,19 +1,19 @@
 # Asymmetry Engine Status
 
 **Phase:** AE Phase II — Economic Proof
-**State:** `CLOSURE_READY`
-**Active work:** Experiment 060 — publication mechanics
+**State:** `CLOSED`
+**Active work:** None
 
-## Active contract and result
-- `specs/060-distribution-first-economic-entry.md`
-- `experiments/060/distribution-first-economic-entry.md`
+## Latest closed work
+**Experiment 060 — executor disposition: N — NONE.**
 
-**Executor disposition: N — NONE.** Six bounded inspections; three stop at qualified distribution, three at an unestablished commercial wedge. No economic treatment or observed demand/profitability test. UNKNOWN remains UNKNOWN.
+- Spec: `specs/060-distribution-first-economic-entry.md`
+- Frozen result/closure record: `experiments/060/distribution-first-economic-entry.md`
+- Published result commit: `0db03b490995618e8587ad4b9c654578bcf78664` on canonical main.
 
-SPEC-060 prescribes no separate independent review or human acceptance for N. No such review/acceptance is claimed. The frozen result records the contract-defined outcome and mechanical closure evidence; no further research or backlog is active.
+Six bounded inspections: three stop at qualified distribution, three at an unestablished commercial wedge. No economic treatment or observed demand/profitability test. UNKNOWN remains UNKNOWN. SPEC-060 prescribes no separate review/human acceptance for N; none is claimed. Timing-target undershoot and evidence limits are recorded in the result.
 
-## Latest previously closed work
-Experiment 059 — final approved disposition **N — C04 REJECTED**; evidence unchanged in `experiments/059/`.
+Experiment 059 remains closed with final approved **N — C04 REJECTED**; its evidence is unchanged.
 
 ## Next operation
-Publish the exact-scope 060 closure to canonical main by normal fast-forward under standing Class R authority; set CLOSED and verify synchronization. Stop on unexpected divergence. No consequential external economic action is authorized.
+Await a separately specified next work packet. No continuation backlog, replacement search or consequential external economic action is activated.
