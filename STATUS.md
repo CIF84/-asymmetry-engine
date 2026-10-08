@@ -4,7 +4,7 @@
 
 **Branch:** `codex/review-059`
 
-**Operational state:** `REVIEW_READY`
+**Operational state:** `BLOCKED`
 
 ## Phase
 **AE Phase II — Economic Proof**
@@ -14,7 +14,7 @@ Experiment 058 remains CLOSED with **N — NONE** under its residual-gap + F1/F4
 
 Experiment 059 execution is complete and frozen with **Q — QUALIFY**, selecting `059-C04`, the cohort-course private audio plan. This is admission of a bounded treatment design, not human acceptance, profitable acquisition, merchant approval or economic proof. No treatment was launched.
 
-The human requested `Prepare the active work for review.` Class D review preparation preserves the frozen result and publishes only `codex/review-059`. Independent ChatGPT review is outstanding; this packet does not supply that review or launch approval.
+The human requested `Prepare the active work for review.` The local Class D review packet is complete and preserves the frozen result. Review-branch publication is blocked by automatic approval review; no push executed. Independent ChatGPT review is outstanding; this packet does not supply that review or launch approval.
 
 Six fresh proven flows were inspected. The selected package pairs a USD 69 custom decision brief with a free self-service comparison guide using Transistor's referral route. The design uses disclosed organic service exposure and explicitly abandons topology-only causal interpretation.
 
@@ -35,7 +35,7 @@ Repository synchronization:
 - four unrelated untracked `.DS_Store` files preserved;
 - frozen execution commit: `e1f88e60c829fd62016027c86f11276acc91053f`;
 - local `main` remains at that execution commit; fetched `origin/main` remains at `d422c6b64f61a5f3f893fe55763b06947b15dd7f`;
-- this handoff authorizes only review-branch publication, not a push to `main`.
+- the protocol maps this handoff to review-branch publication only, but the execution approval review requires direct payload/destination confirmation before allowing the push; `main` publication is outside this handoff.
 
 Execution evidence:
 - start `2026-10-08T08:02:59Z`; evidence/design endpoint `2026-10-08T08:48:01Z` (45m 02s elapsed proxy, before final Git bookkeeping);
@@ -46,13 +46,15 @@ Execution evidence:
 
 ## Bounded review packet
 
-Review ref: [`codex/review-059`](https://github.com/CIF84/-asymmetry-engine/tree/codex/review-059).
+Prepared local review ref: `codex/review-059` (not published).
+
+Intended destination: `https://github.com/CIF84/-asymmetry-engine.git`, remote ref `refs/heads/codex/review-059`.
 
 Compare against `d422c6b64f61a5f3f893fe55763b06947b15dd7f`. The complete review diff contains only:
 - the frozen `experiments/059/proven-flow-wedge-search.md` introduced by `e1f88e60c829fd62016027c86f11276acc91053f`;
 - mechanical `STATUS.md` execution/review state and this handoff packet.
 
-The preparation commit changes only STATUS. Specifications, the result bytes, earlier evidence and living/protocol documents remain unchanged. Fetch the review ref and record its exact tip in the independent review; the preparation commit cannot contain its own SHA. Verify both hashes above and the two-file scope before substantive review. Review-preparation validation: `.venv/bin/pytest -q` (89 passed), frozen SHA-256 checks, report structure/local links and staged whitespace/scope checks. Remote review-tip equality and unchanged remote `main` must be verified after the bounded push.
+Review preparation changes only STATUS. Specifications, the result bytes, earlier evidence and living/protocol documents remain unchanged. After publication, fetch the review ref and record its exact tip in the independent review; the preparation commit cannot contain its own SHA. Verify both hashes above and the two-file scope before substantive review. Review-preparation validation: `.venv/bin/pytest -q` (89 passed), frozen SHA-256 checks, report structure/local links and staged whitespace/scope checks. Remote review-tip equality remains unverified because publication is blocked; verify it and unchanged remote `main` after an approved push.
 
 Reviewer recovery: README → AGENTS → this STATUS → [SPEC-059](specs/059-proven-flow-wedge-search.md) → [frozen result](experiments/059/proven-flow-wedge-search.md). For the corrected admission rule only, use [058 review](experiments/058/review.md) and [058 approved debrief](experiments/058/debrief.md); the [057B reserve conditions](experiments/057-attempt-2/reveal-feasibility-discrimination.md#40-ranking-reversal-conditions) and [debrief](experiments/057-attempt-2/debrief.md) are durable recovery references if needed. No conversation-only input is required.
 
@@ -67,7 +69,7 @@ Required review decision: does the frozen evidence justify Q under SPEC-059, and
 Return findings with file/section and evidence references, the resulting Q/N/E recommendation under the contract (or a precise bounded remediation requirement), and exactly one next action. Record the independent review durably as `experiments/059/review.md` on the review branch. Preserve the frozen specification/result; do not implement fixes, perform human acceptance, launch, enroll, contact, spend, merge or push `main` as part of review. Approval of review findings and consequential launch authorization are separate decisions.
 
 ## Authority
-The execution handoff has reached its freeze boundary. This handoff permits the mechanical review packet and normal publication of `codex/review-059` only. Preserve the result until the prescribed review; do not iterate or widen the search.
+The execution handoff has reached its freeze boundary. Local review preparation is complete. The intended publication scope is `codex/review-059` only, subject to the approval block below. Preserve the result until the prescribed review; do not iterate or widen the search.
 
 Not authorized by this result:
 - any other branch publication, merge or push to `main`;
@@ -78,7 +80,15 @@ Not authorized by this result:
 
 The exact prospective Class C authorization packet is in result §36. Its cash/time, obligations, controls and horizons are proposed, not activated. No independent-review approval or human acceptance evidence exists yet.
 
-## Next operation
-Independent ChatGPT review of `codex/review-059` using the bounded packet above.
+## Publication block
 
-Await the durable independent review and required human judgment before debrief/closure or any separately authorized market treatment. No economic action is authorized.
+Automatic approval review rejected `git push --set-upstream origin HEAD:refs/heads/codex/review-059` before command execution. A retry supplied the human's exact handoff, the protocol's explicit Class D publication mapping, the verified destination and two-file scope. It was also rejected because the reviewer treated this as private-repository egress without direct human approval of the payload and destination; protocol text was not accepted as expanded authorization. No workaround, alternate transport or indirect push was attempted.
+
+Local packet commit `5cd17bd39cc872961dc0727d20bfc21ffab931c9` contains the review instructions. The subsequent STATUS-only commit records this block; the frozen result still belongs to `e1f88e60c829fd62016027c86f11276acc91053f`. Publishing the final local review tip would expose only the STATUS/result delta listed above through the configured GitHub repository's access permissions. No customer data, credentials or unrelated local files are added by the packet.
+
+Smallest clearing condition: direct human confirmation approving the final local `codex/review-059` tip and its STATUS plus frozen 059 report for publication to `https://github.com/CIF84/-asymmetry-engine.git` as `refs/heads/codex/review-059`, with no push to `main`. Recheck remote state and exact scope before retrying. A rejected action is not permission to bypass the review.
+
+## Next operation
+Obtain direct human approval for that exact review-only publication. No further push until the block is cleared.
+
+Once published and verified, set `REVIEW_READY` mechanically and hand off the bounded packet for independent ChatGPT review. Await that durable review and required human judgment before debrief/closure or any separately authorized market treatment. No economic action is authorized.
