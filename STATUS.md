@@ -4,9 +4,9 @@
 
 **Branch:** `codex/review-059`
 
-**Operational state:** `REVIEW_READY`
+**Operational state:** `BLOCKED`
 
-**Publication gate:** `REVIEW_READY` is effective only when this containing preparation commit is verified on the published review branch. Independent review must use that published Git ref, not unpublished local history.
+**Blocker:** Review preparation is complete locally, but automatic approval review rejected publication of the new STATUS/remediation payload to the GitHub destination. No push occurred; independent review cannot bridge the unpublished commits.
 
 ## Phase
 **AE Phase II — Economic Proof**
@@ -63,6 +63,8 @@ Validation: `.venv/bin/pytest -q` — 89 passed; 21 report fields, local links, 
 
 Review preparation repeats the 89-test suite and checks local packet links, all five frozen hashes, every tracked file except STATUS, all four unrelated untracked hashes, exact incremental publication scope and staged whitespace before committing.
 
+Preparation commit: `b43dc33922fa58f2dcbe73f1430378bd2ede5f37`. Its bounded push was rejected because automatic approval review did not treat the minimal review-preparation command as explicit authorization for this new payload/destination; the earlier explicit approval covered different frozen content. This blocker record changes only STATUS and preserves the prepared remediation. The containing blocker commit supplies the final proposed publication tip.
+
 ## Authority
 The current human handoff, **Prepare the active work for review**, invokes operating-protocol §§4–5 Class D for this bounded review packet. It permits preparation, validation, local commit and publication only to the review branch above. This is separate from the earlier authorization for the original 059 tip; that earlier approval does not cover remediation publication.
 
@@ -76,6 +78,8 @@ Not authorized by this packet:
 - publication outside the bounded review branch, merge, rebase, history rewrite or main update.
 
 ## Next operation
-**Independent ChatGPT review of the published 059R remediation packet.**
+**Obtain explicit authorization for the prepared 059R review-branch publication.**
 
-Start only after the bounded branch push succeeds and its remote tip is verified. Review the actual GitHub state and record the judgment separately; do not resume research, launch, accept the result on the human's behalf or close the experiment. If publication is blocked or the branch diverges, record the exact blocker and stop.
+Smallest clearing condition: human authorization to push this containing commit to `https://github.com/CIF84/-asymmetry-engine.git`, only `refs/heads/codex/review-059`, with the incremental payload limited exactly to prepared `STATUS.md` and unchanged frozen `experiments/059/remediation.md`. Leave main, other branches/tags and all other content unchanged. Then verify the normal fast-forward path, publish and verify the remote tip. No workaround or retry is authorized merely by this blocker record.
+
+After successful publication, independent ChatGPT reviews the actual GitHub remediation packet and records its judgment separately. Do not resume research, launch, accept the result on the human's behalf or close the experiment. Unexpected divergence requires a stop and report.
