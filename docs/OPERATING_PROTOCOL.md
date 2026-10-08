@@ -1,125 +1,224 @@
 # Asymmetry Engine Operating Protocol
 
-This is the minimal repository-native protocol for recovering, executing, reviewing, and closing bounded work. It defines procedure, not conceptual project truth or software architecture.
+This protocol minimizes human operational work while preserving consequential authority, independent review, durable recovery, and evidence integrity.
 
-## 1. Recovery
+## 1. Core rule
 
-A fresh executor reads:
+> **Human approval gates judgment and consequences, not repository bookkeeping.**
 
-```text
-README.md
-→ AGENTS.md
-→ STATUS.md
-→ active specification and result
-→ deeper history only as required
-```
+Routine Git publication inside the already-designated AE repository is mechanical project work when it:
+- stays within the active contract;
+- contains no secrets/customer data;
+- preserves history;
+- uses normal fast-forward/non-destructive operations;
+- changes only permitted project files.
 
-That sequence must answer:
+It does not require a fresh human approval merely because bytes leave the local checkout for the canonical project repository.
 
-- what AE is;
-- the current project and active-work state;
-- what is frozen;
-- what work is allowed;
-- what requires human judgment or fresh authorization;
-- where historical evidence lives;
-- the next unresolved decision.
+Consequential external action remains separately gated.
 
-If any answer is missing or repository state conflicts with `STATUS.md`, stop and surface the gap. Do not guess.
+## 2. Roles
 
-### Durable-handoff precondition
+### Human
+Owns:
+- objectives and preferences;
+- subjective/human testing;
+- consequential economic/external authorization;
+- acceptance of legal/commercial obligations;
+- decisions where evidence supports multiple consequential paths.
 
-Before a minimal handoff is issued, every non-recoverable input required by the receiving role must already exist in Git or another explicitly referenced durable source. Conversation-only evidence is not recoverable project state. If a fresh executor could not complete the handoff from durable state alone, the upstream role must materialize the missing evidence/context before handing off.
+The human is **not** the normal Git relay.
 
-A role that can see shared GitHub state must not bridge over unpublished local Codex history. Local-only commits must first be exposed through the appropriate bounded publication/review mechanism; publication authority remains separate from execution authority.
+### ChatGPT
+Owns:
+- strategy/ideation;
+- specifications;
+- independent review;
+- debrief interpretation;
+- bounded protocol/living-truth proposals;
+- direct GitHub writes when available and within repository authority.
 
-## 2. Authority boundary
+### Codex
+Owns:
+- repository recovery;
+- execution;
+- tests/integrity;
+- mechanical evidence capture;
+- commits;
+- routine review/canonical publication under this protocol;
+- debrief transcription from approved evidence.
 
-```text
-SPECIFICATION ≠ AUTHORIZATION
-CAPABILITY ≠ AUTHORIZATION
-IMPLEMENTATION ≠ HUMAN ACCEPTANCE
-```
+### Git/GitHub
+Canonical durable shared memory.
 
-The human owns objectives, subjective testing, consequential decisions, explicit authorization, and required final judgment. ChatGPT owns reasoning, specifications, independent review, debrief interpretation, and living-truth alignment proposals. Codex owns bounded repository execution, implementation, validation, mechanical evidence capture, permitted Git operations, and transcription of approved evidence.
+## 3. Authority classes
 
-**Escalate judgment, not work.** Mechanical transcription, routine evidence capture, tests, Git inspection, and bookkeeping belong to Codex when they require no new human judgment.
+### R — Repository-mechanical authority
+Standing authority for Codex/ChatGPT to perform non-destructive repository operations in **this AE repository only** when required by an active contract/protocol:
+- fetch;
+- clean fast-forward;
+- create/update bounded review refs;
+- publish frozen review evidence;
+- publish approved closure/canonical history;
+- correct stale operational pointers;
+- verify remote equality.
 
-## 3. Active-work lifecycle
+Conditions:
+- no force-push/rebase/amend/history rewrite;
+- no secrets/customer/private operational data;
+- exact permitted-file scope;
+- tests/integrity pass;
+- stop on unexpected divergence/conflict;
+- no expansion into external economic action.
 
-`STATUS.md` carries exactly one current state:
+**No fresh human approval is required for Class R.**
 
-| State | Meaning |
-|---|---|
-| `READY_FOR_EXECUTION` | Contract is complete; routine execution may begin. Any consequential action still needs fresh explicit authorization. |
-| `IMPLEMENTING` | Bounded local execution is in progress. |
-| `IMPLEMENTATION_FROZEN` | Implementation/evidence is frozen; no iteration is allowed before the prescribed review. |
-| `HUMAN_REVIEW_REQUIRED` | Subjective testing or consequential human judgment is required; agents must not fabricate it. |
-| `REVIEW_READY` | A bounded Git ref is available for required independent ChatGPT review. |
-| `DEBRIEF_READY` | Approved human/reviewer evidence exists and may be transcribed and interpreted under the active contract. |
-| `CLOSURE_READY` | Debrief, checks, and local closure commit are complete; publication is not yet authorized. |
-| `CLOSED` | Approved closure is durably published and no work remains under that contract. |
-| `BLOCKED` | A named missing dependency, authority, or contradiction prevents valid progress. |
-
-Normal paths may skip inapplicable review states, but they may not skip required human evidence or authorization. `BLOCKED` records the exact blocker and the smallest condition that can clear it.
-
-## 4. Handoff classes
-
-### A — Routine repository execution
-
-Local inspection, implementation, tests, validation, evidence capture, permitted commits, and safe Git operations within the active contract. No consequential external action.
-
-### B — Human acceptance/testing
-
-Codex freezes the test surface and prepares the acceptance packet. The human supplies subjective observations or decisions. Codex may later transcribe approved evidence exactly; it may not answer on the human's behalf.
+### H — Human judgment
+Required when subjective evidence, product acceptance, strategic choice among consequential alternatives, or genuinely non-recoverable human preference is needed.
 
 ### C — Consequential external action
+Fresh explicit human authorization required for the exact action, including:
+- spending or financial exposure;
+- accepting commercial/legal terms;
+- account creation/enrollment where obligations arise;
+- contacting actors/customers;
+- publishing market-facing offers/content;
+- transactions/trading;
+- deployment that creates external obligations or irreversible effects.
 
-Requires a complete specification **and fresh explicit authorization for the exact action**. Authentication, platform access, an earlier authorization, or technical ability is insufficient. Stop if any preregistered control fails.
+Authentication/capability never implies C authority.
 
-### D — Independent ChatGPT review of local changes
+## 4. Recovery
 
-When review requires actual local-only work, Codex prepares a bounded branch named `codex/review-<work-id>`, containing only review-permitted changes, and pushes that branch. ChatGPT reviews the actual GitHub state. Publishing a review branch authorizes neither merge nor a push to `main`; both require a later explicit handoff.
+Fresh agent reads the smallest sufficient path:
 
-## 5. Minimal handoff commands
+`README → AGENTS → STATUS → active spec/result → deeper evidence only as needed`.
 
-These commands derive their scope from `STATUS.md`, the active contract, and the handoff class. They never broaden authority.
+If STATUS is stale but Git contains **unambiguous newer approved evidence**, the agent may reconcile STATUS mechanically under Class R and record the evidence pointer. Stop only when reconciliation requires judgment or competing histories exist.
 
-### `Execute the active work packet.`
+This replaces the old rule that every STATUS contradiction requires human intervention.
 
-Verify repository state, move `READY_FOR_EXECUTION → IMPLEMENTING`, execute the bounded contract, validate, commit permitted work locally, and stop at its prescribed freeze/review state. Class C action requires fresh explicit authorization in the same bounded handoff.
+## 5. Operational state
 
-### `Prepare the active work for review.`
+STATUS is a **derived operational pointer**, not the authority ledger or evidence source.
 
-Preserve the frozen output, prepare the smallest acceptance/review packet, run integrity checks, and set `HUMAN_REVIEW_REQUIRED` or `REVIEW_READY`. For Class D, publish only the bounded `codex/review-<work-id>` branch.
+Keep it small:
+- phase;
+- active work ID;
+- state;
+- spec/result/review/debrief pointers;
+- exact unresolved human/consequential decision, if any;
+- next agent operation.
 
-### `Record the approved debrief and close the active work.`
+Historical publication narrative, hashes, timing, validation detail and authority prose belong in experiment artifacts/Git history, not STATUS.
 
-Use only already-approved human/reviewer evidence. Transcribe it without strengthening or weakening it, apply the contract's verdict rules, run checks, create the local closure commit, and set `CLOSURE_READY`. This command does not authorize push.
+States:
+- `READY_FOR_EXECUTION`
+- `IMPLEMENTING`
+- `FROZEN`
+- `HUMAN_DECISION_REQUIRED`
+- `REVIEW_READY`
+- `CLOSURE_READY`
+- `CLOSED`
+- `BLOCKED`
 
-### `Publish the approved closure.`
+Use BLOCKED only for a real unresolved dependency/ambiguity, not because a routine repository push awaits redundant approval.
 
-Verify the exact closure commit, clean scope, and normal fast-forward path. With explicit publication authority, update the operational pointer to `CLOSED` as part of the bounded publication state, push only the approved history, and verify synchronization. Never force-push, rebase, amend, or resolve unexpected divergence automatically.
+## 6. Normal experiment path
 
-## 6. Durable truth and alignment
+### No human review required
+`READY → EXECUTE → FROZEN → REVIEW (if prescribed) → DEBRIEF/CLOSE → CLOSED`
 
-| Location | Role |
-|---|---|
-| `specs/` | Immutable work contracts: hypotheses, controls, budgets, stop rules, required evidence, verdicts. |
-| `experiments/` | Durable execution evidence, results, acceptance records, and debrief history. |
-| Living docs | Current conceptual truth, changed only through explicit alignment work. |
-| `STATUS.md` | Current operational pointer, state, authority, frozen work, and next operation. |
-| `AGENTS.md` | Permanent operating and authority contract. |
+Repository publication between these states is automatic Class R work.
 
-Experiment evidence must not silently rewrite living truth. A result may earn an alignment proposal; it does not apply that proposal automatically. Historical artifacts remain historical even when living truth changes.
+### Human judgment required
+`READY → EXECUTE → FROZEN → HUMAN_DECISION_REQUIRED → approved evidence → CLOSE → CLOSED`
 
-## 7. Git discipline
+One human interaction should normally contain the actual judgment, not Git instructions.
 
-- Preserve unrelated changes and frozen artifacts.
-- Commit only files permitted by the active handoff.
-- Prefer normal fast-forward operations; stop on unexpected divergence.
-- Do not amend, rebase, force-push, or rewrite evidence history unless a separate explicit instruction authorizes the exact operation.
-- A local commit is not publication. A review-branch push is not main-branch authority. A main-branch push is not consequential actor authorization.
+### Consequential economic experiment
+`READY → design/freeze/review → HUMAN_DECISION_REQUIRED → explicit Class C authorization → external execution`
 
-## 8. Protocol boundary
+Human authorization occurs as close as practical to the consequential action.
 
-This protocol earns no hooks, CI, workflow engine, scheduler, queue, orchestration layer, database, ADR system, template suite, monitoring, or automation. Use concise documents and Git until repeated operational evidence justifies a different mechanism.
+## 7. Independent ChatGPT review
+
+If ChatGPT can read the frozen state directly from canonical GitHub, Codex publishes the smallest review ref automatically under Class R.
+
+Preferred:
+- immutable experiment evidence on a bounded `codex/review-<id>` ref;
+- ChatGPT records `review.md` there;
+- Codex consumes that durable review.
+
+A review-ref push does not authorize external action.
+
+If direct canonical publication is safe and preserves review independence, a separate review branch is optional; use the smallest mechanism that gives the reviewer immutable recoverable evidence.
+
+## 8. Closure
+
+Once required human/reviewer evidence is durably present:
+
+Codex may, without another human Git approval:
+1. record/transcribe the approved debrief;
+2. validate;
+3. create closure commit;
+4. publish approved history to canonical main by normal fast-forward;
+5. set STATUS CLOSED;
+6. verify local/remote synchronization.
+
+Stop if:
+- evidence is ambiguous;
+- frozen artifacts would change;
+- main cannot fast-forward cleanly;
+- scope exceeds approved evidence;
+- publication would expose secrets/private data.
+
+## 9. Minimal handoffs
+
+Normal commands:
+
+- **`Execute the active work packet.`**
+- **`Prepare the active work for review.`** — only when review/human testing is actually prescribed.
+- **`Record the approved decision.`** — when human/reviewer evidence must be transcribed.
+- **`Continue the protocol.`** — perform all remaining Class R mechanics until the next genuine H/C boundary or CLOSED.
+
+The old separate “publish review,” “publish closure,” and STATUS-correction approvals are retired for this repository.
+
+## 10. Human-attention target
+
+Target per normal experiment:
+- **0 human Git/publication operations**
+- **0 human interactions** for fully mechanical/research work unless judgment is prescribed
+- **1 human judgment** for subjective acceptance
+- **1 consequential authorization** immediately before external economic action
+
+Additional human interruptions are protocol exceptions and should record why they were necessary.
+
+## 11. Evidence integrity
+
+Always preserve:
+- frozen artifacts;
+- original executor verdicts;
+- independent review separately;
+- remediation separately;
+- final approved disposition;
+- UNKNOWN/NOT REACHED semantics;
+- unrelated working-tree changes.
+
+Never rewrite history to make the final answer appear to have been known earlier.
+
+## 12. Protocol-performance audit
+
+For each experiment debrief, record only when nonzero:
+- human operational interruptions;
+- human judgment events;
+- consequential authorizations;
+- protocol exception reason.
+
+Do not create a new telemetry system.
+
+## 13. Boundary
+
+No hooks, CI, workflow engine, scheduler, queue, database or orchestration layer is earned.
+
+Use Git, concise Markdown and agent capabilities. Revisit automation only if this simplified protocol still causes repeated measurable friction.
