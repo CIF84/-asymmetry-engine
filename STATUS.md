@@ -4,15 +4,13 @@
 
 **Branch:** `codex/review-059`
 
-**Operational state:** `BLOCKED`
-
-**Blocker:** Automatic approval review rejected the prepared closure push because explicit authorization for this new STATUS/debrief payload and GitHub destination is required. No closure push occurred; main remains unchanged.
+**Operational state:** `CLOSED`
 
 ## Phase
 **AE Phase II — Economic Proof**
 
 ## Current state
-Experiment 059 has approved local closure with final disposition **N — C04 REJECTED**. Publication remains pending; CLOSED is not claimed.
+Experiment 059 is closed with final approved disposition **N — C04 REJECTED**. The approved closure is already published on `codex/review-059` at `13ca2eca931c84d8e35996c34008fe69883efe26`; its remote tip was verified before this STATUS-only correction. No work remains under 059, including remediation 059R.
 
 The separate historical evidence is preserved:
 - original executor result: **Q — QUALIFY** for C04;
@@ -23,7 +21,9 @@ The separate historical evidence is preserved:
 SPEC-059R requires both gates to pass for Q. The approved N is an admission/access rejection for AE under the bounded horizon, not observed market rejection, zero demand or global impossibility. No economic treatment or replacement search occurred. Route and exposure denominator remain NONE, not zero.
 
 ## Active work
-**059 — Approved local closure (including 059R); publication blocked.**
+**None.**
+
+## Closed work — Experiment 059
 
 Recovery:
 - [Approved debrief and local closure](experiments/059/debrief.md)
@@ -41,22 +41,22 @@ The human explicitly authorized clean synchronization to approved review commit 
 
 The former publication/acceptance blocker was historical text retained in the exact authorized `ebc19fa` push. Publication succeeded and approved review is now durable at `26119ca`; the current reconciliation records those facts without altering any frozen artifact. No further evidence discrepancy was found.
 
-Local closure commit: `bfae7e46b586bd35e9e73de09bdcbfc32f544a88`, changing only `STATUS.md` and adding `experiments/059/debrief.md`. This publication commit updates only STATUS. The incremental publication payload from approved review baseline `26119ca78ec6b73d314b01bba5c31e0ba7cdc8b4` is exactly STATUS and the unchanged approved debrief. Original Q, both independent reviews, remediation, specifications, prior evidence, application code, living truth and protocol remain frozen. Four unrelated untracked `.DS_Store` files remain unchanged.
+Closure commit: `bfae7e46b586bd35e9e73de09bdcbfc32f544a88`, changing only `STATUS.md` and adding `experiments/059/debrief.md`. The approved publication at `13ca2eca931c84d8e35996c34008fe69883efe26` contains exactly STATUS and the unchanged approved debrief beyond review baseline `26119ca78ec6b73d314b01bba5c31e0ba7cdc8b4`. This correction changes only STATUS. Original Q, both independent reviews, remediation, specifications, prior evidence, application code, living truth and protocol remain frozen. Four unrelated untracked `.DS_Store` files remain unchanged.
 
-Prepared publication commit: `f59516c3805df934f643ab56a07ac5f07cfee19b`. Its push was rejected before execution: automatic approval review did not treat the minimal closure-publication command as explicit authorization for this exact new payload/destination, and prior explicit push approval covered different content. This containing blocker commit updates only STATUS and supplies the final proposed publication tip. No alternate route or retry bypasses that rejection.
+Publication followed explicit human authorization for exact commit `13ca2eca931c84d8e35996c34008fe69883efe26`, preserving its prepared blocker text unchanged. That publication succeeded; the obsolete operational blocker is cleared by the separately authorized STATUS-only correction. The earlier rejected attempt remains historical Git evidence, not a current blocker.
 
 Local `main` remains `e1f88e60c829fd62016027c86f11276acc91053f`; fetched `origin/main` and directly verified remote main remain `d422c6b64f61a5f3f893fe55763b06947b15dd7f`. Main was not fetched or updated. Publication destination is `https://github.com/CIF84/-asymmetry-engine.git`, only `refs/heads/codex/review-059`, by normal fast-forward. All other branches/tags remain unchanged; no merge, rebase or history rewrite.
 
 Closure validation: `.venv/bin/pytest -q` — **89 passed**; local links, original 37 fields/six candidate IDs, remediation 21 fields/five surface IDs, all frozen hashes, every other tracked/untracked baseline byte, whitespace and exact permitted-file scope checked before commit. Frozen seals and timing limits are recorded in the debrief. The containing closure commit supplies its SHA without a circular self-reference.
 
 ## Authority
-The approved remediation review supplies debrief/closure interpretation. The earlier human handoff authorized transcription, exact clean fast-forward, STATUS reconciliation and local closure. The current human handoff **Publish the approved closure** authorizes this bounded review-branch publication and operational transition under operating-protocol §5. It does not expand the earlier main prohibition. Approved evidence remains recorded without new acceptance or stronger economic claims.
+The approved remediation review supplies debrief/closure interpretation; prior human handoffs authorized local closure and exact closure publication. The current human authorization permits only a STATUS correction to CLOSED, clearing the obsolete blocker and active-work pointer, recording the verified published closure at `13ca2eca931c84d8e35996c34008fe69883efe26`, and pushing only that correction to `codex/review-059` at `https://github.com/CIF84/-asymmetry-engine.git`. Approved evidence remains unchanged, with no new acceptance or stronger economic claims.
 
-This handoff does not authorize publication outside the review branch, main merge/update, history rewrite, another search, C04 reopening, audience-building, proxy tests, actor contact, posting, enrollment, accounts, terms acceptance, spending, launch, product/content infrastructure or living-truth/protocol changes. Stop on any new evidence discrepancy or unexpected divergence. If publication is rejected, record the blocker rather than claiming CLOSED.
+This handoff does not authorize any other file/content change, publication outside the review branch, main merge/update, history rewrite, another search, C04 reopening, audience-building, proxy tests, actor contact, posting, enrollment, accounts, terms acceptance, spending, launch, product/content infrastructure or living-truth/protocol changes. Stop if any additional change is required or unexpected divergence appears.
 
 ## Next operation
-**Obtain explicit authorization for the prepared closure publication.**
+**Await a separately specified and authorized next work packet.**
 
-Smallest clearing condition: human authorization to push this containing commit to `https://github.com/CIF84/-asymmetry-engine.git`, only `refs/heads/codex/review-059`, limited exactly to prepared `STATUS.md` and unchanged approved `experiments/059/debrief.md`. Leave main, other refs/tags, frozen artifacts and all other content unchanged. Then recheck the normal fast-forward path, publish the exact approved tip and verify synchronization. The prepared STATUS blocker record must remain unchanged if the authorization is limited to that exact commit; any later state correction requires its own permitted handoff.
+No active execution, review or publication obligation remains under Experiment 059 after this STATUS correction is published and verified. No next search is activated.
 
 After approved closure/publication, the reviewer recommends one bounded proven-flow search with qualified distribution/access as an early gate before detailed treatment design, preserving commercial-wedge logic and stopping at one launch-ready economic treatment or NONE. This recommendation is not yet an active contract or authority to execute it.
