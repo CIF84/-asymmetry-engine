@@ -2,9 +2,9 @@
 
 **Recorded:** 2026-10-08
 
-**Branch:** `main`
+**Branch:** `codex/review-059`
 
-**Operational state:** `IMPLEMENTATION_FROZEN`
+**Operational state:** `REVIEW_READY`
 
 ## Phase
 **AE Phase II — Economic Proof**
@@ -13,6 +13,8 @@
 Experiment 058 remains CLOSED with **N — NONE** under its residual-gap + F1/F4 contract. Its review/debrief identified the admission defect addressed by SPEC-059; earlier evidence and living truth are unchanged.
 
 Experiment 059 execution is complete and frozen with **Q — QUALIFY**, selecting `059-C04`, the cohort-course private audio plan. This is admission of a bounded treatment design, not human acceptance, profitable acquisition, merchant approval or economic proof. No treatment was launched.
+
+The human requested `Prepare the active work for review.` Class D review preparation preserves the frozen result and publishes only `codex/review-059`. Independent ChatGPT review is outstanding; this packet does not supply that review or launch approval.
 
 Six fresh proven flows were inspected. The selected package pairs a USD 69 custom decision brief with a free self-service comparison guide using Transistor's referral route. The design uses disclosed organic service exposure and explicitly abandons topology-only causal interpretation.
 
@@ -31,7 +33,9 @@ Repository synchronization:
 - clean fast-forward from `e0ff36f9142c13871bc400f6d5b09adf156e5fba` to fetched `origin/main` at `d422c6b64f61a5f3f893fe55763b06947b15dd7f`;
 - zero local commits ahead before execution; no merge commit/rebase/history repair;
 - four unrelated untracked `.DS_Store` files preserved;
-- execution result committed locally only; no push authorized.
+- frozen execution commit: `e1f88e60c829fd62016027c86f11276acc91053f`;
+- local `main` remains at that execution commit; fetched `origin/main` remains at `d422c6b64f61a5f3f893fe55763b06947b15dd7f`;
+- this handoff authorizes only review-branch publication, not a push to `main`.
 
 Execution evidence:
 - start `2026-10-08T08:02:59Z`; evidence/design endpoint `2026-10-08T08:48:01Z` (45m 02s elapsed proxy, before final Git bookkeeping);
@@ -40,19 +44,41 @@ Execution evidence:
 - 37 report fields, six candidate records, source/UNKNOWN boundaries, local links, arithmetic and frozen-baseline integrity checked;
 - no strategic reserve interruption.
 
+## Bounded review packet
+
+Review ref: [`codex/review-059`](https://github.com/CIF84/-asymmetry-engine/tree/codex/review-059).
+
+Compare against `d422c6b64f61a5f3f893fe55763b06947b15dd7f`. The complete review diff contains only:
+- the frozen `experiments/059/proven-flow-wedge-search.md` introduced by `e1f88e60c829fd62016027c86f11276acc91053f`;
+- mechanical `STATUS.md` execution/review state and this handoff packet.
+
+The preparation commit changes only STATUS. Specifications, the result bytes, earlier evidence and living/protocol documents remain unchanged. Fetch the review ref and record its exact tip in the independent review; the preparation commit cannot contain its own SHA. Verify both hashes above and the two-file scope before substantive review. Review-preparation validation: `.venv/bin/pytest -q` (89 passed), frozen SHA-256 checks, report structure/local links and staged whitespace/scope checks. Remote review-tip equality and unchanged remote `main` must be verified after the bounded push.
+
+Reviewer recovery: README → AGENTS → this STATUS → [SPEC-059](specs/059-proven-flow-wedge-search.md) → [frozen result](experiments/059/proven-flow-wedge-search.md). For the corrected admission rule only, use [058 review](experiments/058/review.md) and [058 approved debrief](experiments/058/debrief.md); the [057B reserve conditions](experiments/057-attempt-2/reveal-feasibility-discrimination.md#40-ranking-reversal-conditions) and [debrief](experiments/057-attempt-2/debrief.md) are durable recovery references if needed. No conversation-only input is required.
+
+Required review decision: does the frozen evidence justify Q under SPEC-059, and is the paired treatment sufficiently concrete for a separate human authorization decision? Review the actual branch and sources; do not assume the executor's gate passes are independent findings. In particular, examine:
+
+1. The six-candidate method and legacy-gate audit, including whether C01/C05 challenge the exact wedge and whether C04's paid synthesis earns a specific commercial hypothesis.
+2. F4 eligibility/channel/attribution/settlement sufficiency, the unresolved lock/reversal details and excluded Hello Audio route; distinguish an ordinary launch check from missing admission evidence.
+3. The organic audience, 30 confirmed exposures in 28 days, opt-in denominator, attribution limits and self-selection; test whether access/measurement failure remains distinct from economic failure.
+4. The paid/free package comparison, USD 69 price, fulfillment capacity, full costs, payout threshold/horizons, and recommendation of the non-affiliated option when appropriate.
+5. The USD 250 operating envelope, gross-receipt refund reserve, residual contractual liabilities, 18-hour cap and exact human authorization packet; distinguish a spending budget from a legal liability ceiling.
+
+Return findings with file/section and evidence references, the resulting Q/N/E recommendation under the contract (or a precise bounded remediation requirement), and exactly one next action. Record the independent review durably as `experiments/059/review.md` on the review branch. Preserve the frozen specification/result; do not implement fixes, perform human acceptance, launch, enroll, contact, spend, merge or push `main` as part of review. Approval of review findings and consequential launch authorization are separate decisions.
+
 ## Authority
-The execution handoff has reached its local freeze boundary. Preserve the result until the prescribed review; do not iterate or widen the search.
+The execution handoff has reached its freeze boundary. This handoff permits the mechanical review packet and normal publication of `codex/review-059` only. Preserve the result until the prescribed review; do not iterate or widen the search.
 
 Not authorized by this result:
-- push or merge;
+- any other branch publication, merge or push to `main`;
 - market launch, enrollment, terms acceptance or account creation;
-- contact, publication, spending, payments or financial-account connection;
+- market contact/publication, spending, payments or financial-account connection;
 - software/UI/automation/infrastructure work;
 - edits to specifications, earlier evidence, living truth or protocol.
 
-The exact prospective Class C authorization packet is in result §36. Its cash/time, obligations, controls and horizons are proposed, not activated. Review preparation is a separate handoff; it may publish only a bounded review branch when explicitly requested under the operating protocol. No approval or acceptance evidence exists yet.
+The exact prospective Class C authorization packet is in result §36. Its cash/time, obligations, controls and horizons are proposed, not activated. No independent-review approval or human acceptance evidence exists yet.
 
 ## Next operation
-`Prepare the active work for review.`
+Independent ChatGPT review of `codex/review-059` using the bounded packet above.
 
-Preserve the frozen 059 result and prepare the smallest bounded review packet under `docs/OPERATING_PROTOCOL.md`. No economic action is authorized.
+Await the durable independent review and required human judgment before debrief/closure or any separately authorized market treatment. No economic action is authorized.
