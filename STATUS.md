@@ -1,40 +1,42 @@
 # Asymmetry Engine Status
 
 **Phase:** AE Phase II — Economic Proof  
-**State:** `CLOSED`  
-**Active work:** None
+**State:** `READY_FOR_EXECUTION`  
+**Active work:** Experiment 060
 
 ## Latest closed work
-**Experiment 059 — final approved disposition: N — C04 REJECTED.**
+Experiment 059 — final approved disposition **N — C04 REJECTED**.
 
-Recovery:
-- `experiments/059/debrief.md`
-- `experiments/059/remediation-review.md`
-- `experiments/059/remediation.md`
-- `experiments/059/review.md`
-- `experiments/059/proven-flow-wedge-search.md`
+## Active contract
+**Experiment 060 — Distribution-First Economic Entry Search**
 
-Historical executor Q is preserved separately from the final approved N.
+Spec:
+- `specs/060-distribution-first-economic-entry.md`
 
-## Current strategic/economic learning
-- Existing competent solutions can be evidence of proven economic flow; commercial entry needs a specific wedge, not informational novelty.
-- Distribution/access is part of the opportunity and should be tested early.
-- F1/F4 is provisional rather than an admission requirement.
-- No economic treatment has yet launched.
+Objective:
+**proven money flow → reachable qualified distribution → commercial wedge → best-fitting capture topology → cheapest economically revealing treatment**
 
-## Protocol
-Operating protocol simplified after observed 052–059 friction:
-- routine Git/review/closure publication inside this repository is agent-owned mechanical work;
-- human attention is reserved for judgment and consequential external authorization;
-- STATUS is a small derived pointer and may be mechanically reconciled from unambiguous newer approved Git evidence.
+Key corrections:
+- distribution/access is an early fatal gate;
+- F1/F4 is no longer required;
+- F1–F11 are available capture mechanisms selected by economics;
+- B2B/B2C labels are not preferences;
+- total burden includes acquisition, coordination, support, fulfillment, capital, dependency, settlement, maintenance and human attention;
+- no proxy-demand staircase after admission.
 
-See `AGENTS.md` and `docs/OPERATING_PROTOCOL.md`.
+## Outcomes
+- **Q — QUALIFY:** one launch-ready treatment; stop for explicit human consequential authorization.
+- **N — NONE:** bounded 4–6 candidate search finds no qualifier.
+- **E — INVALID.**
 
-## Next unresolved decision
-Define the next Phase II search contract using:
-**proven money flow → reachable qualified distribution → commercial wedge → best-fitting capture topology → cheapest economically revealing treatment.**
+## Authority
+Routine repository mechanics are standing agent authority under `AGENTS.md` / `docs/OPERATING_PROTOCOL.md`.
 
-Capture topology should be selected by economics rather than pre-required as F1/F4.
+Public research and bounded repository execution are authorized by the active contract.
+
+No spending, enrollment/terms acceptance, actor contact, market-facing publication, transaction/trading or launch is authorized.
 
 ## Next operation
-Await a separately specified next work packet. No external economic action is authorized.
+`Execute the active work packet.`
+
+Continue routine protocol mechanics without human Git handoffs until the next genuine human-judgment/consequential boundary or CLOSED.
