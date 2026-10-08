@@ -1,102 +1,61 @@
 # Asymmetry Engine Agent Contract
 
-This file governs every agent working in this repository. Read it before acting.
+Read this before acting.
 
-## Recovery order
+## Prime directive
+**Escalate judgment and consequences, not work.**
 
-Use the smallest sufficient context path:
+The human owns objectives, subjective judgment and consequential authorization. Agents own mechanical repository work.
 
-```text
-README.md
-→ AGENTS.md
-→ STATUS.md
-→ active specification and result
-→ deeper history only as required
-```
+## Recovery
+Read:
 
-`STATUS.md` identifies the active work and the next permitted operation. If repository state contradicts it, stop and report the discrepancy; do not silently repair or reinterpret history.
+`README.md → AGENTS.md → STATUS.md → active spec/result → deeper history only as required`.
 
-## Ownership
+Git/GitHub is canonical durable memory.
 
-### Human
+STATUS is only an operational pointer. If it is stale and newer approved Git evidence is unambiguous, reconcile it mechanically. Stop only when evidence conflicts or judgment is required.
 
-The human owns:
+## Roles
+- **Human:** objectives, subjective testing, consequential decisions/authorization.
+- **ChatGPT:** reasoning, specs, independent review, debrief interpretation, bounded GitHub work.
+- **Codex:** repository execution, validation, evidence capture, commits and routine Git publication.
+- **Git/GitHub:** canonical durable memory.
 
-- objectives;
-- subjective and human testing;
-- consequential decisions;
-- explicit authorization;
-- final judgment where required.
+## Authority
+### Repository-mechanical (standing)
+Within this AE repository, agents may perform non-destructive fetch/fast-forward, bounded review publication, approved closure publication and STATUS reconciliation without fresh human approval when scope is already defined and no private/customer data is exposed.
 
-### ChatGPT
+Never force-push, rebase, amend, rewrite evidence history, resolve unexpected divergence, or broaden file scope automatically.
 
-ChatGPT owns:
+### Consequential
+Fresh explicit human authorization is required for spending, financial exposure, commercial/legal terms, account/enrollment obligations, actor/customer contact, market-facing publication, transactions/trading, or other consequential external action.
 
-- ideation and reasoning;
-- architecture and product interpretation;
-- specifications;
-- independent review;
-- debrief interpretation;
-- living-truth alignment proposals.
+`SPECIFICATION ≠ AUTHORIZATION`
+`CAPABILITY ≠ AUTHORIZATION`
+`IMPLEMENTATION ≠ HUMAN ACCEPTANCE`
 
-### Codex
+## Execution
+1. Read active contract.
+2. Obey strictest scope/budget/stop rule.
+3. Preserve frozen/unrelated files.
+4. Keep UNKNOWN as UNKNOWN.
+5. Run required checks.
+6. Commit only permitted files.
+7. Continue routine protocol mechanics until the next genuine human/consequential boundary or CLOSED.
 
-Codex owns:
+Do not ask the human to approve routine Git publication inside this repository.
 
-- local repository inspection;
-- implementation;
-- tests and validation;
-- mechanical evidence capture;
-- permitted commits and Git operations;
-- debrief transcription from already-approved human evidence.
+## Durable truth
+- `specs/` — immutable contracts.
+- `experiments/` — evidence/results/reviews/debriefs.
+- living docs — current conceptual truth.
+- `STATUS.md` — small current pointer.
+- `AGENTS.md` — authority/operating contract.
 
-### Git and GitHub
+Historical evidence remains historical when conclusions change.
 
-Git/GitHub is the canonical durable shared memory. Conversation context may inform a bounded handoff, but durable project state, evidence, and authority pointers belong in the repository.
+## Protocol
+Follow `docs/OPERATING_PROTOCOL.md`.
 
-**No context-dependent handoff.** Before issuing a minimal handoff, every non-recoverable input required by the receiving role must already exist in Git or another explicitly referenced durable source. If a fresh executor could not complete the handoff from durable state alone, the upstream role must materialize the missing context first.
-
-## Non-equivalences
-
-```text
-SPECIFICATION ≠ AUTHORIZATION
-CAPABILITY ≠ AUTHORIZATION
-IMPLEMENTATION ≠ HUMAN ACCEPTANCE
-```
-
-A specification never grants consequential external authority. Available tools or authenticated access never grant authority. A correct implementation never supplies human acceptance evidence.
-
-## Human-attention policy
-
-**Escalate judgment, not work.**
-
-Do not require the human to perform mechanical transcription, Markdown completion, routine evidence capture, tests, Git inspection, or bookkeeping when no new judgment is required. Preserve human attention for objectives, ideation, human testing, consequential decisions, authorization, exceptions, and judgment-heavy interpretation.
-
-This policy does not grant autonomous consequential action.
-
-## Execution rules
-
-1. Read `STATUS.md` and the active work contract before changing anything.
-2. Obey the strictest applicable scope, authority, budget, and stop condition.
-3. Preserve frozen artifacts and unrelated working-tree changes.
-4. Do not infer permission from capability, prior authorization, or similar historical work.
-5. Keep `UNKNOWN` as `UNKNOWN`; do not strengthen evidence during transcription.
-6. Run the required integrity checks and tests before committing.
-7. Commit only permitted files. Do not push unless the active handoff explicitly authorizes it.
-8. Update operational state only through the protocol in `docs/OPERATING_PROTOCOL.md`.
-
-## Durable truth classes
-
-- `specs/` — immutable work contracts.
-- `experiments/` — durable evidence, results, acceptance records, and debrief history.
-- living documents — current conceptual truth.
-- `STATUS.md` — current operational pointer and authority state.
-- `AGENTS.md` — permanent operating and authority contract.
-
-Experiment evidence does not silently rewrite living truth. Any alignment change requires an explicit bounded proposal, review, and authorized update.
-
-## Prohibited protocol expansion
-
-Do not implement workflow software, hooks, CI, orchestration, databases, template systems, ADR systems, or automation merely to enforce this document. The protocol is repository-native and human-governed until repeated evidence earns something else.
-
-See `docs/OPERATING_PROTOCOL.md` for lifecycle states, handoff classes, review branches, and command meanings.
+Do not build workflow software/CI/orchestration merely to enforce this contract.
