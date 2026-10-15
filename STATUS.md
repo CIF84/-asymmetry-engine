@@ -1,19 +1,25 @@
 # Asymmetry Engine Status
 
 **Phase:** AE Phase II — Economic Proof
-**State:** `CLOSED`
-**Active work:** None
+**State:** `HUMAN_DECISION_REQUIRED`
+**Active work:** Experiment 061 — research/design frozen at consequential boundary
 
-## Latest closed work
-**Experiment 060 — executor disposition: N — NONE.**
+## Frozen result
+**Executor disposition: B — NO ADVANTAGE ESTABLISHED.**
 
-- Spec: `specs/060-distribution-first-economic-entry.md`
-- Frozen result/closure record: `experiments/060/distribution-first-economic-entry.md`
-- Published result commit: `0db03b490995618e8587ad4b9c654578bcf78664` on canonical main.
+- Spec: [SPEC-061](specs/061-fixed-substrate-hypothesis.md)
+- Frozen result/design: [Experiment 061](experiments/061/fixed-substrate-hypothesis.md)
+- Canonical baseline: `ed708c513b40018ef6b2b8a64852080a924e491d`; the containing evidence commit supplies its identity.
 
-Six bounded inspections: three stop at qualified distribution, three at an unestablished commercial wedge. No economic treatment or observed demand/profitability test. UNKNOWN remains UNKNOWN. SPEC-060 prescribes no separate review/human acceptance for N; none is claimed. Timing-target undershoot and evidence limits are recorded in the result.
+Three environments inspected. Workana and PeoplePerHour defer; Freelancer's public mechanics and two distinct job classes support a bounded candidate at design depth. For the same job, opportunity-first can use the same route; no material substrate-first advantage is established. No strategy adoption or economic action occurred. Operator eligibility, actual exposure, WTP, fulfillment burden and settled profit remain UNKNOWN.
 
-Experiment 059 remains closed with final approved **N — C04 REJECTED**; its evidence is unchanged.
+One candidate is preserved: a fixed INR 20,000 text-PDF extraction batch through the named Freelancer request, subject to the result's scope, operator/terms, measurement, cash/time and stop controls. It is not authorized to launch, replace an expired job or build infrastructure. No independent review or human acceptance is claimed.
+
+## Unresolved consequential decision
+Whether the human wishes to pursue this single frozen candidate and accept its operator/terms/residual-risk conditions. Account/profile/KYC, subscriptions/deposits, bids/client messaging, award acceptance, fulfillment and settlement require fresh exact Class C authorization. Current research authority permits none of them; new restrictions, an expired request or scope mismatch stop the candidate.
 
 ## Next operation
-Await a separately specified next work packet. No continuation backlog, replacement search or consequential external economic action is activated.
+After verifying the containing evidence commit is published on canonical main under Class R, stop for the human/consequential decision above. No human Git approval, further search or treatment execution is activated.
+
+## Latest closed work
+Experiment 060 remains CLOSED with executor N — NONE; [result](experiments/060/distribution-first-economic-entry.md), published at `0db03b490995618e8587ad4b9c654578bcf78664`. Experiment 059 remains closed with final approved N — C04 REJECTED. All prior evidence is unchanged.
